@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Services - Project CTRL</title>
+  <link rel="shortcut icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="style.css" />
+  
+  <style>
+    * {
+      font-family: Helvetica, Arial, sans-serif;
+    }
+
+    .platform-features {
+      padding: 40px 20px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .metrics {
+      padding: 40px 20px;
+    }
+
+    .metrics .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .metrics .feature {
+      text-align: center;
+      padding: 20px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .metric {
+      font-size: 2.5em;
+      color: #1E3A8A;
+      margin-bottom: 10px;
+      font-weight: normal;
+    }
+
+    .metrics .feature p {
+      margin: 0;
+      font-size: 1.1em;
+      color: #4B5563;
+      font-weight: normal;
+    }
+
+    .feature-column {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      height: 100%;
+    }
+
+    .feature-column h3 {
+      color: #1E3A8A;
+      margin-bottom: 20px;
+      font-size: 1.5em;
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: normal;
+    }
+
+    h1, h2, h3 {
+      text-transform: uppercase;
+      font-weight: normal;
+    }
+
+    .feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 40px 0;
+      flex-grow: 1;
+    }
+
+    .feature-list li {
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      background: #f8fafc;
+    }
+
+    .feature-list li:last-child {
+      margin-bottom: 0;
+    }
+
+    .feature-list p {
+      margin: 0;
+      line-height: 1.6;
+      font-weight: normal;
+    }
+
+    .feature-link {
+      position: absolute;
+      bottom: 15px;
+      right: 15px;
+      color: #1E3A8A;
+      transition: transform 0.2s;
+      padding: 15px;
+      margin: -10px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .feature-link:hover {
+      transform: translateX(5px);
+      background-color: rgba(30, 58, 138, 0.1);
+    }
+
+    .feature-link svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-REKT5H0GXW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-REKT5H0GXW');
+  </script>
+</head>
+<body>
+  <div class="main-container">
+    <header>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html" class="active">Services</a></li>
+          <li><a href="projects.html">Project Hub</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <h1>Services</h1>
+    </header>
+
+    <section class="metrics">
+      <div class="features-grid">
+        <div class="feature">
+          <div class="metric" data-target="0">Pending</div>
+          <p>Innovations</p>
+        </div>
+        <div class="feature">
+          <div class="metric" data-target="manual">0</div>
+          <p>Project Templates</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="platform-features">
+      <h2>Platform Features</h2>
+      <div class="features-grid">
+        <div class="feature-column">
+          <h3>Project Counseling</h3>
+          <ul class="feature-list">
+            <li>
+              <p>Access templates, roadmaps, and guides to bring your ideas to life.</p>
+            </li>
+            <li>
+              <p>Learn essential business, project building, and research skills through our comprehensive guides and educational resources.</p>
+            </li>
+            <li>
+              <p>Get support with financial planning, budget tracking, and business metrics to ensure sustainable growth.</p>
+            </li>
+          </ul>
+          <a href="resources-coming-soon.html" class="feature-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+        <div class="feature-column">
+          <h3>Visibility & Networking</h3>
+          <ul class="feature-list">
+            <li>
+              <p>Get your projects featured and advertised across vast networks of potential collaborators, investors, and supporters.</p>
+            </li>
+            <li>
+              <p>Join a network of like-minded individuals working towards their goals, and explore opportunities to contribute to or lead initiatives with Project CTRL.</p>
+            </li>
+          </ul>
+          <a href="resources-coming-soon.html" class="feature-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="how-it-works">
+      <h2>How It Works</h2>
+      <ol>
+        <li>Submit your work through our Project Hub page</li>
+        <li>Browse projects and resources by field or goal</li>
+        <li>Access templates and planning tools</li>
+        <li>Connect with mentors and community members</li>
+        <li>Track your progress and celebrate achievements</li>
+      </ol>
+    </section>
+
+    <footer>
+      <p>© 2025 Project CTRL</p>
+      <div class="policy-notice">
+        <p>Project CTRL reserves the right to decline submissions containing offensive, discriminatory, vulgar, or inappropriate content. Users will be notified if their submission does not meet our community standards.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Number animation
+    const metrics = document.querySelectorAll('.metric');
+    
+    const animateValue = (element, start, end, duration) => {
+      let startTimestamp = null;
+      const step = (timestamp) => {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        element.textContent = Math.floor(progress * (end - start) + start);
+        if (progress < 1) {
+          window.requestAnimationFrame(step);
+        }
+      };
+      window.requestAnimationFrame(step);
+    };
+
+    // Function to count projects from the projects page
+    async function getProjectCount() {
+      try {
+        // First try relative path
+        let response = await fetch('projects.html');
+        if (!response.ok) {
+          // If relative path fails, try with full path
+          response = await fetch('https://genavivermz.github.io/projectctrl/projects.html');
+        }
+        const html = await response.text();
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+        const projectCards = doc.querySelectorAll('.project-card');
+        console.log('Found project cards:', projectCards.length); // Debug log
+        return projectCards.length;
+      } catch (error) {
+        console.error('Error fetching project count:', error);
+        return 3; // Return 3 as we have 3 example projects
+      }
+    }
+
+    const observerCallback = (entries, observer) => {
+      entries.forEach(async (entry) => {
+        if (entry.isIntersecting) {
+          const dataTarget = entry.target.getAttribute('data-target');
+          
+          // Handle innovations metric (counts projects directly)
+          if (dataTarget === "0") {
+            const projectCount = await getProjectCount();
+            console.log('Project count:', projectCount); // Debug log
+            animateValue(entry.target, 0, projectCount, 2000);
+          }
+          // Handle project templates metric (stays at 0)
+          else if (dataTarget === "manual") {
+            entry.target.textContent = "0";
+          }
+          
+          observer.unobserve(entry.target);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, {
+      threshold: 0.5
+    });
+
+    metrics.forEach(metric => observer.observe(metric));
+  </script>
+</body>
+</html> 
