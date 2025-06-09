@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Project Hub - Project CTRL</title>
+  <meta name="description" content="Browse and submit projects on Project CTRL's Project Hub. A platform for showcasing startups, businesses, and creative initiatives across various fields." />
+  <meta name="keywords" content="Project CTRL, Project Hub, project showcase, startup platform, business projects, community initiatives" />
+  
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:title" content="Project Hub - Project CTRL" />
+  <meta property="og:description" content="Browse and submit projects on Project CTRL's Project Hub. A platform for showcasing startups, businesses, and creative initiatives." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://genavivermz.github.io/projectctrl/projects.html" />
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://genavivermz.github.io/projectctrl/projects.html" />
+  
+  <link rel="shortcut icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="quotes-icon.svg">
+  <link rel="mask-icon" href="quotes-icon.svg" color="#1E3A8A">
+  <link rel="apple-touch-icon" sizes="180x180" href="quotes-icon.svg">
+  <meta name="theme-color" content="#E8F4FF">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css" />
+  <!-- System font stack -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Structured Data for Google -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Project CTRL - Project Hub",
+      "url": "https://genavivermz.github.io/projectctrl/projects.html",
+      "description": "Browse and submit projects on Project CTRL's Project Hub. A platform for showcasing startups, businesses, and creative initiatives.",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "Project CTRL",
+        "url": "https://genavivermz.github.io/projectctrl/"
+      }
+    }
+  </script>
+
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-REKT5H0GXW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-REKT5H0GXW');
+  </script>
+
+  <style>
+    * {
+      font-family: Helvetica, Arial, sans-serif;
+    }
+
+    h1, h2, h3 {
+      text-transform: uppercase;
+      font-weight: normal;
+    }
+
+    .success-message {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #1E3A8A;
+      color: white;
+      padding: 0;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      z-index: 1000;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .success-message.visible {
+      opacity: 1;
+    }
+
+    .success-content {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 12px 20px;
+    }
+
+    .message-text {
+      font-size: 1.1em;
+      font-weight: normal;
+    }
+
+    .close-button {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+      padding: 0 5px;
+      line-height: 1;
+      opacity: 0.8;
+      transition: opacity 0.2s ease;
+      font-weight: normal;
+    }
+
+    .close-button:hover {
+      opacity: 1;
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translate(-50%, -100%);
+      }
+      to {
+        transform: translate(-50%, 0);
+      }
+    }
+
+    @keyframes slideOut {
+      from {
+        transform: translate(-50%, 0);
+      }
+      to {
+        transform: translate(-50%, -100%);
+      }
+    }
+
+    .success-message.slide-in {
+      animation: slideIn 0.5s ease forwards;
+    }
+
+    .success-message.slide-out {
+      animation: slideOut 0.5s ease forwards;
+    }
+
+    .project-filters {
+      margin-bottom: 30px;
+    }
+
+    .filters-header h2 {
+      margin: 0;
+      font-weight: normal;
+    }
+
+    .filter-btn {
+      font-weight: normal;
+    }
+
+    .project-card {
+      font-weight: normal;
+    }
+
+    .project-title {
+      font-weight: normal;
+    }
+
+    .project-stage {
+      font-weight: normal;
+    }
+
+    .project-description {
+      font-weight: normal;
+    }
+
+    .creator-name {
+      font-weight: normal;
+    }
+
+    .project-link {
+      font-weight: normal;
+    }
+
+    .tag {
+      font-weight: normal;
+    }
+
+    .submit-project-banner h2 {
+      font-weight: normal;
+      text-transform: uppercase;
+    }
+
+    .submit-project-banner p {
+      font-weight: normal;
+    }
+
+    .cta-button {
+      font-weight: normal;
+    }
+
+    .toggle-text {
+      font-weight: normal;
+    }
+
+    .metrics-banner {
+      background: linear-gradient(135deg, #E8F4FF 0%, #F0F9FF 100%);
+      padding: 20px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .metric-container {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 15px 30px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    .metric-label {
+      color: #1E3A8A;
+      font-size: 0.9em;
+      margin-bottom: 5px;
+      letter-spacing: 0.5px;
+    }
+
+    .metric-number {
+      color: #1E3A8A;
+      font-size: 2em;
+      font-weight: normal;
+    }
+  </style>
+</head>
+<body>
+  <div class="main-container">
+    <header>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="projects.html" class="active">Project Hub</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <h1>"Project Hub"</h1>
+    </header>
+
+    <div id="successMessage" class="success-message" style="display: none;">
+      <div class="success-content">
+        <span class="message-text">✨ Your vision is taking flight! We're excited to help you succeed.</span>
+        <button class="close-button" onclick="hideSuccessMessage()">×</button>
+      </div>
+    </div>
+
+    <script>
+      function showSuccessMessage() {
+        const message = document.getElementById('successMessage');
+        message.style.display = 'block';
+        // Force reflow
+        message.offsetHeight;
+        message.classList.add('visible', 'slide-in');
+        
+        // Auto-dismiss after 6 seconds
+        setTimeout(hideSuccessMessage, 6000);
+      }
+
+      function hideSuccessMessage() {
+        const message = document.getElementById('successMessage');
+        message.classList.remove('visible');
+        message.classList.add('slide-out');
+        
+        // Remove the message from DOM after animation
+        setTimeout(() => {
+          message.style.display = 'none';
+          message.classList.remove('slide-out');
+        }, 500);
+      }
+
+      // Check if we should show the success message
+      window.addEventListener('load', function() {
+        if (sessionStorage.getItem('projectSubmitted')) {
+          showSuccessMessage();
+          sessionStorage.removeItem('projectSubmitted');
+        }
+      });
+    </script>
+
+    <section class="project-filters">
+      <div class="filters-header">
+        <h2>Filter Projects</h2>
+        <button id="toggleFilters" class="toggle-filters-btn">
+          <span class="toggle-text">Show Filters</span>
+          <svg class="toggle-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+
+      <div id="filtersContainer" class="filters-container hidden">
+        <div class="filter-container">
+          <button class="filter-btn active" data-filter="all">All Projects</button>
+          <button class="filter-btn" data-filter="health">Health / Human wellbeing</button>
+          <button class="filter-btn" data-filter="science">Science / Engineering / Research</button>
+          <button class="filter-btn" data-filter="technology">Technology / Software</button>
+          <button class="filter-btn" data-filter="beauty">Beauty / Style / Personal services</button>
+          <button class="filter-btn" data-filter="home">Home / Trades / Local services</button>
+          <button class="filter-btn" data-filter="education">Education / Mentorship</button>
+          <button class="filter-btn" data-filter="entrepreneurship">Entrepreneurship / Side hustles</button>
+          <button class="filter-btn" data-filter="arts">Arts / Design / Storytelling</button>
+          <button class="filter-btn" data-filter="civic">Civic action / Social impact</button>
+          <button class="filter-btn" data-filter="digital">Digital creators / Online culture</button>
+          <button class="filter-btn" data-filter="experiments">Experiments / Passion projects</button>
+          <button class="filter-btn" data-filter="culture">Culture / Identity / Community</button>
+        </div>
+
+        <div class="sub-filters">
+          <div class="filter-group">
+            <h3>Category</h3>
+            <div class="filter-btn-container">
+              <button class="filter-btn" data-filter="business">Business</button>
+              <button class="filter-btn" data-filter="project">Project</button>
+              <button class="filter-btn" data-filter="research">Research</button>
+              <button class="filter-btn" data-filter="community">Community</button>
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <h3>Duration</h3>
+            <div class="filter-btn-container">
+              <button class="filter-btn" data-filter="one-time">One-Time</button>
+              <button class="filter-btn" data-filter="short-term">Short-Term</button>
+              <button class="filter-btn" data-filter="long-term">Long-Term</button>
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <h3>Goal</h3>
+            <div class="filter-btn-container">
+              <button class="filter-btn" data-filter="money">Make Money</button>
+              <button class="filter-btn" data-filter="impact">Social Impact</button>
+              <button class="filter-btn" data-filter="learn">Learn / Express</button>
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <h3>Team Size</h3>
+            <div class="filter-btn-container">
+              <button class="filter-btn" data-filter="small">Small</button>
+              <button class="filter-btn" data-filter="large">Large</button>
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <h3>Audience</h3>
+            <div class="filter-btn-container">
+              <button class="filter-btn" data-filter="local-audience">Local</button>
+              <button class="filter-btn" data-filter="online-audience">Online</button>
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <h3>Tech / Modality</h3>
+            <div class="filter-btn-container">
+              <button class="filter-btn" data-filter="none-tech">None</button>
+              <button class="filter-btn" data-filter="digital-tech">Digital</button>
+              <button class="filter-btn" data-filter="in-person">In-Person</button>
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <h3>Stage</h3>
+            <div class="filter-btn-container">
+              <button class="filter-btn" data-filter="brainstorming">Brainstorming</button>
+              <button class="filter-btn" data-filter="help-needed">Help needed</button>
+              <button class="filter-btn" data-filter="positions-open">Positions open</button>
+              <button class="filter-btn" data-filter="in-progress">In progress</button>
+              <button class="filter-btn" data-filter="launched">Launched</button>
+              <button class="filter-btn" data-filter="on-hold">On hold</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="projects-grid">
+      <div class="submit-project-banner">
+        <h2>Share Your Project</h2>
+        <p>Have a project or business you'd like to showcase? Submit it to our hub!</p>
+        <a href="submit-project.html" class="cta-button">
+          Submit Your Project
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
+      
+      <div class="projects-container">
+        <!-- Example Project Card -->
+        <article class="project-card">
+          <div class="project-header">
+            <h3 class="project-title">Project Name</h3>
+            <span class="project-stage">In Progress</span>
+          </div>
+          
+          <p class="project-description">A brief description of the project that explains its mission and goals. This should be concise but informative.</p>
+          
+          <div class="project-meta">
+            <div class="project-creator">
+              <span class="creator-name">By Jane Doe</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">Website</a>
+              <a href="#" class="project-link">Social</a>
+            </div>
+          </div>
+
+          <div class="project-tags">
+            <span class="tag primary-tag">Health / Human wellbeing</span>
+            <span class="tag">Business</span>
+            <span class="tag">Long-Term</span>
+            <span class="tag">Small</span>
+            <span class="tag">Local</span>
+            <span class="tag">In-Person</span>
+          </div>
+        </article>
+
+        <!-- Example Project Card 2 -->
+        <article class="project-card">
+          <div class="project-header">
+            <h3 class="project-title">Digital Learning Platform</h3>
+            <span class="project-stage">Launched</span>
+          </div>
+          
+          <p class="project-description">An innovative educational platform that combines interactive learning with personalized feedback for students of all ages.</p>
+          
+          <div class="project-meta">
+            <div class="project-creator">
+              <span class="creator-name">By Tech Education Group</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">Website</a>
+            </div>
+          </div>
+
+          <div class="project-tags">
+            <span class="tag primary-tag">Education / Mentorship</span>
+            <span class="tag">Project</span>
+            <span class="tag">Long-Term</span>
+            <span class="tag">Large</span>
+            <span class="tag">Online</span>
+            <span class="tag">Digital</span>
+          </div>
+        </article>
+
+        <!-- Example Project Card 3 -->
+        <article class="project-card">
+          <div class="project-header">
+            <h3 class="project-title">Community Art Initiative</h3>
+            <span class="project-stage">Help needed</span>
+          </div>
+          
+          <p class="project-description">A collaborative art project bringing together local artists and community members to create public murals and installations.</p>
+          
+          <div class="project-meta">
+            <div class="project-creator">
+              <span class="creator-name">By Creative Commons</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">Social</a>
+            </div>
+          </div>
+
+          <div class="project-tags">
+            <span class="tag primary-tag">Arts / Design / Storytelling</span>
+            <span class="tag">Community</span>
+            <span class="tag">Short-Term</span>
+            <span class="tag">Large</span>
+            <span class="tag">Local</span>
+            <span class="tag">In-Person</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2025 Project CTRL</p>
+      <div class="policy-notice">
+        <p>Project CTRL reserves the right to decline submissions containing offensive, discriminatory, vulgar, or inappropriate content. Users will be notified if their submission does not meet our community standards.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Toggle filters functionality
+      const toggleBtn = document.getElementById('toggleFilters');
+      const filtersContainer = document.getElementById('filtersContainer');
+      const toggleText = toggleBtn.querySelector('.toggle-text');
+      const toggleIcon = toggleBtn.querySelector('.toggle-icon');
+
+      toggleBtn.addEventListener('click', function() {
+        filtersContainer.classList.toggle('hidden');
+        const isHidden = filtersContainer.classList.contains('hidden');
+        toggleText.textContent = isHidden ? 'Show Filters' : 'Hide Filters';
+        toggleIcon.style.transform = isHidden ? 'rotate(0deg)' : 'rotate(180deg)';
+      });
+
+      // Filter buttons functionality
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      const projectCards = document.querySelectorAll('.project-card');
+      
+      // Function to check if a project matches all active filters
+      function projectMatchesFilters(project, activeFilters) {
+        // If no filters are active or only "all" is selected, show all projects
+        if (activeFilters.length === 0 || (activeFilters.length === 1 && activeFilters[0] === 'all')) {
+          return true;
+        }
+
+        // Get all tags from the project
+        const projectTags = Array.from(project.querySelectorAll('.tag'))
+          .map(tag => tag.textContent.toLowerCase());
+        
+        // Get project type from primary tag
+        const primaryTag = project.querySelector('.primary-tag')?.textContent.toLowerCase();
+        
+        // Get project stage - normalize the text
+        const stageElement = project.querySelector('.project-stage');
+        const stage = stageElement ? stageElement.textContent.toLowerCase().trim() : '';
+
+        // Debug logging for stage matching
+        console.log('Project stage:', stage);
+        console.log('Active filters:', activeFilters);
+
+        // Check if the project matches any of the active filters
+        return activeFilters.some(filter => {
+          // Skip the "all" filter
+          if (filter === 'all') return true;
+
+          // Special handling for stage filters
+          if (filter === 'in-progress' && stage === 'in progress') return true;
+          if (filter === 'help-needed' && stage === 'help needed') return true;
+          if (filter === 'positions-open' && stage === 'positions open') return true;
+          if (filter === 'on-hold' && stage === 'on hold') return true;
+          if (filter === 'launched' && stage === 'launched') return true;
+          if (filter === 'brainstorming' && stage === 'brainstorming') return true;
+
+          // Check primary tag
+          if (primaryTag?.includes(filter)) return true;
+
+          // Check other tags
+          return projectTags.some(tag => 
+            tag.includes(filter) || 
+            tag.includes(filter.replace('-', ' '))
+          );
+        });
+      }
+
+      // Function to update project visibility
+      function updateProjectVisibility() {
+        const activeFilters = Array.from(document.querySelectorAll('.filter-btn.active'))
+          .map(btn => btn.getAttribute('data-filter'))
+          .filter(filter => filter); // Remove any null/undefined values
+
+        projectCards.forEach(project => {
+          const matches = projectMatchesFilters(project, activeFilters);
+          // Debug logging for each project
+          console.log('Project:', project.querySelector('.project-title').textContent);
+          console.log('Matches filters:', matches);
+          
+          if (matches) {
+            project.style.display = '';
+            project.style.animation = 'fadeIn 0.5s ease-out';
+          } else {
+            project.style.display = 'none';
+          }
+        });
+      }
+
+      // Add click handlers to filter buttons
+      filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          // Handle "All Projects" button
+          if (button.getAttribute('data-filter') === 'all') {
+            // Remove active class from all buttons in all groups
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+          } else {
+            // Remove active class from "All Projects" button
+            document.querySelector('[data-filter="all"]')?.classList.remove('active');
+            
+            // Toggle active class for clicked button
+            button.classList.toggle('active');
+            
+            // Only remove active class from other buttons in the same group
+            const group = button.closest('.filter-group') || button.closest('.filter-container');
+            if (group) {
+              group.querySelectorAll('.filter-btn').forEach(btn => {
+                if (btn !== button && !button.classList.contains('active')) {
+                  btn.classList.remove('active');
+                }
+              });
+            }
+          }
+
+          // Update project visibility based on new filter selection
+          updateProjectVisibility();
+        });
+      });
+
+      // Initial visibility update
+      updateProjectVisibility();
+    });
+  </script>
+</body>
+</html> 
