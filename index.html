@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Project CTRL - Take Control of Your Projects and Ideas</title>
+  <meta name="description" content="Project CTRL helps you take control of your time, ideas, and next move. A platform for projects, startups, and businesses built for clarity, community, and control." />
+  <meta name="keywords" content="Project CTRL, project management, startup platform, business development, community platform" />
+  
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:title" content="Project CTRL - Take Control of Your Projects and Ideas" />
+  <meta property="og:description" content="Project CTRL helps you take control of your time, ideas, and next move. A platform for projects, startups, and businesses." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://genavivermz.github.io/projectctrl/" />
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://genavivermz.github.io/projectctrl/" />
+  
+  <link rel="shortcut icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="quotes-icon.svg">
+  <link rel="mask-icon" href="quotes-icon.svg" color="#1E3A8A">
+  <link rel="apple-touch-icon" sizes="180x180" href="quotes-icon.svg">
+  <meta name="theme-color" content="#E8F4FF">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css" />
+  <!-- Helvetica fallback -->
+  <link href="https://fonts.googleapis.com/css2?family=Helvetica&display=swap" rel="stylesheet" />
+  
+  <!-- Structured Data for Google -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Project CTRL",
+      "url": "https://genavivermz.github.io/projectctrl/",
+      "logo": "https://genavivermz.github.io/projectctrl/favicon.svg",
+      "description": "Project CTRL helps you take control of your time, ideas, and next move. A platform for projects, startups, and businesses built for clarity, community, and control.",
+      "founder": {
+        "@type": "Person",
+        "name": "Genavive Ramirez"
+      }
+    }
+  </script>
+
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-REKT5H0GXW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-REKT5H0GXW');
+  </script>
+
+  <style>
+    * {
+      font-family: Helvetica, Arial, sans-serif;
+      color: #2C3333;  /* dusty black for all text by default */
+    }
+
+    .submission-banner {
+      padding: 20px;
+      margin-bottom: 40px;
+      animation: fadeIn 0.8s ease-out;
+    }
+
+    .banner-content {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      padding: 20px;
+      background-color: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .banner-text {
+      flex: 1;
+    }
+
+    .banner-text h2 {
+      margin: 10px 0;
+      color: #2C3333;
+      font-size: 1.8em;
+      animation: slideUp 0.6s ease-out 0.2s both;
+      text-transform: uppercase;
+      font-weight: normal;
+    }
+
+    .banner-text p {
+      margin: 0;
+      color: #2C3333;
+      font-size: 1.1em;
+      animation: slideUp 0.6s ease-out 0.3s both;
+      font-weight: normal;
+    }
+
+    .highlight {
+      display: inline-block;
+      background: var(--primary-blue);
+      color: #2C3333;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.9em;
+      letter-spacing: 0.3px;
+      animation: slideUp 0.6s ease-out 0.1s both;
+      position: relative;
+      overflow: hidden;
+      font-weight: normal;
+      box-shadow: 0 0 15px rgba(165, 215, 232, 0.5);
+    }
+
+    .highlight::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+      );
+      animation: shimmer 3s infinite;
+    }
+
+    .banner-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--primary-blue);
+      color: #2C3333;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      white-space: nowrap;
+      animation: slideUp 0.6s ease-out 0.4s both;
+      position: relative;
+      overflow: hidden;
+      font-weight: normal;
+      box-shadow: 0 0 20px rgba(165, 215, 232, 0.5);
+    }
+
+    .banner-cta:hover {
+      background: var(--secondary-blue);
+      transform: scale(1.05);
+      box-shadow: 0 0 30px rgba(165, 215, 232, 0.7);
+    }
+
+    .banner-cta svg {
+      transition: transform 0.3s ease;
+      stroke: #2C3333;
+    }
+
+    .banner-cta:hover svg {
+      transform: translateX(3px);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes shimmer {
+      0% {
+        left: -100%;
+      }
+      50% {
+        left: 100%;
+      }
+      100% {
+        left: 100%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .banner-content {
+        flex-direction: column;
+        text-align: center;
+        padding: 10px;
+      }
+
+      .banner-text h2 {
+        font-size: 1.5em;
+      }
+
+      .banner-text p {
+        font-size: 1em;
+      }
+    }
+
+    h1, h2, h3 {
+      text-transform: uppercase;
+      font-weight: normal;
+    }
+
+    .services h2 {
+      margin: 0;
+      display: inline-flex;
+      align-items: center;
+      text-transform: uppercase;
+      font-weight: normal;
+    }
+  </style>
+</head>
+<body>
+  <div class="main-container">
+    <header>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="projects.html">Project Hub</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <h1>"Project CTRL"</h1>
+      <p>Regain control. Empower agency. Simplify life.</p>
+    </header>
+
+    <div class="submission-banner">
+      <div class="banner-content">
+        <div class="banner-text">
+          <span class="highlight">Turn Your Vision Into Reality</span>
+          <h2>Ready to Share Your Story?</h2>
+          <p>Join our growing community and get your project or business seen by the right people.</p>
+        </div>
+        <a href="submit-project.html" class="banner-cta">
+          Submit Your Project
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <section class="our-purpose">
+      <h2>Our Purpose</h2>
+      <p>Built for the caretakers, the strivers, the kids without a map. Project CTRL helps you take control of your time, your ideas, and your next move.</p>
+      <p>Through our formulaic approach, we provide structured pathways to upgrade and scale growing businesses and projects, making success more accessible and manageable.</p>
+    </section>
+
+    <section class="services">
+      <div class="services-header">
+        <h2>Services</h2>
+        <a href="services.html" class="section-link" aria-label="View all services">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
+      <ul class="services-list">
+        <li>Free platform for small businesses, local services, and personal projects</li>
+        <li>For students, creators, families, and changemakers</li>
+        <li>Browse by field, stage, and goal</li>
+        <li>Built for clarity, community, and control</li>
+        <li>Roadmaps, templates, planners, mentorship, shoutouts, guides</li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>© 2025 Project CTRL</p>
+      <div class="policy-notice">
+        <p>Project CTRL reserves the right to decline submissions containing offensive, discriminatory, vulgar, or inappropriate content. Users will be notified if their submission does not meet our community standards.</p>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
