@@ -41,162 +41,162 @@
               <p>Pro tip: The more project details and filters you provide, the higher your visibility in Project Hub searches!</p>
             </div>
 
-            <form class="project-form">
-              <div class="form-grid">
-                <div class="form-group full-width">
-                  <label for="projectName">Project Name *</label>
-                  <input type="text" id="projectName" placeholder="What's your project called?" required />
-                </div>
-                
-                <div class="form-group">
-                  <label for="projectLead">Project Lead Name *</label>
-                  <input type="text" id="projectLead" placeholder="Your name" required />
-                </div>
+            <form class="project-form" action="https://formspree.io/f/movwvvvj" method="POST">
+  <div class="form-grid">
+    <div class="form-group full-width">
+      <label for="projectName">Project Name *</label>
+      <input type="text" id="projectName" name="projectName" placeholder="What's your project called?" required />
+    </div>
+    
+    <div class="form-group">
+      <label for="projectLead">Project Lead Name *</label>
+      <input type="text" id="projectLead" name="projectLead" placeholder="Your name" required />
+    </div>
 
-                <div class="form-group">
-                  <label for="leadRole">Your Role *</label>
-                  <input type="text" id="leadRole" placeholder="e.g. Founder, CEO, Project Manager" required />
-                </div>
+    <div class="form-group">
+      <label for="leadRole">Your Role *</label>
+      <input type="text" id="leadRole" name="leadRole" placeholder="e.g. Founder, CEO, Project Manager" required />
+    </div>
 
-                <div class="form-group">
-                  <label for="contactEmail">Contact Email *</label>
-                  <input type="email" id="contactEmail" placeholder="Best email to reach you" required />
-                </div>
+    <div class="form-group">
+      <label for="contactEmail">Contact Email *</label>
+      <input type="email" id="contactEmail" name="contactEmail" placeholder="Best email to reach you" required />
+    </div>
 
-                <div class="form-group">
-                  <label for="contactPhone">Contact Phone</label>
-                  <input type="tel" id="contactPhone" placeholder="Optional phone number" />
-                </div>
+    <div class="form-group">
+      <label for="contactPhone">Contact Phone</label>
+      <input type="tel" id="contactPhone" name="contactPhone" placeholder="Optional phone number" />
+    </div>
 
-                <div class="form-group">
-                  <label for="preferredContact">Preferred Contact Method *</label>
-                  <select id="preferredContact" required>
-                    <option value="" disabled selected>Select preference</option>
-                    <option>Email</option>
-                    <option>Phone</option>
-                    <option>Both</option>
-                  </select>
-                </div>
+    <div class="form-group">
+      <label for="preferredContact">Preferred Contact Method *</label>
+      <select id="preferredContact" name="preferredContact" required>
+        <option value="" disabled selected>Select preference</option>
+        <option>Email</option>
+        <option>Phone</option>
+        <option>Both</option>
+      </select>
+    </div>
 
-                <div class="form-group full-width">
-                  <label for="missionStatement">Mission Statement</label>
-                  <textarea id="missionStatement" placeholder="What's the core purpose of your project?" required></textarea>
-                </div>
+    <div class="form-group full-width">
+      <label for="missionStatement">Mission Statement</label>
+      <textarea id="missionStatement" name="missionStatement" placeholder="What's the core purpose of your project?" required></textarea>
+    </div>
 
-                <div class="form-group">
-                  <label for="projectType">Project Type *</label>
-                  <select id="projectType" required>
-                    <option value="" disabled selected>Select type</option>
-                    <option>Startup</option>
-                    <option>Non-Profit</option>
-                    <option>Passion Project</option>
-                    <option>Business</option>
-                    <option>Research</option>
-                    <option>Freelance</option>
-                    <option>Side Hustle</option>
-                    <option>Community Initiative</option>
-                  </select>
-                </div>
+    <div class="form-group">
+      <label for="projectType">Project Type *</label>
+      <select id="projectType" name="projectType" required>
+        <option value="" disabled selected>Select type</option>
+        <option>Startup</option>
+        <option>Non-Profit</option>
+        <option>Passion Project</option>
+        <option>Business</option>
+        <option>Research</option>
+        <option>Freelance</option>
+        <option>Side Hustle</option>
+        <option>Community Initiative</option>
+      </select>
+    </div>
 
-                <div class="form-group">
-                  <label for="category">Category *</label>
-                  <select id="category" required>
-                    <option value="" disabled selected>Select category</option>
-                    <option>Technology</option>
-                    <option>Health</option>
-                    <option>Education</option>
-                    <option>Environment</option>
-                    <option>Community</option>
-                    <option>Social Impact</option>
-                    <option>Art / Design</option>
-                    <option>Wellness / Beauty</option>
-                    <option>Food / Culture</option>
-                    <option>DIY</option>
-                    <option>Online Brand</option>
-                  </select>
-                </div>
+    <div class="form-group">
+      <label for="category">Category *</label>
+      <select id="category" name="category" required>
+        <option value="" disabled selected>Select category</option>
+        <option>Technology</option>
+        <option>Health</option>
+        <option>Education</option>
+        <option>Environment</option>
+        <option>Community</option>
+        <option>Social Impact</option>
+        <option>Art / Design</option>
+        <option>Wellness / Beauty</option>
+        <option>Food / Culture</option>
+        <option>DIY</option>
+        <option>Online Brand</option>
+      </select>
+    </div>
 
-                <div class="form-group">
-                  <label for="modality">Modality *</label>
-                  <select id="modality" required>
-                    <option value="" disabled selected>Select modality</option>
-                    <option>Mobile App</option>
-                    <option>Website</option>
-                    <option>AI / Machine Learning</option>
-                    <option>Open Source</option>
-                    <option>Social Media</option>
-                    <option>In-Person/Nontechnical</option>
-                    <option>Hybrid</option>
-                  </select>
-                </div>
+    <div class="form-group">
+      <label for="modality">Modality *</label>
+      <select id="modality" name="modality" required>
+        <option value="" disabled selected>Select modality</option>
+        <option>Mobile App</option>
+        <option>Website</option>
+        <option>AI / Machine Learning</option>
+        <option>Open Source</option>
+        <option>Social Media</option>
+        <option>In-Person/Nontechnical</option>
+        <option>Hybrid</option>
+      </select>
+    </div>
 
-                <div class="form-group">
-                  <label for="duration">Project Duration</label>
-                  <select id="duration">
-                    <option value="" disabled selected>Optional</option>
-                    <option>One-Time</option>
-                    <option>Short Term</option>
-                    <option>Long Term</option>
-                    <option>Seasonal</option>
-                  </select>
-                </div>
+    <div class="form-group">
+      <label for="duration">Project Duration</label>
+      <select id="duration" name="duration">
+        <option value="" disabled selected>Optional</option>
+        <option>One-Time</option>
+        <option>Short Term</option>
+        <option>Long Term</option>
+        <option>Seasonal</option>
+      </select>
+    </div>
 
-                <div class="form-group">
-                  <label for="goal">Goal/Purpose</label>
-                  <select id="goal">
-                    <option value="" disabled selected>Optional</option>
-                    <option>Income</option>
-                    <option>Social Impact</option>
-                    <option>Skill-Building</option>
-                    <option>Self-Expression</option>
-                    <option>Innovation</option>
-                  </select>
-                </div>
+    <div class="form-group">
+      <label for="goal">Goal/Purpose</label>
+      <select id="goal" name="goal">
+        <option value="" disabled selected>Optional</option>
+        <option>Income</option>
+        <option>Social Impact</option>
+        <option>Skill-Building</option>
+        <option>Self-Expression</option>
+        <option>Innovation</option>
+      </select>
+    </div>
 
-                <div class="form-group">
-                  <label for="teamSize">Team Size</label>
-                  <select id="teamSize">
-                    <option value="" disabled selected>Optional</option>
-                    <option>Solo</option>
-                    <option>Small Team (2-5)</option>
-                    <option>Large Team (6-10)</option>
-                    <option>Growing Team (10+)</option>
-                  </select>
-                </div>
+    <div class="form-group">
+      <label for="teamSize">Team Size</label>
+      <select id="teamSize" name="teamSize">
+        <option value="" disabled selected>Optional</option>
+        <option>Solo</option>
+        <option>Small Team (2-5)</option>
+        <option>Large Team (6-10)</option>
+        <option>Growing Team (10+)</option>
+      </select>
+    </div>
 
-                <div class="form-group">
-                  <label for="fundingStage">Funding Stage</label>
-                  <select id="fundingStage">
-                    <option value="" disabled selected>Optional</option>
-                    <option>Idea Stage</option>
-                    <option>Self-Funded</option>
-                    <option>Seeking Funding</option>
-                    <option>Revenue-Generating</option>
-                  </select>
-                </div>
+    <div class="form-group">
+      <label for="fundingStage">Funding Stage</label>
+      <select id="fundingStage" name="fundingStage">
+        <option value="" disabled selected>Optional</option>
+        <option>Idea Stage</option>
+        <option>Self-Funded</option>
+        <option>Seeking Funding</option>
+        <option>Revenue-Generating</option>
+      </select>
+    </div>
 
-                <div class="form-group">
-                  <label for="marketFocus">Market Focus</label>
-                  <select id="marketFocus">
-                    <option value="" disabled selected>Optional</option>
-                    <option>Local</option>
-                    <option>Regional</option>
-                    <option>National</option>
-                    <option>Global</option>
-                  </select>
-                </div>
+    <div class="form-group">
+      <label for="marketFocus">Market Focus</label>
+      <select id="marketFocus" name="marketFocus">
+        <option value="" disabled selected>Optional</option>
+        <option>Local</option>
+        <option>Regional</option>
+        <option>National</option>
+        <option>Global</option>
+      </select>
+    </div>
 
-                <div class="form-group full-width">
-                  <label for="details">Additional Details</label>
-                  <textarea id="details" placeholder="Share more about your goals, vision, or specific needs"></textarea>
-                </div>
-              </div>
+    <div class="form-group full-width">
+      <label for="details">Additional Details</label>
+      <textarea id="details" name="details" placeholder="Share more about your goals, vision, or specific needs"></textarea>
+    </div>
+  </div>
 
-              <button type="submit" class="submit-button">
-                Submit Project
-                <span class="button-icon">→</span>
-              </button>
-    </form>
+  <button type="submit" class="submit-button">
+    Submit Project
+    <span class="button-icon">→</span>
+  </button>
+</form>
           </div>
 
           <div class="bento-card info-card">
