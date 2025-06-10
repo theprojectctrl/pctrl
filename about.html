@@ -2,160 +2,141 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>About - Project CTRL</title>
-  <link rel="shortcut icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="icon" type="image/svg+xml" href="quotes-icon.svg">
-  <link rel="mask-icon" href="quotes-icon.svg" color="#1E3A8A">
-  <link rel="apple-touch-icon" sizes="180x180" href="quotes-icon.svg">
-  <meta name="theme-color" content="#E8F4FF">
-  <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="responsive.css" />
-  
-  <style>
-    * {
-      font-family: Helvetica, Arial, sans-serif;
-    }
-
-    .values-content {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
-    .values-intro {
-      font-size: 1.4em;
-      color: #1E3A8A;
-      font-style: italic;
-      margin-bottom: 10px;
-      text-align: center;
-      font-weight: normal;
-    }
-
-    .founder-attribution {
-      font-size: 1.1em;
-      color: #4B5563;
-      text-align: center;
-      margin-bottom: 30px;
-      font-weight: normal;
-    }
-
-    .values-message {
-      font-size: 1.2em;
-      line-height: 1.6;
-      color: #4B5563;
-      text-align: center;
-      font-weight: normal;
-    }
-
-    h1, h2, h3 {
-      text-transform: uppercase;
-      font-weight: normal;
-    }
-
-    .mission {
-      text-align: center;
-      max-width: 800px;
-      margin: 0 auto 40px;
-      padding: 0 20px;
-    }
-
-    .mission p {
-      font-size: 1.2em;
-      line-height: 1.6;
-      color: #4B5563;
-    }
-
-    @media (max-width: 768px) {
-      .values-content {
-        padding: 15px;
-      }
-
-      .values-intro {
-        font-size: 1.2em;
-      }
-
-      .values-message {
-        font-size: 1.1em;
-      }
-
-      .founder-attribution {
-        font-size: 1em;
-      }
-
-      .mission {
-        padding: 0 15px;
-        margin-bottom: 30px;
-      }
-
-      .mission p {
-        font-size: 1.1em;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .values-content {
-        padding: 10px;
-      }
-
-      .values-intro {
-        font-size: 1.1em;
-      }
-
-      .values-message,
-      .mission p {
-        font-size: 1em;
-      }
-    }
-  </style>
-
-  <!-- Google Analytics 4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-REKT5H0GXW"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-REKT5H0GXW');
-  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us - Project CTRL</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
-  <div class="main-container">
-    <header>
-      <nav>
-        <ul class="nav-menu">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html" class="active">About</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="projects.html">Project Hub</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
+<body class="about-page">
+  <header class="main-header">
+    <div class="header-container">
+      <a href="index.html" class="logo">Project CTRL</a>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html" class="active">About</a>
+        <a href="services.html">Services</a>
+        <a href="projects.html">Project Hub</a>
+        <a href="submit-project.html">Submit</a>
+        <a href="contact.html">Contact</a>
       </nav>
-      <h1>About Us</h1>
-    </header>
+    </div>
+  </header>
+
+  <main class="about-container">
+    <section class="about-hero">
+      <div class="content-wrapper">
+        <h1>Our Story</h1>
+        <p class="hero-subtitle">Built for the caretakers, the strivers, the kids without a map.</p>
+      </div>
+    </section>
 
     <section class="mission">
-      <h2>Our Mission</h2>
-      <p>Project CTRL was founded with a simple yet powerful mission: to empower individuals to take control of their lives through accessible tools and community support.</p>
+      <div class="content-wrapper">
+        <div class="mission-grid">
+          <div class="mission-content">
+            <h2>Our Mission</h2>
+            <p>Project CTRL was born from a simple idea: everyone deserves access to powerful project management tools, regardless of their background or resources. We believe in empowering individuals and teams to take control of their projects and turn their visions into reality.</p>
+            <div class="mission-stats">
+              <div class="stat-card">
+                <h3>1000+</h3>
+                <p>Projects Launched</p>
+              </div>
+              <div class="stat-card">
+                <h3>50K+</h3>
+                <p>Active Users</p>
+              </div>
+              <div class="stat-card">
+                <h3>98%</h3>
+                <p>Success Rate</p>
+              </div>
+            </div>
+          </div>
+          <div class="mission-image">
+            <img src="images/mission.jpg" alt="Team collaboration" />
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="values">
-      <h2>Our Values</h2>
-      <div class="values-content">
-        <p class="values-intro">"We don't always have time to chase 'innovation.' Sometimes, we're just trying to keep our heads above water. I made a tool to make that part easier."</p>
-        <p class="founder-attribution">— Genavive Ramirez, Founder</p>
-        
-        <p class="values-message">Project CTRL is built for real people facing real challenges: business owners balancing it all, individuals supporting their families, newcomers learning the ropes, and innovators with ideas but limited resources. Take back control of your life, your work, and your future, especially when systems fail you.</p>
+      <div class="content-wrapper">
+        <div class="section-header">
+          <h2>Our Values</h2>
+          <p>The principles that guide everything we do</p>
+        </div>
+        <div class="values-grid">
+          <div class="value-card">
+            <div class="value-icon">💡</div>
+            <h3>Innovation</h3>
+            <p>We constantly push boundaries to create better solutions for our users.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">🤝</div>
+            <h3>Collaboration</h3>
+            <p>We believe in the power of working together to achieve greater results.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">🎯</div>
+            <h3>Focus</h3>
+            <p>We help you stay focused on what matters most to achieve your goals.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">🌱</div>
+            <h3>Growth</h3>
+            <p>We support continuous learning and development for all our users.</p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <footer>
-      <p>© 2025 Project CTRL</p>
-      <div class="policy-notice">
-        <p>Project CTRL reserves the right to decline submissions containing offensive, discriminatory, vulgar, or inappropriate content. Users will be notified if their submission does not meet our community standards.</p>
+    <section class="team">
+      <div class="content-wrapper">
+        <div class="section-header">
+          <h2>Meet Our Team</h2>
+          <p>The passionate people behind Project CTRL</p>
+        </div>
+        <div class="team-grid">
+          <div class="team-card">
+            <div class="team-image">
+              <img src="images/team1.jpg" alt="Team member" />
+            </div>
+            <h3>Sarah Chen</h3>
+            <p>Founder & CEO</p>
+          </div>
+          <div class="team-card">
+            <div class="team-image">
+              <img src="images/team2.jpg" alt="Team member" />
+            </div>
+            <h3>Marcus Rodriguez</h3>
+            <p>Head of Product</p>
+          </div>
+          <div class="team-card">
+            <div class="team-image">
+              <img src="images/team3.jpg" alt="Team member" />
+            </div>
+            <h3>Aisha Patel</h3>
+            <p>Lead Designer</p>
+          </div>
+        </div>
       </div>
-    </footer>
-  </div>
-  <script src="mobile-nav.js"></script>
+    </section>
+
+    <section class="cta-section">
+      <div class="content-wrapper">
+        <h2>Join Our Journey</h2>
+        <p>Be part of something bigger. Start your project with us today.</p>
+        <a href="submit-project.html" class="primary-button">
+          Get Started
+          <span class="button-icon">→</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="main-footer">
+    <div class="footer-content">
+      <p>© 2025 Project CTRL | Content standards apply.</p>
+    </div>
+  </footer>
 </body>
-</html> 
+</html>
