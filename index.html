@@ -2,291 +2,297 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Project CTRL - Take Control of Your Projects and Ideas</title>
-  <meta name="description" content="Project CTRL helps you take control of your time, ideas, and next move. A platform for projects, startups, and businesses built for clarity, community, and control." />
-  <meta name="keywords" content="Project CTRL, project management, startup platform, business development, community platform" />
-  
-  <!-- Open Graph / Social Media Meta Tags -->
-  <meta property="og:title" content="Project CTRL - Take Control of Your Projects and Ideas" />
-  <meta property="og:description" content="Project CTRL helps you take control of your time, ideas, and next move. A platform for projects, startups, and businesses." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://genavivermz.github.io/projectctrl/" />
-  
-  <!-- Canonical URL -->
-  <link rel="canonical" href="https://genavivermz.github.io/projectctrl/" />
-  
-  <link rel="shortcut icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="icon" type="image/svg+xml" href="quotes-icon.svg">
-  <link rel="mask-icon" href="quotes-icon.svg" color="#1E3A8A">
-  <link rel="apple-touch-icon" sizes="180x180" href="quotes-icon.svg">
-  <meta name="theme-color" content="#E8F4FF">
-  <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="style.css" />
-  <!-- Helvetica fallback -->
-  <link href="https://fonts.googleapis.com/css2?family=Helvetica&display=swap" rel="stylesheet" />
-  
-  <!-- Structured Data for Google -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Project CTRL",
-      "url": "https://genavivermz.github.io/projectctrl/",
-      "logo": "https://genavivermz.github.io/projectctrl/favicon.svg",
-      "description": "Project CTRL helps you take control of your time, ideas, and next move. A platform for projects, startups, and businesses built for clarity, community, and control.",
-      "founder": {
-        "@type": "Person",
-        "name": "Genavive Ramirez"
-      }
-    }
-  </script>
-
-  <!-- Google Analytics 4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-REKT5H0GXW"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-REKT5H0GXW');
-  </script>
-
-  <style>
-    * {
-      font-family: Helvetica, Arial, sans-serif;
-      color: #2C3333;  /* dusty black for all text by default */
-    }
-
-    .submission-banner {
-      padding: 20px;
-      margin-bottom: 40px;
-      animation: fadeIn 0.8s ease-out;
-    }
-
-    .banner-content {
-      max-width: 1000px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 30px;
-      padding: 20px;
-      background-color: white;
-      border-radius: 16px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    }
-
-    .banner-text {
-      flex: 1;
-    }
-
-    .banner-text h2 {
-      margin: 10px 0;
-      color: #2C3333;
-      font-size: 1.8em;
-      animation: slideUp 0.6s ease-out 0.2s both;
-      text-transform: uppercase;
-      font-weight: normal;
-    }
-
-    .banner-text p {
-      margin: 0;
-      color: #2C3333;
-      font-size: 1.1em;
-      animation: slideUp 0.6s ease-out 0.3s both;
-      font-weight: normal;
-    }
-
-    .highlight {
-      display: inline-block;
-      background: var(--primary-blue);
-      color: #2C3333;
-      padding: 6px 16px;
-      border-radius: 20px;
-      font-size: 0.9em;
-      letter-spacing: 0.3px;
-      animation: slideUp 0.6s ease-out 0.1s both;
-      position: relative;
-      overflow: hidden;
-      font-weight: normal;
-      box-shadow: 0 0 15px rgba(165, 215, 232, 0.5);
-    }
-
-    .highlight::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.2),
-        transparent
-      );
-      animation: shimmer 3s infinite;
-    }
-
-    .banner-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--primary-blue);
-      color: #2C3333;
-      padding: 12px 24px;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      white-space: nowrap;
-      animation: slideUp 0.6s ease-out 0.4s both;
-      position: relative;
-      overflow: hidden;
-      font-weight: normal;
-      box-shadow: 0 0 20px rgba(165, 215, 232, 0.5);
-    }
-
-    .banner-cta:hover {
-      background: var(--secondary-blue);
-      transform: scale(1.05);
-      box-shadow: 0 0 30px rgba(165, 215, 232, 0.7);
-    }
-
-    .banner-cta svg {
-      transition: transform 0.3s ease;
-      stroke: #2C3333;
-    }
-
-    .banner-cta:hover svg {
-      transform: translateX(3px);
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
-
-    @keyframes slideUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes shimmer {
-      0% {
-        left: -100%;
-      }
-      50% {
-        left: 100%;
-      }
-      100% {
-        left: 100%;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .banner-content {
-        flex-direction: column;
-        text-align: center;
-        padding: 10px;
-      }
-
-      .banner-text h2 {
-        font-size: 1.5em;
-      }
-
-      .banner-text p {
-        font-size: 1em;
-      }
-    }
-
-    h1, h2, h3 {
-      text-transform: uppercase;
-      font-weight: normal;
-    }
-
-    .services h2 {
-      margin: 0;
-      display: inline-flex;
-      align-items: center;
-      text-transform: uppercase;
-      font-weight: normal;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project CTRL - Your Innovation Journey Starts Here</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
-  <div class="main-container">
-    <header>
-      <nav>
-        <ul class="nav-menu">
-          <li><a href="index.html" class="active">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="projects.html">Project Hub</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-      <h1>"Project CTRL"</h1>
-      <p>Regain control. Empower agency. Simplify life.</p>
-    </header>
-
-    <div class="submission-banner">
-      <div class="banner-content">
-        <div class="banner-text">
-          <span class="highlight">Turn Your Vision Into Reality</span>
-          <h2>Ready to Share Your Story?</h2>
-          <p>Join our growing community and get your project or business seen by the right people.</p>
-        </div>
-        <a href="submit-project.html" class="banner-cta">
-          Submit Your Project
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
-        </a>
-      </div>
+<body class="dashboard">
+  <header class="main-header">
+    <div class="header-container">
+      <a href="index.html" class="logo">Project CTRL</a>
+      <nav class="main-nav">
+        <a href="index.html" class="active">Dashboard</a>
+      <a href="projects.html">Project Hub</a>
+        <a href="resources.html">Resources</a>
+    </nav>
     </div>
+  </header>
 
-    <section class="our-purpose">
-      <h2>Our Purpose</h2>
-      <p>Built for the caretakers, the strivers, the kids without a map. Project CTRL helps you take control of your time, your ideas, and your next move.</p>
-      <p>Through our formulaic approach, we provide structured pathways to upgrade and scale growing businesses and projects, making success more accessible and manageable.</p>
+  <main class="dashboard-container">
+    <section class="hero-section">
+      <div class="content-wrapper">
+        <h1>Digitize and scale your<br>small business with confidence</h1>
+        <p class="hero-subtitle">A proven formula to help local businesses, startups, and community initiatives thrive in the digital age. Transform guesswork into guided success.</p>
+        
+        <div class="impact-metrics">
+          <div class="metric-card">
+            <div class="metric-icon">👥</div>
+            <div class="metric-value" data-target="0">0</div>
+            <div class="metric-label">Local Businesses Growing</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-icon">📑</div>
+            <div class="metric-value" data-target="0">0</div>
+            <div class="metric-label">Free Business Tools</div>
+          </div>
+        </div>
+
+        <div class="cta-buttons">
+          <a href="projects.html" class="primary-button">
+            Explore Project Hub
+            <span class="button-icon">→</span>
+          </a>
+          <a href="submit-project.html" class="secondary-button">
+            Submit Project
+            <span class="button-icon">+</span>
+          </a>
+        </div>
+      </div>
     </section>
 
-    <section class="services">
-      <div class="services-header">
-        <h2>Services</h2>
-        <a href="services.html" class="section-link" aria-label="View all services">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
-        </a>
+    <section class="dashboard-grid">
+      <div class="content-wrapper">
+        <div class="bento-grid">
+          <!-- Resources Card -->
+          <div class="bento-card resources-card">
+            <h3>Essential Resources</h3>
+            <div class="resources-grid">
+              <div class="resource-item">
+                <span class="resource-icon">📋</span>
+                <div class="resource-content">
+                  <h4>Project Roadmaps</h4>
+                  <p>Step-by-step guides for your journey</p>
+                </div>
+              </div>
+              <div class="resource-item">
+                <span class="resource-icon">📑</span>
+                <div class="resource-content">
+                  <h4>Templates</h4>
+                  <p>Ready-to-use planning tools</p>
+                </div>
+              </div>
+              <div class="resource-item">
+                <span class="resource-icon">👤</span>
+                <div class="resource-content">
+                  <h4>Mentorship</h4>
+                  <p>Connect with experienced guides</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Community Highlights -->
+          <div class="bento-card community-card">
+            <h3>Community Highlights</h3>
+            <div class="community-list">
+              <div class="community-item">
+                <span class="member-icon">👥</span>
+                <div class="member-content">
+                  <h4>Small Businesses</h4>
+                  <p>0 success stories</p>
+                </div>
+              </div>
+              <div class="community-item">
+                <span class="member-icon">🏢</span>
+                <div class="member-content">
+                  <h4>Local Initiatives</h4>
+                  <p>0 active projects</p>
+                </div>
+              </div>
+              <div class="community-item">
+                <span class="member-icon">📊</span>
+                <div class="member-content">
+                  <h4>Digital Transformations</h4>
+                  <p>0 this month</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Featured Categories -->
+          <div class="bento-card categories-card">
+            <h3>Browse By Category</h3>
+            <div class="categories-grid">
+              <div class="category-item">
+                <span class="category-icon">📊</span>
+                <span class="category-name">Business</span>
+              </div>
+              <div class="category-item">
+                <span class="category-icon">📚</span>
+                <span class="category-name">Education</span>
+              </div>
+              <div class="category-item">
+                <span class="category-icon">📋</span>
+                <span class="category-name">Creative</span>
+              </div>
+              <div class="category-item">
+                <span class="category-icon">🤝</span>
+                <span class="category-name">Social Impact</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Success Stories -->
+          <div class="bento-card stories-card">
+            <h3>Share Your Story</h3>
+            <div class="contact-info">
+              <div class="contact-item">
+                <span class="contact-icon">📧</span>
+                <div class="contact-content">
+                  <h4>Email</h4>
+                  <a href="mailto:contact.projectctrl@gmail.com">contact.projectctrl@gmail.com</a>
+                </div>
+              </div>
+              <div class="contact-item">
+                <span class="contact-icon">📱</span>
+                <div class="contact-content">
+                  <h4>Instagram</h4>
+                  <a href="https://instagram.com/projectctrl.co" target="_blank">@projectctrl.co</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Get Started Card -->
+          <div class="bento-card get-started-card">
+            <h3>Ready to Start?</h3>
+            <div class="steps-list">
+              <div class="step-item">
+                <span class="step-number">1</span>
+                <p>Get ideas by browsing Project Hub</p>
+              </div>
+              <div class="step-item">
+                <span class="step-number">2</span>
+                <p>Browse templates and roadmaps</p>
+              </div>
+              <div class="step-item">
+                <span class="step-number">3</span>
+                <p>Connect with other innovators</p>
+              </div>
+              <div class="step-item">
+                <span class="step-number">4</span>
+                <p>Share your project</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <ul class="services-list">
-        <li>Free platform for small businesses, local services, and personal projects</li>
-        <li>For students, creators, families, and changemakers</li>
-        <li>Browse by field, stage, and goal</li>
-        <li>Built for clarity, community, and control</li>
-        <li>Roadmaps, templates, planners, mentorship, shoutouts, guides</li>
-      </ul>
     </section>
 
-    <footer>
-      <p>© 2025 Project CTRL</p>
-      <div class="policy-notice">
-        <p>Project CTRL reserves the right to decline submissions containing offensive, discriminatory, vulgar, or inappropriate content. Users will be notified if their submission does not meet our community standards.</p>
+    <section class="about-section">
+      <div class="content-wrapper">
+        <div class="bento-grid">
+          <div class="bento-card mission-card">
+            <div class="feature-icon">📋</div>
+            <h3>Our Mission</h3>
+            <p class="mission-tagline">Regain control. Empower agency. Simplify life.</p>
+            <p class="mission-description">Built for the caretakers, the strivers, the kids without a map. Project CTRL helps you take control of your time, your ideas, and your next move.</p>
+            <div class="mission-points">
+              <div class="mission-point">
+                <span class="point-icon">📊</span>
+                <p>Through our formulaic approach, we provide structured pathways to upgrade and scale growing businesses and projects.</p>
+              </div>
+              <div class="mission-point">
+                <span class="point-icon">📑</span>
+                <p>Access templates, roadmaps, and guides to bring your ideas to life.</p>
+              </div>
+              <div class="mission-point">
+                <span class="point-icon">👥</span>
+                <p>Join our growing community and get your project seen by the right people.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bento-card founder-card">
+            <div class="feature-icon">👤</div>
+            <h3>Our Story</h3>
+            <p>Founded by Genavive Ramirez, Project CTRL emerged from a personal mission to streamline success for small businesses and innovators. After helping her mother's business and launching two successful initiatives (STEM by Step and Hearts of Tomorrow), she developed a formula to replace guesswork with guided pathways — giving entrepreneurs and creators their time back while maximizing impact.</p>
+            <div class="founder-social">
+              <a href="https://www.linkedin.com/in/genavive-r-a033b4315/" target="_blank" class="social-link">
+                <span class="social-icon">📋</span>
+                Connect on LinkedIn
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">🗒</div>
+            <h3>Clear Direction</h3>
+            <p>Step-by-step roadmaps and guidance for your unique journey.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">🌐</div>
+            <h3>Community Support</h3>
+            <p>Connect with mentors and fellow innovators who understand your path.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">📂</div>
+            <h3>Growth Tools</h3>
+            <p>Free templates and resources to help you plan, track, and succeed.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">🌟</div>
+            <h3>Recognition</h3>
+            <p>Get featured and celebrate your milestones with our supportive community.</p>
+          </div>
+        </div>
       </div>
-    </footer>
-  </div>
+    </section>
+  </main>
+
+  <footer class="main-footer">
+    <div class="footer-content">
+      <p>© 2025 Project CTRL | Built by and for the people without a roadmap</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const counters = document.querySelectorAll('.metric-value');
+      
+      const animateCounter = (counter, target) => {
+        let current = 0;
+        const duration = 2000; // 2 seconds
+        const step = (target / duration) * 16; // 16ms is roughly one frame at 60fps
+        
+        counter.classList.add('animate-count');
+        
+        const updateCounter = () => {
+          current += step;
+          if (current < target) {
+            counter.textContent = Math.round(current);
+            requestAnimationFrame(updateCounter);
+          } else {
+            counter.textContent = target;
+          }
+        };
+        
+        updateCounter();
+      };
+
+      const observerCallback = (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const counter = entry.target;
+            const target = parseInt(counter.dataset.target);
+            animateCounter(counter, target);
+            observer.unobserve(counter);
+          }
+        });
+      };
+
+      const observer = new IntersectionObserver(observerCallback, {
+        threshold: 0.5
+      });
+
+      counters.forEach(counter => observer.observe(counter));
+    });
+  </script>
 </body>
 </html>
