@@ -2,264 +2,238 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Submit Project - Project CTRL</title>
-  <link rel="shortcut icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="icon" type="image/svg+xml" href="quotes-icon.svg">
-  <link rel="mask-icon" href="quotes-icon.svg" color="#1E3A8A">
-  <link rel="apple-touch-icon" sizes="180x180" href="quotes-icon.svg">
-  <meta name="theme-color" content="#E8F4FF">
-  <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="style.css" />
-  
-  <style>
-    * {
-      font-family: Helvetica, Arial, sans-serif;
-    }
-
-    .visibility-tip {
-      background-color: #E8F4FF;
-      border-radius: 8px;
-      padding: 15px 20px;
-      margin: 20px 0 30px;
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    }
-
-    .visibility-tip svg {
-      flex-shrink: 0;
-      color: #1E3A8A;
-    }
-
-    .visibility-tip p {
-      margin: 0;
-      color: #1E3A8A;
-      font-size: 1.1em;
-      line-height: 1.4;
-      font-weight: normal;
-    }
-
-    h1, h2, h3 {
-      text-transform: uppercase;
-      font-weight: normal;
-    }
-
-    label {
-      font-weight: normal;
-    }
-  </style>
-
-  <!-- Google Analytics 4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-REKT5H0GXW"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-REKT5H0GXW');
-  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Submit Your Project - Project CTRL</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
-  <div class="main-container">
-    <header>
-      <nav>
-        <ul class="nav-menu">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="projects.html">Project Hub</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-      <h1>Submit Your Project</h1>
-    </header>
+<body class="submit-page">
+  <header class="main-header">
+    <div class="header-container">
+      <a href="index.html" class="logo">Project CTRL</a>
+      <nav class="main-nav">
+        <a href="index.html">Dashboard</a>
+      <a href="projects.html">Project Hub</a>
+        <a href="resources.html">Resources</a>
+    </nav>
+    </div>
+  </header>
 
-    <section class="form-section">
-      <form id="projectSubmissionForm" class="contact-form" action="https://formspree.io/f/movwvvvj" method="POST">
-        <h2>Project Details</h2>
-        
-        <div class="visibility-tip">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"></circle>
-            <line x1="12" y1="16" x2="12" y2="12"></line>
-            <line x1="12" y1="8" x2="12.01" y2="8"></line>
-          </svg>
-          <p>Projects with detailed filter information receive boosted visibility on the Project Hub!</p>
-        </div>
-        
-        <!-- Project Basic Information -->
-        <div class="form-group">
-          <h3>Basic Information</h3>
-          <label for="projectName">Project/Business Name *</label>
-          <input type="text" id="projectName" name="projectName" required>
-
-          <label for="mission">Mission Statement/Business Description *</label>
-          <textarea id="mission" name="mission" rows="4" required></textarea>
-
-          <label for="projectType">Project Type *</label>
-          <select id="projectType" name="projectType" required>
-            <option value="">Select a category</option>
-            <option value="health">Health / Human wellbeing</option>
-            <option value="science">Science / Engineering / Research</option>
-            <option value="technology">Technology / Software</option>
-            <option value="beauty">Beauty / Style / Personal services</option>
-            <option value="home">Home / Trades / Local services</option>
-            <option value="education">Education / Mentorship</option>
-            <option value="entrepreneurship">Entrepreneurship / Side hustles</option>
-            <option value="arts">Arts / Design / Storytelling</option>
-            <option value="civic">Civic action / Social impact</option>
-            <option value="digital">Digital creators / Online culture</option>
-            <option value="experiments">Experiments / Passion projects</option>
-            <option value="culture">Culture / Identity / Community expression</option>
-          </select>
-        </div>
-
-        <!-- Project Details -->
-        <div class="form-group">
-          <h3>Project Details</h3>
-          <label for="projectCategory">Project Category *</label>
-          <select id="projectCategory" name="projectCategory" required>
-            <option value="">Select a category</option>
-            <option value="business">Business</option>
-            <option value="project">Project</option>
-            <option value="research">Research</option>
-            <option value="community">Community</option>
-          </select>
-
-          <label for="duration">Project Duration</label>
-          <select id="duration" name="duration">
-            <option value="">Select duration</option>
-            <option value="one-time">One-Time</option>
-            <option value="short-term">Short-Term</option>
-            <option value="long-term">Long-Term</option>
-          </select>
-
-          <label for="goal">Project Goal</label>
-          <select id="goal" name="goal">
-            <option value="">Select goal</option>
-            <option value="money">Make Money</option>
-            <option value="impact">Social Impact</option>
-            <option value="learn">Learn / Express</option>
-          </select>
-
-          <label for="stage">Project Stage</label>
-          <select id="stage" name="stage">
-            <option value="">Select stage</option>
-            <option value="brainstorming">Brainstorming</option>
-            <option value="help-needed">Help needed</option>
-            <option value="positions-open">Positions open</option>
-            <option value="in-progress">In progress</option>
-            <option value="launched">Launched</option>
-            <option value="on-hold">On hold</option>
-          </select>
-        </div>
-
-        <!-- Team & Audience -->
-        <div class="form-group">
-          <h3>Team & Audience</h3>
-          <label for="teamSize">Team Size</label>
-          <select id="teamSize" name="teamSize">
-            <option value="">Select team size</option>
-            <option value="small">Small</option>
-            <option value="large">Large</option>
-          </select>
-
-          <label for="audience">Target Audience</label>
-          <select id="audience" name="audience">
-            <option value="">Select audience</option>
-            <option value="local">Local</option>
-            <option value="online">Online</option>
-          </select>
-
-          <label for="market">Market Reach</label>
-          <select id="market" name="market">
-            <option value="">Select market reach</option>
-            <option value="local">Local</option>
-            <option value="global">Global</option>
-          </select>
-        </div>
-
-        <!-- Implementation Details -->
-        <div class="form-group">
-          <h3>Implementation Details</h3>
-          <label for="technology">Tech / Modality</label>
-          <select id="technology" name="technology">
-            <option value="">Select technology</option>
-            <option value="none">None</option>
-            <option value="digital">Digital</option>
-            <option value="in-person">In-Person</option>
-          </select>
-
-          <label for="funding">Funding Status</label>
-          <select id="funding" name="funding">
-            <option value="">Select funding status</option>
-            <option value="idea">Idea</option>
-            <option value="funded">Funded</option>
-            <option value="revenue">Revenue</option>
-          </select>
-        </div>
-
-        <!-- Contact Information -->
-        <div class="form-group">
-          <h3>Contact Information</h3>
-          <label for="name">Full Name *</label>
-          <input type="text" id="name" name="name" required>
-
-          <label for="email">Email Address *</label>
-          <input type="email" id="email" name="email" required>
-
-          <label for="website">Website/Portfolio (Optional)</label>
-          <input type="url" id="website" name="website">
-
-          <label for="social">Social Media Links (Optional)</label>
-          <input type="text" id="social" name="social">
-        </div>
-
-        <!-- Additional Information -->
-        <div class="form-group">
-          <h3>Additional Information</h3>
-          <label for="additionalInfo">Anything else you'd like to share?</label>
-          <textarea id="additionalInfo" name="additionalInfo" rows="4"></textarea>
-        </div>
-
-        <button type="submit" class="submit-button">Submit Project</button>
-      </form>
+  <main class="dashboard-container">
+    <section class="hero-section">
+      <div class="content-wrapper">
+        <h1>Submit Your Project</h1>
+        <p class="hero-subtitle">Share your vision with our community and connect with fellow innovators</p>
+      </div>
     </section>
 
-    <footer>
-      <p>© 2025 Project CTRL</p>
-      <div class="policy-notice">
-        <p>Project CTRL reserves the right to decline submissions containing offensive, discriminatory, vulgar, or inappropriate content. Users will be notified if their submission does not meet our community standards.</p>
-      </div>
-    </footer>
-  </div>
+    <section class="submit-section">
+      <div class="content-wrapper">
+        <div class="bento-grid">
+          <div class="bento-card form-card">
+            <div class="tip-banner">
+              <span class="tip-icon">💡</span>
+              <p>Clear details help you connect with the right collaborators and resources</p>
+            </div>
 
-  <script>
-    document.getElementById('projectSubmissionForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      // Submit the form data
-      fetch("https://formspree.io/f/movwvvvj", {
-        method: "POST",
-        body: new FormData(e.target),
-        headers: {
-          'Accept': 'application/json'
-        }
-      }).then(response => {
-        if (response.ok) {
-          // Store success message in sessionStorage
-          sessionStorage.setItem('projectSubmitted', 'true');
-          // Redirect to projects page
-          window.location.href = 'projects.html';
-        } else {
-          alert('Oops! There was a problem submitting your project. Please try again.');
-        }
-      }).catch(error => {
-        console.error('Error:', error);
-        alert('Oops! There was a problem submitting your project. Please try again.');
-      });
-    });
-  </script>
+            <div class="tip-banner">
+              <span class="tip-icon">🔍</span>
+              <p>Pro tip: The more project details and filters you provide, the higher your visibility in Project Hub searches!</p>
+            </div>
+
+            <form class="project-form">
+              <div class="form-grid">
+                <div class="form-group full-width">
+                  <label for="projectName">Project Name *</label>
+                  <input type="text" id="projectName" placeholder="What's your project called?" required />
+                </div>
+                
+                <div class="form-group">
+                  <label for="projectLead">Project Lead Name *</label>
+                  <input type="text" id="projectLead" placeholder="Your name" required />
+                </div>
+
+                <div class="form-group">
+                  <label for="leadRole">Your Role *</label>
+                  <input type="text" id="leadRole" placeholder="e.g. Founder, CEO, Project Manager" required />
+                </div>
+
+                <div class="form-group">
+                  <label for="contactEmail">Contact Email *</label>
+                  <input type="email" id="contactEmail" placeholder="Best email to reach you" required />
+                </div>
+
+                <div class="form-group">
+                  <label for="contactPhone">Contact Phone</label>
+                  <input type="tel" id="contactPhone" placeholder="Optional phone number" />
+                </div>
+
+                <div class="form-group">
+                  <label for="preferredContact">Preferred Contact Method *</label>
+                  <select id="preferredContact" required>
+                    <option value="" disabled selected>Select preference</option>
+                    <option>Email</option>
+                    <option>Phone</option>
+                    <option>Both</option>
+                  </select>
+                </div>
+
+                <div class="form-group full-width">
+                  <label for="missionStatement">Mission Statement</label>
+                  <textarea id="missionStatement" placeholder="What's the core purpose of your project?" required></textarea>
+                </div>
+
+                <div class="form-group">
+                  <label for="projectType">Project Type *</label>
+                  <select id="projectType" required>
+                    <option value="" disabled selected>Select type</option>
+                    <option>Startup</option>
+                    <option>Non-Profit</option>
+                    <option>Passion Project</option>
+                    <option>Business</option>
+                    <option>Research</option>
+                    <option>Freelance</option>
+                    <option>Side Hustle</option>
+                    <option>Community Initiative</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="category">Category *</label>
+                  <select id="category" required>
+                    <option value="" disabled selected>Select category</option>
+                    <option>Technology</option>
+                    <option>Health</option>
+                    <option>Education</option>
+                    <option>Environment</option>
+                    <option>Community</option>
+                    <option>Social Impact</option>
+                    <option>Art / Design</option>
+                    <option>Wellness / Beauty</option>
+                    <option>Food / Culture</option>
+                    <option>DIY</option>
+                    <option>Online Brand</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="modality">Modality *</label>
+                  <select id="modality" required>
+                    <option value="" disabled selected>Select modality</option>
+                    <option>Mobile App</option>
+                    <option>Website</option>
+                    <option>AI / Machine Learning</option>
+                    <option>Open Source</option>
+                    <option>Social Media</option>
+                    <option>In-Person/Nontechnical</option>
+                    <option>Hybrid</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="duration">Project Duration</label>
+                  <select id="duration">
+                    <option value="" disabled selected>Optional</option>
+                    <option>One-Time</option>
+                    <option>Short Term</option>
+                    <option>Long Term</option>
+                    <option>Seasonal</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="goal">Goal/Purpose</label>
+                  <select id="goal">
+                    <option value="" disabled selected>Optional</option>
+                    <option>Income</option>
+                    <option>Social Impact</option>
+                    <option>Skill-Building</option>
+                    <option>Self-Expression</option>
+                    <option>Innovation</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="teamSize">Team Size</label>
+                  <select id="teamSize">
+                    <option value="" disabled selected>Optional</option>
+                    <option>Solo</option>
+                    <option>Small Team (2-5)</option>
+                    <option>Large Team (6-10)</option>
+                    <option>Growing Team (10+)</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="fundingStage">Funding Stage</label>
+                  <select id="fundingStage">
+                    <option value="" disabled selected>Optional</option>
+                    <option>Idea Stage</option>
+                    <option>Self-Funded</option>
+                    <option>Seeking Funding</option>
+                    <option>Revenue-Generating</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="marketFocus">Market Focus</label>
+                  <select id="marketFocus">
+                    <option value="" disabled selected>Optional</option>
+                    <option>Local</option>
+                    <option>Regional</option>
+                    <option>National</option>
+                    <option>Global</option>
+                  </select>
+                </div>
+
+                <div class="form-group full-width">
+                  <label for="details">Additional Details</label>
+                  <textarea id="details" placeholder="Share more about your goals, vision, or specific needs"></textarea>
+                </div>
+              </div>
+
+              <button type="submit" class="submit-button">
+                Submit Project
+                <span class="button-icon">→</span>
+              </button>
+    </form>
+          </div>
+
+          <div class="bento-card info-card">
+            <h3>Why Submit?</h3>
+            <div class="benefits-list">
+              <div class="benefit-item">
+                <span class="benefit-icon">🤝</span>
+                <div class="benefit-content">
+                  <h4>Connect</h4>
+                  <p>Find collaborators and mentors</p>
+                </div>
+              </div>
+              <div class="benefit-item">
+                <span class="benefit-icon">🎯</span>
+                <div class="benefit-content">
+                  <h4>Get Guidance</h4>
+                  <p>Access roadmaps and resources</p>
+                </div>
+              </div>
+              <div class="benefit-item">
+                <span class="benefit-icon">📈</span>
+                <div class="benefit-content">
+                  <h4>Grow</h4>
+                  <p>Track progress and celebrate wins</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="main-footer">
+    <div class="footer-content">
+      <p>© 2025 Project CTRL | Built by and for the people without a roadmap</p>
+    </div>
+  </footer>
 </body>
-</html> 
+</html>
