@@ -1,0 +1,43 @@
+body {
+    margin: 0;
+    font-family: Helvetica, sans-serif;
+    background: #f8f9fa;
+    color: #333;
+  }
+  
+  header, footer {
+    background-color: #e6f0ff;
+    padding: 1rem 2rem;
+    text-align: center;
+  }
+  
+  nav a {
+    margin: 0 1rem;
+    text-decoration: none;
+    color: #0077cc;
+    font-weight: bold;
+  }
+  
+  main {
+    padding: 2rem;
+    max-width: 1000px;
+    margin: auto;
+  }
+  
+  section {
+    margin-bottom: 2rem;
+  }
+  
+  footer {
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  form input, form textarea, form select {
+    width: 100%;
+    padding: 0.7rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+  
