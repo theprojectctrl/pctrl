@@ -2,305 +2,328 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Services - Project CTRL</title>
-  <link rel="shortcut icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="stylesheet" href="style.css" />
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resources - Project CTRL</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="resources">
+  <header class="main-header">
+    <div class="header-container">
+      <a href="index.html" class="logo" style="color: #000;">Project CTRL</a>
+      <nav class="main-nav">
+        <a href="index.html">Dashboard</a>
+        <a href="projects.html">Project Hub</a>
+        <a href="resources.html" class="active">Resources</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="resources-container">
+    <div class="background-elements">
+      <div class="curved-line"></div>
+      <div class="dot dot-1"></div>
+      <div class="dot dot-2"></div>
+      <div class="dot dot-3"></div>
+    </div>
+
+    <!-- Featured Toolkits Section -->
+    <section class="section bento-section">
+      <div class="content-wrapper">
+        <div class="section-header">
+          <div class="section-tag">Featured</div>
+          <h1>Featured Toolkits</h1>
+          <p class="section-description">Essential tools and resources to supercharge your projects.</p>
+        </div>
+
+        <div class="bento-grid">
+          <div class="bento-card">
+            <div class="placeholder-box">
+              <div class="placeholder-icon">⚡</div>
+              <div class="placeholder-content">
+                <h3>Project Launcher</h3>
+                <p>Quick-start templates & guides</p>
+                <div class="card-tag">Coming soon</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bento-card">
+            <div class="placeholder-box">
+              <div class="placeholder-icon">⚙️</div>
+              <div class="placeholder-content">
+                <h3>Workflow Builder</h3>
+                <p>Automate your development</p>
+                <div class="card-tag">Coming soon</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Roadmaps & Templates Section -->
+    <section class="section bento-section">
+      <div class="content-wrapper">
+        <div class="section-header">
+          <div class="section-tag">Resources</div>
+          <h2>Roadmaps & Templates</h2>
+          <p class="section-description">Structured guides and templates to keep your projects on track.</p>
+        </div>
+
+        <div class="bento-grid">
+          <div class="bento-card">
+            <div class="placeholder-box">
+              <div class="placeholder-icon">🔍</div>
+              <div class="placeholder-content">
+                <h3>Development Roadmap</h3>
+                <p>Step-by-step project guides</p>
+                <div class="card-tag">Coming soon</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bento-card">
+            <div class="placeholder-box">
+              <div class="placeholder-icon">📄</div>
+              <div class="placeholder-content">
+                <h3>Project Templates</h3>
+                <p>Ready-to-use frameworks</p>
+                <div class="card-tag">Coming soon</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Learning Resources Section -->
+    <section class="section bento-section">
+      <div class="content-wrapper">
+        <div class="section-header">
+          <div class="section-tag">Learning</div>
+          <h2>Learning Resources</h2>
+          <p class="section-description">Educational content to help you grow and succeed.</p>
+        </div>
+
+        <div class="bento-grid">
+          <div class="bento-card">
+            <div class="placeholder-box">
+              <div class="placeholder-icon">⭐</div>
+              <div class="placeholder-content">
+                <h3>Developer Guides</h3>
+                <p>In-depth tutorials & docs</p>
+                <div class="card-tag">Coming soon</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bento-card">
+            <div class="placeholder-box">
+              <div class="placeholder-icon">💫</div>
+              <div class="placeholder-content">
+                <h3>Best Practices</h3>
+                <p>Tips & industry standards</p>
+                <div class="card-tag">Coming soon</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="main-footer">
+    <div class="footer-content">
+      <p>© 2025 Project CTRL | Built by and for the people without a roadmap</p>
+    </div>
+  </footer>
+
   <style>
-    * {
-      font-family: Helvetica, Arial, sans-serif;
+    :root {
+      --primary-color: #79b7ff;
+      --primary-light: #e5f0ff;
+      --text-color: #1f2937;
+      --light-bg: #f9fafb;
+      --card-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
     }
 
-    .platform-features {
-      padding: 40px 20px;
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text-color);
+      line-height: 1.5;
+      background-color: var(--light-bg);
+      position: relative;
+      overflow-x: hidden;
     }
 
-    .features-grid {
+    .background-elements {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .curved-line {
+      position: absolute;
+      top: 20%;
+      right: -5%;
+      width: 60%;
+      height: 2px;
+      background: var(--primary-color);
+      opacity: 0.2;
+      transform: rotate(-5deg);
+    }
+
+    .curved-line::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      background: var(--primary-color);
+      opacity: 0.1;
+      border-radius: 50%;
+    }
+
+    .dot {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--primary-color);
+      opacity: 0.2;
+    }
+
+    .dot-1 { top: 15%; left: 10%; }
+    .dot-2 { top: 45%; right: 15%; }
+    .dot-3 { bottom: 20%; left: 20%; }
+
+    .content-wrapper {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .section {
+      padding: 40px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .section-tag {
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--primary-color);
+      background: var(--primary-light);
+      padding: 4px 12px;
+      border-radius: 16px;
+      margin-bottom: 16px;
+    }
+
+    .section h1, .section h2 {
+      font-size: 32px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .section-description {
+      font-size: 16px;
+      color: #6b7280;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .bento-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 30px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .metrics {
-      padding: 40px 20px;
-    }
-
-    .metrics .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 20px;
-      max-width: 800px;
-      margin: 0 auto;
+      margin-top: 32px;
     }
 
-    .metrics .feature {
-      text-align: center;
+    .bento-card {
+      background: white;
+      border-radius: 16px;
       padding: 20px;
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      box-shadow: var(--card-shadow);
+      transition: all 0.3s ease;
     }
 
-    .metric {
-      font-size: 2.5em;
-      color: #1E3A8A;
-      margin-bottom: 10px;
-      font-weight: normal;
+    .bento-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 12px -1px rgb(0 0 0 / 0.1);
     }
 
-    .metrics .feature p {
-      margin: 0;
-      font-size: 1.1em;
-      color: #4B5563;
-      font-weight: normal;
-    }
-
-    .feature-column {
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      padding: 30px;
+    .placeholder-box {
+      background: var(--primary-light);
+      border-radius: 12px;
+      padding: 24px;
+      height: 180px;
       display: flex;
       flex-direction: column;
-      position: relative;
-      height: 100%;
+      justify-content: center;
+      text-align: left;
+      transition: all 0.3s ease;
     }
 
-    .feature-column h3 {
-      color: #1E3A8A;
-      margin-bottom: 20px;
-      font-size: 1.5em;
-      text-align: center;
-      text-transform: uppercase;
-      font-weight: normal;
+    .placeholder-icon {
+      font-size: 32px;
+      margin-bottom: 16px;
     }
 
-    h1, h2, h3 {
-      text-transform: uppercase;
-      font-weight: normal;
+    .placeholder-content h3 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text-color);
     }
 
-    .feature-list {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 40px 0;
-      flex-grow: 1;
+    .placeholder-content p {
+      font-size: 14px;
+      color: #6b7280;
+      margin-bottom: 12px;
     }
 
-    .feature-list li {
-      padding: 20px;
-      margin-bottom: 20px;
-      border-radius: 8px;
-      background: #f8fafc;
-    }
-
-    .feature-list li:last-child {
-      margin-bottom: 0;
-    }
-
-    .feature-list p {
-      margin: 0;
-      line-height: 1.6;
-      font-weight: normal;
-    }
-
-    .feature-link {
-      position: absolute;
-      bottom: 15px;
-      right: 15px;
-      color: #1E3A8A;
-      transition: transform 0.2s;
-      padding: 15px;
-      margin: -10px;
-      border-radius: 8px;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-    }
-
-    .feature-link:hover {
-      transform: translateX(5px);
-      background-color: rgba(30, 58, 138, 0.1);
-    }
-
-    .feature-link svg {
-      width: 20px;
-      height: 20px;
+    .card-tag {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--primary-color);
+      background: white;
+      padding: 4px 12px;
+      border-radius: 12px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     }
 
     @media (max-width: 768px) {
-      .features-grid {
+      .bento-grid {
         grid-template-columns: 1fr;
+      }
+
+      .section h1,
+      .section h2 {
+        font-size: 28px;
+      }
+
+      .placeholder-box {
+        height: 160px;
+      }
+
+      .curved-line,
+      .dot {
+        display: none;
       }
     }
   </style>
-
-  <!-- Google Analytics 4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-REKT5H0GXW"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-REKT5H0GXW');
-  </script>
-</head>
-<body>
-  <div class="main-container">
-    <header>
-      <nav>
-        <ul class="nav-menu">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="services.html" class="active">Services</a></li>
-          <li><a href="projects.html">Project Hub</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-      <h1>Services</h1>
-    </header>
-
-    <section class="metrics">
-      <div class="features-grid">
-        <div class="feature">
-          <div class="metric" data-target="0">Pending</div>
-          <p>Innovations</p>
-        </div>
-        <div class="feature">
-          <div class="metric" data-target="manual">0</div>
-          <p>Project Templates</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="platform-features">
-      <h2>Platform Features</h2>
-      <div class="features-grid">
-        <div class="feature-column">
-          <h3>Project Counseling</h3>
-          <ul class="feature-list">
-            <li>
-              <p>Access templates, roadmaps, and guides to bring your ideas to life.</p>
-            </li>
-            <li>
-              <p>Learn essential business, project building, and research skills through our comprehensive guides and educational resources.</p>
-            </li>
-            <li>
-              <p>Get support with financial planning, budget tracking, and business metrics to ensure sustainable growth.</p>
-            </li>
-          </ul>
-          <a href="resources-coming-soon.html" class="feature-link">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
-          </a>
-        </div>
-        <div class="feature-column">
-          <h3>Visibility & Networking</h3>
-          <ul class="feature-list">
-            <li>
-              <p>Get your projects featured and advertised across vast networks of potential collaborators, investors, and supporters.</p>
-            </li>
-            <li>
-              <p>Join a network of like-minded individuals working towards their goals, and explore opportunities to contribute to or lead initiatives with Project CTRL.</p>
-            </li>
-          </ul>
-          <a href="resources-coming-soon.html" class="feature-link">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section class="how-it-works">
-      <h2>How It Works</h2>
-      <ol>
-        <li>Submit your work through our Project Hub page</li>
-        <li>Browse projects and resources by field or goal</li>
-        <li>Access templates and planning tools</li>
-        <li>Connect with mentors and community members</li>
-        <li>Track your progress and celebrate achievements</li>
-      </ol>
-    </section>
-
-    <footer>
-      <p>© 2025 Project CTRL</p>
-      <div class="policy-notice">
-        <p>Project CTRL reserves the right to decline submissions containing offensive, discriminatory, vulgar, or inappropriate content. Users will be notified if their submission does not meet our community standards.</p>
-      </div>
-    </footer>
-  </div>
-
-  <script>
-    // Number animation
-    const metrics = document.querySelectorAll('.metric');
-    
-    const animateValue = (element, start, end, duration) => {
-      let startTimestamp = null;
-      const step = (timestamp) => {
-        if (!startTimestamp) startTimestamp = timestamp;
-        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-        element.textContent = Math.floor(progress * (end - start) + start);
-        if (progress < 1) {
-          window.requestAnimationFrame(step);
-        }
-      };
-      window.requestAnimationFrame(step);
-    };
-
-    // Function to count projects from the projects page
-    async function getProjectCount() {
-      try {
-        // First try relative path
-        let response = await fetch('projects.html');
-        if (!response.ok) {
-          // If relative path fails, try with full path
-          response = await fetch('https://genavivermz.github.io/projectctrl/projects.html');
-        }
-        const html = await response.text();
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(html, 'text/html');
-        const projectCards = doc.querySelectorAll('.project-card');
-        console.log('Found project cards:', projectCards.length); // Debug log
-        return projectCards.length;
-      } catch (error) {
-        console.error('Error fetching project count:', error);
-        return 3; // Return 3 as we have 3 example projects
-      }
-    }
-
-    const observerCallback = (entries, observer) => {
-      entries.forEach(async (entry) => {
-        if (entry.isIntersecting) {
-          const dataTarget = entry.target.getAttribute('data-target');
-          
-          // Handle innovations metric (counts projects directly)
-          if (dataTarget === "0") {
-            const projectCount = await getProjectCount();
-            console.log('Project count:', projectCount); // Debug log
-            animateValue(entry.target, 0, projectCount, 2000);
-          }
-          // Handle project templates metric (stays at 0)
-          else if (dataTarget === "manual") {
-            entry.target.textContent = "0";
-          }
-          
-          observer.unobserve(entry.target);
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(observerCallback, {
-      threshold: 0.5
-    });
-
-    metrics.forEach(metric => observer.observe(metric));
-  </script>
 </body>
 </html> 
