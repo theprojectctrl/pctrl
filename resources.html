@@ -178,221 +178,6 @@
     </div>
   </footer>
 
-  <script>
-    // Resource data
-    const resources = {
-      'project-launcher': {
-        title: 'Project Launcher',
-        description: 'Quick-start templates & guides to launch your project',
-        items: {
-          'all': [
-            {
-              icon: '🚀',
-              title: 'Coming Soon',
-              description: 'Project launcher templates are on the way! Check back soon for ready-to-use project starter kits.',
-              link: '#'
-            },
-            {
-              icon: '📋',
-              title: 'Coming Soon',
-              description: 'Quick-start guides are on the way! Check back soon for step-by-step project launch instructions.',
-              link: '#'
-            }
-          ]
-        }
-      },
-      'workflow-builder': {
-        title: 'Workflow Builder',
-        description: 'Industry-specific workflow templates and processes',
-        items: {
-          'all': [
-            {
-              icon: '⚙️',
-              title: 'Coming Soon',
-              description: 'Workflow templates are on the way! Check back soon for customizable process frameworks.',
-              link: '#'
-            },
-            {
-              icon: '📈',
-              title: 'Coming Soon',
-              description: 'Process guides are on the way! Check back soon for workflow optimization tools.',
-              link: '#'
-            }
-          ]
-        }
-      },
-      'development-roadmap': {
-        title: 'Development Roadmap',
-        description: 'Industry-specific development guides and milestones',
-        items: {
-          'all': [
-            {
-              icon: '🎯',
-              title: 'Coming Soon',
-              description: 'Development milestones are on the way! Check back soon for project planning frameworks.',
-              link: '#'
-            },
-            {
-              icon: '🗺️',
-              title: 'Coming Soon',
-              description: 'Strategic roadmaps are on the way! Check back soon for long-term planning guides.',
-              link: '#'
-            }
-          ]
-        }
-      },
-      'project-templates': {
-        title: 'Project Templates',
-        description: 'Ready-to-use templates for your industry',
-        items: {
-          'all': [
-            {
-              icon: '📄',
-              title: 'Coming Soon',
-              description: 'Document templates are on the way! Check back soon for standardized project forms.',
-              link: '#'
-            },
-            {
-              icon: '📁',
-              title: 'Coming Soon',
-              description: 'Project frameworks are on the way! Check back soon for complete project structures.',
-              link: '#'
-            }
-          ]
-        }
-      },
-      'developer-guides': {
-        title: 'Developer Guides',
-        description: 'Technical guides for different industries',
-        items: {
-          'all': [
-            {
-              icon: '💻',
-              title: 'Coming Soon',
-              description: 'Technical documentation is on the way! Check back soon for detailed developer guides.',
-              link: '#'
-            },
-            {
-              icon: '🔧',
-              title: 'Coming Soon',
-              description: 'Code tutorials are on the way! Check back soon for hands-on development resources.',
-              link: '#'
-            }
-          ]
-        }
-      },
-      'best-practices': {
-        title: 'Best Practices',
-        description: 'Industry-specific standards and guidelines',
-        items: {
-          'all': [
-            {
-              icon: '✨',
-              title: 'Coming Soon',
-              description: 'Industry standards are on the way! Check back soon for best practice guidelines.',
-              link: '#'
-            },
-            {
-              icon: '📊',
-              title: 'Coming Soon',
-              description: 'Quality benchmarks are on the way! Check back soon for performance metrics.',
-              link: '#'
-            }
-          ]
-        }
-      }
-    };
-
-    // Initialize popup functionality
-    document.addEventListener('DOMContentLoaded', () => {
-      const popup = document.querySelector('.resources-popup');
-      const closeBtn = document.querySelector('.close-popup');
-      const filterTags = document.querySelectorAll('.filter-tag');
-      const resourcesGrid = document.querySelector('.resources-grid-popup');
-      const bentoCards = document.querySelectorAll('.bento-card[data-resource]');
-      const prevPageBtn = document.querySelector('.prev-page');
-      const nextPageBtn = document.querySelector('.next-page');
-      const paginationInfo = document.querySelector('.pagination-info');
-
-      // Close popup
-      closeBtn.addEventListener('click', () => {
-        popup.classList.remove('active');
-      });
-
-      // Close popup when clicking outside
-      popup.addEventListener('click', (e) => {
-        if (e.target === popup) {
-          popup.classList.remove('active');
-        }
-      });
-
-      // Filter functionality
-      filterTags.forEach(tag => {
-        tag.addEventListener('click', () => {
-          // Update active state
-          filterTags.forEach(t => t.classList.remove('active'));
-          tag.classList.add('active');
-
-          // Get current resource type
-          const currentResourceType = popup.dataset.currentResource;
-          const resourceData = resources[currentResourceType];
-
-          // Display the resources
-          displayResource(resourceData);
-        });
-      });
-
-      // Function to display the resources
-      function displayResource(resourceData) {
-        resourcesGrid.innerHTML = '';
-        const items = resourceData.items.all;
-        
-        items.forEach(item => {
-          const resourceItem = document.createElement('div');
-          resourceItem.className = 'resource-item-popup';
-          
-          resourceItem.innerHTML = `
-            <div class="resource-header">
-              <span class="resource-icon-popup">${item.icon}</span>
-              <div class="resource-title">
-                <h4>${item.title}</h4>
-              </div>
-            </div>
-            <p class="resource-description">${item.description}</p>
-            <a href="${item.link}" class="resource-link">View Resource →</a>
-          `;
-          
-          resourcesGrid.appendChild(resourceItem);
-        });
-
-        // Hide pagination since we only have two items
-        prevPageBtn.style.display = 'none';
-        nextPageBtn.style.display = 'none';
-        paginationInfo.style.display = 'none';
-      }
-
-      // Open popup when clicking bento cards
-      bentoCards.forEach(card => {
-        card.addEventListener('click', () => {
-          const resourceType = card.dataset.resource;
-          const resourceData = resources[resourceType];
-          
-          // Store current resource type
-          popup.dataset.currentResource = resourceType;
-
-          // Update popup title and description
-          document.querySelector('.resources-popup-header h2').textContent = resourceData.title;
-          
-          // Show the resources
-          displayResource(resourceData);
-          
-          // Show popup
-          popup.classList.add('active');
-        });
-      });
-    });
-  </script>
-
   <style>
     :root {
       --primary-color: #79b7ff;
@@ -599,6 +384,318 @@
     .filter-tag {
       white-space: nowrap;
     }
+
+    .resource-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 0.75rem 0;
+    }
+
+    .resource-tag {
+      padding: 0.35rem 0.75rem;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      background: var(--primary-light);
+      color: var(--accent-color);
+    }
+
+    .price-tag {
+      background: rgba(0, 200, 83, 0.1);
+      color: var(--success-color);
+    }
+
+    .pagination-controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5rem;
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .pagination-arrow {
+      width: 40px;
+      height: 40px;
+      border: none;
+      border-radius: 50%;
+      background: var(--background-color);
+      color: var(--secondary-color);
+      font-size: 1.25rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .pagination-arrow:not(:disabled):hover {
+      background: var(--accent-color);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .pagination-arrow:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .pagination-info {
+      font-size: 0.9rem;
+      color: var(--secondary-color);
+    }
+
+    .pagination-info strong {
+      color: var(--primary-color);
+    }
   </style>
+
+  <script>
+    // Resource data
+    const resources = {
+      'project-launcher': {
+        title: 'Project Launcher',
+        description: 'Quick-start templates & guides to launch your project',
+        items: {
+          'all': [
+            {
+              icon: '🚀',
+              title: 'Coming Soon',
+              description: 'Project launcher templates are on the way! Check back soon for ready-to-use project starter kits.',
+              category: 'Technology',
+              price: '$2.99',
+              link: '#'
+            },
+            {
+              icon: '📋',
+              title: 'Coming Soon',
+              description: 'Quick-start guides are on the way! Check back soon for step-by-step project launch instructions.',
+              category: 'Education',
+              link: '#'
+            }
+          ]
+        }
+      },
+      'workflow-builder': {
+        title: 'Workflow Builder',
+        description: 'Industry-specific workflow templates and processes',
+        items: {
+          'all': [
+            {
+              icon: '⚙️',
+              title: 'Coming Soon',
+              description: 'Workflow templates are on the way! Check back soon for customizable process frameworks.',
+              category: 'Health',
+              price: '$2.99',
+              link: '#'
+            },
+            {
+              icon: '📈',
+              title: 'Coming Soon',
+              description: 'Process guides are on the way! Check back soon for workflow optimization tools.',
+              category: 'Environment',
+              link: '#'
+            }
+          ]
+        }
+      },
+      'development-roadmap': {
+        title: 'Development Roadmap',
+        description: 'Industry-specific development guides and milestones',
+        items: {
+          'all': [
+            {
+              icon: '🎯',
+              title: 'Coming Soon',
+              description: 'Development milestones are on the way! Check back soon for project planning frameworks.',
+              category: 'Social Impact',
+              price: '$2.99',
+              link: '#'
+            },
+            {
+              icon: '🗺️',
+              title: 'Coming Soon',
+              description: 'Strategic roadmaps are on the way! Check back soon for long-term planning guides.',
+              category: 'Art & Design',
+              link: '#'
+            }
+          ]
+        }
+      },
+      'project-templates': {
+        title: 'Project Templates',
+        description: 'Ready-to-use templates for your industry',
+        items: {
+          'all': [
+            {
+              icon: '📄',
+              title: 'Coming Soon',
+              description: 'Document templates are on the way! Check back soon for standardized project forms.',
+              category: 'Food & Culture',
+              price: '$2.99',
+              link: '#'
+            },
+            {
+              icon: '📁',
+              title: 'Coming Soon',
+              description: 'Project frameworks are on the way! Check back soon for complete project structures.',
+              category: 'Wellness & Beauty',
+              link: '#'
+            }
+          ]
+        }
+      },
+      'developer-guides': {
+        title: 'Developer Guides',
+        description: 'Technical guides for different industries',
+        items: {
+          'all': [
+            {
+              icon: '💻',
+              title: 'Coming Soon',
+              description: 'Technical documentation is on the way! Check back soon for detailed developer guides.',
+              category: 'Technology',
+              price: '$2.99',
+              link: '#'
+            },
+            {
+              icon: '🔧',
+              title: 'Coming Soon',
+              description: 'Code tutorials are on the way! Check back soon for hands-on development resources.',
+              category: 'Education',
+              link: '#'
+            }
+          ]
+        }
+      },
+      'best-practices': {
+        title: 'Best Practices',
+        description: 'Industry-specific standards and guidelines',
+        items: {
+          'all': [
+            {
+              icon: '✨',
+              title: 'Coming Soon',
+              description: 'Industry standards are on the way! Check back soon for best practice guidelines.',
+              category: 'Health',
+              price: '$2.99',
+              link: '#'
+            },
+            {
+              icon: '📊',
+              title: 'Coming Soon',
+              description: 'Quality benchmarks are on the way! Check back soon for performance metrics.',
+              category: 'Environment',
+              link: '#'
+            }
+          ]
+        }
+      }
+    };
+
+    // Initialize popup functionality
+    document.addEventListener('DOMContentLoaded', () => {
+      const popup = document.querySelector('.resources-popup');
+      const closeBtn = document.querySelector('.close-popup');
+      const filterTags = document.querySelectorAll('.filter-tag');
+      const resourcesGrid = document.querySelector('.resources-grid-popup');
+      const bentoCards = document.querySelectorAll('.bento-card[data-resource]');
+      const prevPageBtn = document.querySelector('.prev-page');
+      const nextPageBtn = document.querySelector('.next-page');
+      const paginationInfo = document.querySelector('.pagination-info');
+
+      // Close popup
+      closeBtn.addEventListener('click', () => {
+        popup.classList.remove('active');
+      });
+
+      // Close popup when clicking outside
+      popup.addEventListener('click', (e) => {
+        if (e.target === popup) {
+          popup.classList.remove('active');
+        }
+      });
+
+      // Filter functionality
+      filterTags.forEach(tag => {
+        tag.addEventListener('click', () => {
+          // Update active state
+          filterTags.forEach(t => t.classList.remove('active'));
+          tag.classList.add('active');
+
+          // Get current resource type
+          const currentResourceType = popup.dataset.currentResource;
+          const resourceData = resources[currentResourceType];
+
+          // Display the resources
+          displayResource(resourceData);
+        });
+      });
+
+      // Function to display the resources
+      function displayResource(resourceData) {
+        resourcesGrid.innerHTML = '';
+        const items = resourceData.items.all;
+        const ITEMS_PER_PAGE = 6; // Set maximum items per page
+        
+        items.forEach(item => {
+          const resourceItem = document.createElement('div');
+          resourceItem.className = 'resource-item-popup';
+          
+          resourceItem.innerHTML = `
+            <div class="resource-header">
+              <span class="resource-icon-popup">${item.icon}</span>
+              <div class="resource-title">
+                <h4>${item.title}</h4>
+                <div class="resource-tags">
+                  <span class="resource-tag">${item.category}</span>
+                  ${item.price ? `<span class="resource-tag price-tag">${item.price}</span>` : ''}
+                </div>
+              </div>
+            </div>
+            <p class="resource-description">${item.description}</p>
+            <a href="${item.link}" class="resource-link">View Resource →</a>
+          `;
+          
+          resourcesGrid.appendChild(resourceItem);
+        });
+
+        // Show pagination controls but keep them disabled for now
+        prevPageBtn.style.display = '';
+        nextPageBtn.style.display = '';
+        paginationInfo.style.display = '';
+
+        // Update pagination info
+        const totalPages = Math.ceil(items.length / ITEMS_PER_PAGE);
+        paginationInfo.innerHTML = `Page <strong>1</strong> of <strong>${totalPages}</strong>`;
+
+        // Disable both buttons since we only have 2 items
+        prevPageBtn.disabled = true;
+        nextPageBtn.disabled = true;
+      }
+
+      // Open popup when clicking bento cards
+      bentoCards.forEach(card => {
+        card.addEventListener('click', () => {
+          const resourceType = card.dataset.resource;
+          const resourceData = resources[resourceType];
+          
+          // Store current resource type
+          popup.dataset.currentResource = resourceType;
+
+          // Update popup title and description
+          document.querySelector('.resources-popup-header h2').textContent = resourceData.title;
+          
+          // Show the resources
+          displayResource(resourceData);
+          
+          // Show popup
+          popup.classList.add('active');
+        });
+      });
+    });
+  </script>
 </body>
 </html> 
