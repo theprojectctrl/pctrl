@@ -896,6 +896,68 @@
         font-size: 0.85rem;
       }
     }
+
+    .project-popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: var(--card-background);
+      border-radius: var(--border-radius);
+      padding: 2rem;
+      max-width: 800px;
+      width: 90%;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+
+    .close-button {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.05);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      color: #666;
+      transition: all 0.2s ease;
+    }
+
+    .close-button:hover {
+      background: rgba(0, 0, 0, 0.1);
+      transform: rotate(90deg);
+    }
+
+    .project-popup-header {
+      margin-bottom: 2rem;
+    }
+
+    .project-popup-header h2 {
+      font-size: 1.75rem;
+      color: #333;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-popup-header .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .project-popup-header .tag {
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 100px;
+      background: #EEF4FF;
+      color: #79b7ff;
+      font-weight: 500;
+    }
   </style>
 </head>
 <body class="dashboard">
@@ -1333,6 +1395,7 @@
     <template id="project-popup-template">
       <div class="popup-overlay">
         <div class="project-popup">
+          <button class="close-button">×</button>
           <div class="project-popup-header">
             <h2>Project Title Goes Here</h2>
             <div class="project-tags">
@@ -1531,15 +1594,23 @@
             
             // Add close functionality
             const overlay = document.querySelector('.popup-overlay');
+            const closeButton = overlay.querySelector('.close-button');
+            
             if (overlay) {
+              const closePopup = () => {
+                overlay.remove();
+                if (card.classList.contains('slide')) {
+                  startAutoSlide();
+                }
+              };
+              
               overlay.addEventListener('click', (e) => {
                 if (e.target.classList.contains('popup-overlay')) {
-                  overlay.remove();
-                  if (card.classList.contains('slide')) {
-                    startAutoSlide();
-                  }
+                  closePopup();
                 }
               });
+              
+              closeButton.addEventListener('click', closePopup);
             }
           });
         });
