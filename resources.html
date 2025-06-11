@@ -42,24 +42,24 @@
         </div>
 
         <div class="bento-grid">
-          <div class="bento-card">
+          <div class="bento-card" data-resource="project-launcher">
             <div class="placeholder-box">
               <div class="placeholder-icon">⚡</div>
               <div class="placeholder-content">
                 <h3>Project Launcher</h3>
                 <p>Quick-start templates & guides</p>
-                <div class="card-tag">Coming soon</div>
+                <div class="card-tag">Click to explore</div>
               </div>
             </div>
           </div>
 
-          <div class="bento-card">
+          <div class="bento-card" data-resource="workflow-builder">
             <div class="placeholder-box">
               <div class="placeholder-icon">⚙️</div>
               <div class="placeholder-content">
                 <h3>Workflow Builder</h3>
                 <p>Custom formulas for smarter workflows</p>
-                <div class="card-tag">Coming soon</div>
+                <div class="card-tag">Click to explore</div>
               </div>
             </div>
           </div>
@@ -77,24 +77,24 @@
         </div>
 
         <div class="bento-grid">
-          <div class="bento-card">
+          <div class="bento-card" data-resource="development-roadmap">
             <div class="placeholder-box">
               <div class="placeholder-icon">🔍</div>
               <div class="placeholder-content">
                 <h3>Development Roadmap</h3>
                 <p>Step-by-step project guides</p>
-                <div class="card-tag">Coming soon</div>
+                <div class="card-tag">Click to explore</div>
               </div>
             </div>
           </div>
 
-          <div class="bento-card">
+          <div class="bento-card" data-resource="project-templates">
             <div class="placeholder-box">
               <div class="placeholder-icon">📄</div>
               <div class="placeholder-content">
                 <h3>Project Templates</h3>
                 <p>Ready-to-use frameworks</p>
-                <div class="card-tag">Coming soon</div>
+                <div class="card-tag">Click to explore</div>
               </div>
             </div>
           </div>
@@ -112,24 +112,24 @@
         </div>
 
         <div class="bento-grid">
-          <div class="bento-card">
+          <div class="bento-card" data-resource="developer-guides">
             <div class="placeholder-box">
               <div class="placeholder-icon">⭐</div>
               <div class="placeholder-content">
                 <h3>Developer Guides</h3>
                 <p>In-depth tutorials & docs</p>
-                <div class="card-tag">Coming soon</div>
+                <div class="card-tag">Click to explore</div>
               </div>
             </div>
           </div>
 
-          <div class="bento-card">
+          <div class="bento-card" data-resource="best-practices">
             <div class="placeholder-box">
               <div class="placeholder-icon">💫</div>
               <div class="placeholder-content">
                 <h3>Best Practices</h3>
                 <p>Tips & industry standards</p>
-                <div class="card-tag">Coming soon</div>
+                <div class="card-tag">Click to explore</div>
               </div>
             </div>
           </div>
@@ -138,11 +138,1210 @@
     </section>
   </main>
 
+  <!-- Resources Popup -->
+  <div class="resources-popup">
+    <div class="resources-popup-content">
+      <div class="resources-popup-header">
+        <h2>Resources</h2>
+        <button class="close-popup">×</button>
+      </div>
+
+      <div class="resources-filter">
+        <button class="filter-tag active" data-filter="all">All Industries</button>
+        <button class="filter-tag" data-filter="technology">Technology</button>
+        <button class="filter-tag" data-filter="education">Education</button>
+        <button class="filter-tag" data-filter="health">Health</button>
+        <button class="filter-tag" data-filter="environment">Environment</button>
+        <button class="filter-tag" data-filter="social-impact">Social Impact</button>
+        <button class="filter-tag" data-filter="art-design">Art & Design</button>
+        <button class="filter-tag" data-filter="food-culture">Food & Culture</button>
+        <button class="filter-tag" data-filter="wellness-beauty">Wellness & Beauty</button>
+      </div>
+
+      <div class="resources-grid-popup">
+        <!-- Resources will be dynamically populated -->
+      </div>
+
+      <div class="pagination-controls">
+        <button class="pagination-arrow prev-page" disabled>←</button>
+        <div class="pagination-info">
+          Page <strong>1</strong> of <strong>1</strong>
+        </div>
+        <button class="pagination-arrow next-page" disabled>→</button>
+      </div>
+    </div>
+  </div>
+
   <footer class="main-footer">
     <div class="footer-content">
       <p>© 2025 Project CTRL | Built by and for the people without a roadmap</p>
     </div>
   </footer>
+
+  <script>
+    // Resource data
+    const resources = {
+      'project-launcher': {
+        title: 'Project Launcher',
+        description: 'Quick-start templates & guides to launch your project',
+        items: {
+          'technology': [
+            {
+              icon: '💻',
+              title: 'Tech Startup Launch Kit',
+              description: 'Complete startup toolkit with tech-focused templates and checklists',
+              link: '#'
+            },
+            {
+              icon: '🚀',
+              title: 'SaaS Project Roadmap',
+              description: 'Launch plan template for SaaS products and digital platforms',
+              link: '#'
+            },
+            {
+              icon: '📱',
+              title: 'Mobile App Launch Guide',
+              description: 'Step-by-step guide for launching mobile applications',
+              link: '#'
+            }
+          ],
+          'education': [
+            {
+              icon: '📚',
+              title: 'EdTech Project Template',
+              description: 'Launch framework for educational technology initiatives',
+              link: '#'
+            },
+            {
+              icon: '🎓',
+              title: 'Online Course Launch Kit',
+              description: 'Template for launching digital learning programs',
+              link: '#'
+            },
+            {
+              icon: '🏫',
+              title: 'Education Program Starter',
+              description: 'Framework for launching educational institutions and programs',
+              link: '#'
+            }
+          ],
+          'health': [
+            {
+              icon: '🏥',
+              title: 'Healthcare Initiative Starter',
+              description: 'Launch kit for healthcare and wellness projects',
+              link: '#'
+            },
+            {
+              icon: '⚕️',
+              title: 'Medical Practice Launch Guide',
+              description: 'Template for starting medical practices and clinics',
+              link: '#'
+            },
+            {
+              icon: '🧬',
+              title: 'Health Tech Launch Plan',
+              description: 'Framework for healthcare technology initiatives',
+              link: '#'
+            }
+          ],
+          'environment': [
+            {
+              icon: '🌱',
+              title: 'Green Project Blueprint',
+              description: 'Sustainability project launch framework',
+              link: '#'
+            },
+            {
+              icon: '♻️',
+              title: 'Eco-Initiative Starter',
+              description: 'Template for environmental conservation projects',
+              link: '#'
+            },
+            {
+              icon: '🌍',
+              title: 'Sustainable Business Launch',
+              description: 'Guide for launching eco-friendly businesses',
+              link: '#'
+            }
+          ],
+          'social-impact': [
+            {
+              icon: '🤝',
+              title: 'Non-Profit Starter Kit',
+              description: 'Launch template for social impact initiatives',
+              link: '#'
+            },
+            {
+              icon: '💝',
+              title: 'Community Project Launch',
+              description: 'Framework for community development programs',
+              link: '#'
+            },
+            {
+              icon: '🌟',
+              title: 'Social Enterprise Guide',
+              description: 'Template for social business ventures',
+              link: '#'
+            }
+          ],
+          'art-design': [
+            {
+              icon: '🎨',
+              title: 'Creative Studio Launch Kit',
+              description: 'Startup guide for creative ventures and studios',
+              link: '#'
+            },
+            {
+              icon: '🎭',
+              title: 'Art Gallery Launch Plan',
+              description: 'Template for launching art exhibitions and galleries',
+              link: '#'
+            },
+            {
+              icon: '✏️',
+              title: 'Design Agency Starter',
+              description: 'Framework for starting design businesses',
+              link: '#'
+            }
+          ],
+          'food-culture': [
+            {
+              icon: '🍳',
+              title: 'Restaurant Launch Kit',
+              description: 'Complete guide for opening a restaurant',
+              link: '#'
+            },
+            {
+              icon: '🥘',
+              title: 'Food Business Starter',
+              description: 'Template for food service and catering ventures',
+              link: '#'
+            },
+            {
+              icon: '🍽️',
+              title: 'Culinary Project Guide',
+              description: 'Framework for culinary arts initiatives',
+              link: '#'
+            }
+          ],
+          'wellness-beauty': [
+            {
+              icon: '✨',
+              title: 'Beauty Brand Starter',
+              description: 'Launch template for beauty and cosmetics brands',
+              link: '#'
+            },
+            {
+              icon: '🧘‍♀️',
+              title: 'Wellness Center Launch',
+              description: 'Guide for opening wellness and spa facilities',
+              link: '#'
+            },
+            {
+              icon: '💆‍♀️',
+              title: 'Beauty Salon Blueprint',
+              description: 'Template for launching beauty services',
+              link: '#'
+            }
+          ]
+        }
+      },
+      'workflow-builder': {
+        title: 'Workflow Builder',
+        description: 'Industry-specific workflow templates and processes',
+        items: {
+          'technology': [
+            {
+              icon: '⚙️',
+              title: 'Agile Development Flow',
+              description: 'Customizable agile process templates for tech teams',
+              link: '#'
+            },
+            {
+              icon: '🔄',
+              title: 'DevOps Pipeline Builder',
+              description: 'Workflow templates for DevOps practices',
+              link: '#'
+            },
+            {
+              icon: '🛠️',
+              title: 'Tech Project Workflow',
+              description: 'End-to-end tech project management flow',
+              link: '#'
+            }
+          ],
+          'education': [
+            {
+              icon: '📝',
+              title: 'Course Development Flow',
+              description: 'Educational content creation workflow',
+              link: '#'
+            },
+            {
+              icon: '📚',
+              title: 'Learning Program Builder',
+              description: 'Workflow for educational program management',
+              link: '#'
+            },
+            {
+              icon: '👩‍🏫',
+              title: 'Teaching Process Template',
+              description: 'Structured workflow for educators',
+              link: '#'
+            }
+          ],
+          'health': [
+            {
+              icon: '🏥',
+              title: 'Patient Care Workflow',
+              description: 'Healthcare service delivery process templates',
+              link: '#'
+            },
+            {
+              icon: '👨‍⚕️',
+              title: 'Medical Practice Flow',
+              description: 'Clinical workflow management system',
+              link: '#'
+            },
+            {
+              icon: '💊',
+              title: 'Health Service Process',
+              description: 'Healthcare operations workflow builder',
+              link: '#'
+            }
+          ],
+          'environment': [
+            {
+              icon: '♻️',
+              title: 'Sustainability Workflow',
+              description: 'Environmental project management process',
+              link: '#'
+            },
+            {
+              icon: '🌱',
+              title: 'Green Initiative Flow',
+              description: 'Eco-project workflow templates',
+              link: '#'
+            },
+            {
+              icon: '🌍',
+              title: 'Conservation Process',
+              description: 'Environmental program workflow builder',
+              link: '#'
+            }
+          ],
+          'social-impact': [
+            {
+              icon: '🤝',
+              title: 'Non-Profit Workflow',
+              description: 'Process templates for social organizations',
+              link: '#'
+            },
+            {
+              icon: '💝',
+              title: 'Community Program Flow',
+              description: 'Workflow for community initiatives',
+              link: '#'
+            },
+            {
+              icon: '🌟',
+              title: 'Impact Project Process',
+              description: 'Social impact program workflow',
+              link: '#'
+            }
+          ],
+          'art-design': [
+            {
+              icon: '🎨',
+              title: 'Creative Project Flow',
+              description: 'Workflow for creative projects and campaigns',
+              link: '#'
+            },
+            {
+              icon: '✏️',
+              title: 'Design Process Builder',
+              description: 'Structured design workflow templates',
+              link: '#'
+            },
+            {
+              icon: '🎭',
+              title: 'Art Production Flow',
+              description: 'Art project management workflow',
+              link: '#'
+            }
+          ],
+          'food-culture': [
+            {
+              icon: '🍳',
+              title: 'Kitchen Operations Flow',
+              description: 'Restaurant workflow management system',
+              link: '#'
+            },
+            {
+              icon: '🍽️',
+              title: 'Food Service Process',
+              description: 'Culinary operations workflow builder',
+              link: '#'
+            },
+            {
+              icon: '🥘',
+              title: 'Menu Planning Flow',
+              description: 'Food business process templates',
+              link: '#'
+            }
+          ],
+          'wellness-beauty': [
+            {
+              icon: '✨',
+              title: 'Salon Service Flow',
+              description: 'Beauty service workflow templates',
+              link: '#'
+            },
+            {
+              icon: '💆‍♀️',
+              title: 'Spa Operations Process',
+              description: 'Wellness center workflow builder',
+              link: '#'
+            },
+            {
+              icon: '🧘‍♀️',
+              title: 'Wellness Program Flow',
+              description: 'Health and wellness service workflow',
+              link: '#'
+            }
+          ]
+        }
+      },
+      'development-roadmap': {
+        title: 'Development Roadmap',
+        description: 'Industry-specific development guides and milestones',
+        items: {
+          'technology': [
+            {
+              icon: '🎯',
+              title: 'Tech Product Roadmap',
+              description: 'Development timeline for tech products',
+              link: '#'
+            },
+            {
+              icon: '💻',
+              title: 'Software Dev Timeline',
+              description: 'Software project development stages',
+              link: '#'
+            },
+            {
+              icon: '🚀',
+              title: 'Tech Startup Path',
+              description: 'Growth roadmap for tech startups',
+              link: '#'
+            }
+          ],
+          'education': [
+            {
+              icon: '🎓',
+              title: 'EdTech Development Guide',
+              description: 'Educational platform development roadmap',
+              link: '#'
+            },
+            {
+              icon: '📚',
+              title: 'Learning Program Path',
+              description: 'Education program development timeline',
+              link: '#'
+            },
+            {
+              icon: '👩‍🏫',
+              title: 'Course Creation Map',
+              description: 'Educational content development guide',
+              link: '#'
+            }
+          ],
+          'health': [
+            {
+              icon: '⚕️',
+              title: 'Healthcare Tech Path',
+              description: 'Medical technology development roadmap',
+              link: '#'
+            },
+            {
+              icon: '🏥',
+              title: 'Medical Practice Growth',
+              description: 'Healthcare service development guide',
+              link: '#'
+            },
+            {
+              icon: '🧬',
+              title: 'Health Program Timeline',
+              description: 'Healthcare initiative development path',
+              link: '#'
+            }
+          ],
+          'environment': [
+            {
+              icon: '🌱',
+              title: 'Green Tech Roadmap',
+              description: 'Eco-technology development guide',
+              link: '#'
+            },
+            {
+              icon: '♻️',
+              title: 'Sustainability Path',
+              description: 'Environmental project development timeline',
+              link: '#'
+            },
+            {
+              icon: '🌍',
+              title: 'Conservation Timeline',
+              description: 'Environmental program development stages',
+              link: '#'
+            }
+          ],
+          'social-impact': [
+            {
+              icon: '🤝',
+              title: 'Impact Project Path',
+              description: 'Social initiative development roadmap',
+              link: '#'
+            },
+            {
+              icon: '💝',
+              title: 'Non-Profit Growth Map',
+              description: 'Charity organization development guide',
+              link: '#'
+            },
+            {
+              icon: '🌟',
+              title: 'Community Program Timeline',
+              description: 'Social project development stages',
+              link: '#'
+            }
+          ],
+          'art-design': [
+            {
+              icon: '🎨',
+              title: 'Creative Studio Path',
+              description: 'Art business development roadmap',
+              link: '#'
+            },
+            {
+              icon: '✏️',
+              title: 'Design Agency Growth',
+              description: 'Design business development guide',
+              link: '#'
+            },
+            {
+              icon: '🎭',
+              title: 'Art Project Timeline',
+              description: 'Creative project development stages',
+              link: '#'
+            }
+          ],
+          'food-culture': [
+            {
+              icon: '🍳',
+              title: 'Restaurant Growth Path',
+              description: 'Food business development roadmap',
+              link: '#'
+            },
+            {
+              icon: '🍽️',
+              title: 'Culinary Project Map',
+              description: 'Food service development guide',
+              link: '#'
+            },
+            {
+              icon: '🥘',
+              title: 'Food Brand Timeline',
+              description: 'Food business expansion stages',
+              link: '#'
+            }
+          ],
+          'wellness-beauty': [
+            {
+              icon: '✨',
+              title: 'Beauty Brand Path',
+              description: 'Beauty business development roadmap',
+              link: '#'
+            },
+            {
+              icon: '💆‍♀️',
+              title: 'Spa Business Growth',
+              description: 'Wellness center development guide',
+              link: '#'
+            },
+            {
+              icon: '🧘‍♀️',
+              title: 'Wellness Program Timeline',
+              description: 'Health service development stages',
+              link: '#'
+            }
+          ]
+        }
+      },
+      'project-templates': {
+        title: 'Project Templates',
+        description: 'Ready-to-use templates for your industry',
+        items: {
+          'technology': [
+            {
+              icon: '📱',
+              title: 'App Development Template',
+              description: 'Mobile app project planning template',
+              link: '#'
+            },
+            {
+              icon: '💻',
+              title: 'Software Project Plan',
+              description: 'Tech project documentation template',
+              link: '#'
+            },
+            {
+              icon: '🚀',
+              title: 'Tech MVP Template',
+              description: 'Minimum viable product planning kit',
+              link: '#'
+            }
+          ],
+          'education': [
+            {
+              icon: '📚',
+              title: 'Course Planning Template',
+              description: 'Educational program planning kit',
+              link: '#'
+            },
+            {
+              icon: '🎓',
+              title: 'Learning Module Design',
+              description: 'Course content structure template',
+              link: '#'
+            },
+            {
+              icon: '👩‍🏫',
+              title: 'Education Program Plan',
+              description: 'Teaching curriculum template',
+              link: '#'
+            }
+          ],
+          'health': [
+            {
+              icon: '🏥',
+              title: 'Medical Practice Template',
+              description: 'Healthcare service planning kit',
+              link: '#'
+            },
+            {
+              icon: '⚕️',
+              title: 'Health Program Design',
+              description: 'Wellness initiative template',
+              link: '#'
+            },
+            {
+              icon: '🧬',
+              title: 'Clinical Process Plan',
+              description: 'Medical procedure documentation',
+              link: '#'
+            }
+          ],
+          'environment': [
+            {
+              icon: '🌱',
+              title: 'Green Initiative Template',
+              description: 'Environmental project planning kit',
+              link: '#'
+            },
+            {
+              icon: '♻️',
+              title: 'Sustainability Plan',
+              description: 'Eco-project documentation template',
+              link: '#'
+            },
+            {
+              icon: '🌍',
+              title: 'Conservation Project',
+              description: 'Environmental program structure',
+              link: '#'
+            }
+          ],
+          'social-impact': [
+            {
+              icon: '🤝',
+              title: 'Non-Profit Template',
+              description: 'Social initiative planning kit',
+              link: '#'
+            },
+            {
+              icon: '💝',
+              title: 'Community Project Plan',
+              description: 'Social program documentation',
+              link: '#'
+            },
+            {
+              icon: '🌟',
+              title: 'Impact Campaign Design',
+              description: 'Social cause project template',
+              link: '#'
+            }
+          ],
+          'art-design': [
+            {
+              icon: '🎨',
+              title: 'Creative Project Template',
+              description: 'Art project planning kit',
+              link: '#'
+            },
+            {
+              icon: '✏️',
+              title: 'Design Portfolio Plan',
+              description: 'Creative showcase template',
+              link: '#'
+            },
+            {
+              icon: '🎭',
+              title: 'Exhibition Design Kit',
+              description: 'Art show planning template',
+              link: '#'
+            }
+          ],
+          'food-culture': [
+            {
+              icon: '🍳',
+              title: 'Restaurant Plan Template',
+              description: 'Food business planning kit',
+              link: '#'
+            },
+            {
+              icon: '🍽️',
+              title: 'Menu Development Kit',
+              description: 'Food service planning template',
+              link: '#'
+            },
+            {
+              icon: '🥘',
+              title: 'Culinary Project Plan',
+              description: 'Food concept documentation',
+              link: '#'
+            }
+          ],
+          'wellness-beauty': [
+            {
+              icon: '✨',
+              title: 'Beauty Business Template',
+              description: 'Salon planning toolkit',
+              link: '#'
+            },
+            {
+              icon: '💆‍♀️',
+              title: 'Spa Service Design',
+              description: 'Wellness center planning kit',
+              link: '#'
+            },
+            {
+              icon: '🧘‍♀️',
+              title: 'Wellness Program Plan',
+              description: 'Health service template',
+              link: '#'
+            }
+          ]
+        }
+      },
+      'developer-guides': {
+        title: 'Developer Guides',
+        description: 'Technical guides for different industries',
+        items: {
+          'technology': [
+            {
+              icon: '💻',
+              title: 'Full-Stack Development',
+              description: 'Complete web development guide',
+              link: '#'
+            },
+            {
+              icon: '📱',
+              title: 'Mobile App Development',
+              description: 'iOS and Android development guide',
+              link: '#'
+            },
+            {
+              icon: '🔧',
+              title: 'API Integration Guide',
+              description: 'API development best practices',
+              link: '#'
+            }
+          ],
+          'education': [
+            {
+              icon: '📚',
+              title: 'EdTech Development',
+              description: 'Educational software guide',
+              link: '#'
+            },
+            {
+              icon: '🎓',
+              title: 'LMS Integration',
+              description: 'Learning platform development',
+              link: '#'
+            },
+            {
+              icon: '👩‍🏫',
+              title: 'Educational Tools',
+              description: 'Teaching software development',
+              link: '#'
+            }
+          ],
+          'health': [
+            {
+              icon: '⚕️',
+              title: 'Health Tech Development',
+              description: 'Medical software guide',
+              link: '#'
+            },
+            {
+              icon: '🏥',
+              title: 'Medical Systems',
+              description: 'Healthcare IT development',
+              link: '#'
+            },
+            {
+              icon: '🧬',
+              title: 'Patient Portal Dev',
+              description: 'Healthcare platform guide',
+              link: '#'
+            }
+          ],
+          'environment': [
+            {
+              icon: '🌱',
+              title: 'Green Tech Development',
+              description: 'Eco-software development',
+              link: '#'
+            },
+            {
+              icon: '♻️',
+              title: 'Sustainability Apps',
+              description: 'Environmental tech guide',
+              link: '#'
+            },
+            {
+              icon: '🌍',
+              title: 'Conservation Tech',
+              description: 'Environmental monitoring systems',
+              link: '#'
+            }
+          ],
+          'social-impact': [
+            {
+              icon: '🤝',
+              title: 'Non-Profit Tech',
+              description: 'Social impact platform guide',
+              link: '#'
+            },
+            {
+              icon: '💝',
+              title: 'Community Platforms',
+              description: 'Social network development',
+              link: '#'
+            },
+            {
+              icon: '🌟',
+              title: 'Donation Systems',
+              description: 'Fundraising platform guide',
+              link: '#'
+            }
+          ],
+          'art-design': [
+            {
+              icon: '🎨',
+              title: 'Creative Tech Guide',
+              description: 'Digital art platform development',
+              link: '#'
+            },
+            {
+              icon: '✏️',
+              title: 'Design Tools Dev',
+              description: 'Creative software guide',
+              link: '#'
+            },
+            {
+              icon: '🎭',
+              title: 'Portfolio Platforms',
+              description: 'Art showcase development',
+              link: '#'
+            }
+          ],
+          'food-culture': [
+            {
+              icon: '🍳',
+              title: 'Restaurant Tech',
+              description: 'Food service software guide',
+              link: '#'
+            },
+            {
+              icon: '🍽️',
+              title: 'Order Systems',
+              description: 'Food delivery platform dev',
+              link: '#'
+            },
+            {
+              icon: '🥘',
+              title: 'Kitchen Management',
+              description: 'Restaurant software guide',
+              link: '#'
+            }
+          ],
+          'wellness-beauty': [
+            {
+              icon: '✨',
+              title: 'Salon Software',
+              description: 'Beauty business systems',
+              link: '#'
+            },
+            {
+              icon: '💆‍♀️',
+              title: 'Spa Management',
+              description: 'Wellness platform guide',
+              link: '#'
+            },
+            {
+              icon: '🧘‍♀️',
+              title: 'Booking Systems',
+              description: 'Appointment software dev',
+              link: '#'
+            }
+          ]
+        }
+      },
+      'best-practices': {
+        title: 'Best Practices',
+        description: 'Industry-specific standards and guidelines',
+        items: {
+          'technology': [
+            {
+              icon: '✨',
+              title: 'Tech Project Standards',
+              description: 'Software development best practices',
+              link: '#'
+            },
+            {
+              icon: '🔒',
+              title: 'Security Guidelines',
+              description: 'Tech security best practices',
+              link: '#'
+            },
+            {
+              icon: '📊',
+              title: 'Data Management',
+              description: 'Data handling standards',
+              link: '#'
+            }
+          ],
+          'education': [
+            {
+              icon: '📚',
+              title: 'Teaching Standards',
+              description: 'Educational best practices',
+              link: '#'
+            },
+            {
+              icon: '🎓',
+              title: 'Learning Design',
+              description: 'Course creation guidelines',
+              link: '#'
+            },
+            {
+              icon: '👩‍🏫',
+              title: 'EdTech Standards',
+              description: 'Digital education practices',
+              link: '#'
+            }
+          ],
+          'health': [
+            {
+              icon: '🏥',
+              title: 'Healthcare Guidelines',
+              description: 'Medical practice standards',
+              link: '#'
+            },
+            {
+              icon: '⚕️',
+              title: 'Patient Care',
+              description: 'Healthcare service standards',
+              link: '#'
+            },
+            {
+              icon: '🧬',
+              title: 'Medical Tech',
+              description: 'Health technology practices',
+              link: '#'
+            }
+          ],
+          'environment': [
+            {
+              icon: '🌱',
+              title: 'Green Standards',
+              description: 'Environmental best practices',
+              link: '#'
+            },
+            {
+              icon: '♻️',
+              title: 'Sustainability Guide',
+              description: 'Eco-friendly guidelines',
+              link: '#'
+            },
+            {
+              icon: '🌍',
+              title: 'Conservation Standards',
+              description: 'Environmental protection practices',
+              link: '#'
+            }
+          ],
+          'social-impact': [
+            {
+              icon: '🤝',
+              title: 'Impact Standards',
+              description: 'Social project guidelines',
+              link: '#'
+            },
+            {
+              icon: '💝',
+              title: 'Non-Profit Guide',
+              description: 'Charity organization practices',
+              link: '#'
+            },
+            {
+              icon: '🌟',
+              title: 'Community Standards',
+              description: 'Social program best practices',
+              link: '#'
+            }
+          ],
+          'art-design': [
+            {
+              icon: '🎨',
+              title: 'Design Standards',
+              description: 'Creative best practices',
+              link: '#'
+            },
+            {
+              icon: '✏️',
+              title: 'Art Guidelines',
+              description: 'Creative project standards',
+              link: '#'
+            },
+            {
+              icon: '🎭',
+              title: 'Studio Practices',
+              description: 'Art business guidelines',
+              link: '#'
+            }
+          ],
+          'food-culture': [
+            {
+              icon: '🍳',
+              title: 'Kitchen Standards',
+              description: 'Food service best practices',
+              link: '#'
+            },
+            {
+              icon: '🍽️',
+              title: 'Restaurant Guide',
+              description: 'Food business guidelines',
+              link: '#'
+            },
+            {
+              icon: '🥘',
+              title: 'Food Safety',
+              description: 'Culinary safety standards',
+              link: '#'
+            }
+          ],
+          'wellness-beauty': [
+            {
+              icon: '✨',
+              title: 'Beauty Standards',
+              description: 'Salon best practices',
+              link: '#'
+            },
+            {
+              icon: '💆‍♀️',
+              title: 'Spa Guidelines',
+              description: 'Wellness service standards',
+              link: '#'
+            },
+            {
+              icon: '🧘‍♀️',
+              title: 'Wellness Practices',
+              description: 'Health service guidelines',
+              link: '#'
+            }
+          ]
+        }
+      }
+    };
+
+    // Initialize popup functionality
+    document.addEventListener('DOMContentLoaded', () => {
+      const popup = document.querySelector('.resources-popup');
+      const closeBtn = document.querySelector('.close-popup');
+      const filterTags = document.querySelectorAll('.filter-tag');
+      const resourcesGrid = document.querySelector('.resources-grid-popup');
+      const bentoCards = document.querySelectorAll('.bento-card[data-resource]');
+      const prevPageBtn = document.querySelector('.prev-page');
+      const nextPageBtn = document.querySelector('.next-page');
+      const paginationInfo = document.querySelector('.pagination-info');
+
+      const ITEMS_PER_PAGE = 6;
+      let currentPage = 1;
+      let filteredItems = [];
+
+      // Close popup
+      closeBtn.addEventListener('click', () => {
+        popup.classList.remove('active');
+      });
+
+      // Close popup when clicking outside
+      popup.addEventListener('click', (e) => {
+        if (e.target === popup) {
+          popup.classList.remove('active');
+        }
+      });
+
+      // Pagination controls
+      prevPageBtn.addEventListener('click', () => {
+        if (currentPage > 1) {
+          currentPage--;
+          displayCurrentPage();
+        }
+      });
+
+      nextPageBtn.addEventListener('click', () => {
+        const totalPages = Math.ceil(filteredItems.length / ITEMS_PER_PAGE);
+        if (currentPage < totalPages) {
+          currentPage++;
+          displayCurrentPage();
+        }
+      });
+
+      // Filter functionality
+      filterTags.forEach(tag => {
+        tag.addEventListener('click', () => {
+          // Update active state
+          filterTags.forEach(t => t.classList.remove('active'));
+          tag.classList.add('active');
+
+          // Reset pagination
+          currentPage = 1;
+
+          // Get current resource type
+          const currentResourceType = popup.dataset.currentResource;
+          const resourceData = resources[currentResourceType];
+
+          // Filter and display resources
+          filterAndDisplayResources(resourceData, tag.dataset.filter);
+        });
+      });
+
+      // Function to filter and display resources
+      function filterAndDisplayResources(resourceData, filter) {
+        filteredItems = [];
+
+        if (filter === 'all') {
+          // Show all categories
+          Object.entries(resourceData.items).forEach(([category, items]) => {
+            items.forEach(item => {
+              filteredItems.push({ ...item, category });
+            });
+          });
+        } else {
+          // Show specific category
+          const items = resourceData.items[filter] || [];
+          items.forEach(item => {
+            filteredItems.push({ ...item, category: filter });
+          });
+        }
+
+        displayCurrentPage();
+      }
+
+      // Function to display current page
+      function displayCurrentPage() {
+        resourcesGrid.innerHTML = '';
+        const totalPages = Math.ceil(filteredItems.length / ITEMS_PER_PAGE);
+        const start = (currentPage - 1) * ITEMS_PER_PAGE;
+        const end = start + ITEMS_PER_PAGE;
+        const currentItems = filteredItems.slice(start, end);
+
+        currentItems.forEach(item => {
+          addResourceItem(item, item.category);
+        });
+
+        // Update pagination controls
+        prevPageBtn.disabled = currentPage === 1;
+        nextPageBtn.disabled = currentPage === totalPages;
+        paginationInfo.innerHTML = `Page <strong>${currentPage}</strong> of <strong>${totalPages || 1}</strong>`;
+
+        // Show message if no items
+        if (filteredItems.length === 0) {
+          resourcesGrid.innerHTML = `
+            <div class="no-results">
+              <p>No resources available for this category yet.</p>
+              <p>Check back soon for updates!</p>
+            </div>
+          `;
+          paginationInfo.innerHTML = `Page <strong>1</strong> of <strong>1</strong>`;
+        }
+      }
+
+      // Function to add a resource item to the grid
+      function addResourceItem(item, category) {
+        const resourceItem = document.createElement('div');
+        resourceItem.className = 'resource-item-popup';
+        resourceItem.dataset.category = category;
+        
+        resourceItem.innerHTML = `
+          <div class="resource-header">
+            <span class="resource-icon-popup">${item.icon}</span>
+            <div class="resource-title">
+              <h4>${item.title}</h4>
+              <span class="category-tag">${formatCategory(category)}</span>
+            </div>
+          </div>
+          <p class="resource-description">${item.description}</p>
+          <a href="${item.link}" class="resource-link">Learn more →</a>
+        `;
+        
+        resourcesGrid.appendChild(resourceItem);
+      }
+
+      // Format category name for display
+      function formatCategory(category) {
+        return category
+          .split('-')
+          .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+          .join(' ');
+      }
+
+      // Open popup when clicking bento cards
+      bentoCards.forEach(card => {
+        card.addEventListener('click', () => {
+          const resourceType = card.dataset.resource;
+          const resourceData = resources[resourceType];
+          
+          // Store current resource type
+          popup.dataset.currentResource = resourceType;
+
+          // Update popup title and description
+          document.querySelector('.resources-popup-header h2').textContent = resourceData.title;
+          
+          // Reset filter to 'all' and show all resources
+          filterTags[0].click();
+          
+          // Show popup
+          popup.classList.add('active');
+        });
+      });
+    });
+  </script>
 
   <style>
     :root {
@@ -255,6 +1454,12 @@
       justify-content: center;
       text-align: left;
       transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .placeholder-box:hover {
+      transform: translateY(-5px);
+      background: rgba(121, 183, 255, 0.15);
     }
 
     .placeholder-icon {
@@ -304,6 +1509,45 @@
       .dot {
         display: none;
       }
+    }
+
+    .category-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: 12px;
+      background: var(--primary-light);
+      color: var(--primary-color);
+      margin-top: 0.5rem;
+    }
+
+    .no-results {
+      text-align: center;
+      padding: 3rem;
+      color: var(--secondary-color);
+    }
+
+    .no-results p:first-child {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .no-results p:last-child {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    .resources-filter {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .filter-tag {
+      white-space: nowrap;
     }
   </style>
 </body>
