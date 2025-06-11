@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Share Updates & Events - Project CTRL</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="submit-page">
+  <header class="main-header">
+    <div class="header-container">
+      <a href="index.html" class="logo">Project CTRL</a>
+      <nav class="main-nav">
+        <a href="index.html">Dashboard</a>
+        <a href="projects.html">Project Hub</a>
+        <div class="dropdown">
+          <a href="resources.html" class="dropdown-trigger">Resources ▾</a>
+          <div class="dropdown-content">
+            <a href="https://stembystep.github.io/sbs/" target="_blank">STEM by Step</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="submit-section">
+    <div class="content-wrapper">
+      <div class="bento-grid">
+        <div class="form-card">
+          <div class="tip-banner">
+            <span class="tip-icon">📢</span>
+            <p>Share your project updates or upcoming events with our community!</p>
+          </div>
+
+          <form id="update-form" action="https://formspree.io/f/movwdqka" method="POST">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="update-type" class="required-field">Type</label>
+                <select id="update-type" name="update-type" required>
+                  <option value="">Select type...</option>
+                  <option value="event">Event</option>
+                  <option value="project-update">Project Update</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="title" class="required-field">Project/Event Name</label>
+                <input type="text" id="title" name="title" required placeholder="Enter the name of your project or event">
+              </div>
+
+              <div class="form-group">
+                <label for="project-status" class="required-field">Project Status</label>
+                <select id="project-status" name="project-status" required>
+                  <option value="">Select option...</option>
+                  <option value="existing">I have an existing project on the hub</option>
+                  <option value="new-event">This is a standalone event/update</option>
+                </select>
+              </div>
+
+              <div class="form-group" id="project-name-group" style="display: none;">
+                <label for="project-name">Existing Project Name on Hub</label>
+                <input type="text" id="project-name" name="project-name" placeholder="Enter your project's name as listed on the hub">
+              </div>
+
+              <div class="form-group full-width">
+                <label for="description" class="required-field">Description</label>
+                <textarea id="description" name="description" required placeholder="Tell us about your event or project update. For events, include date, time, and location if applicable."></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-name" class="required-field">Contact Name</label>
+                <input type="text" id="contact-name" name="contact-name" required>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-email" class="required-field">Contact Email</label>
+                <input type="email" id="contact-email" name="contact-email" required>
+              </div>
+
+              <div class="form-group">
+                <label for="website" class="required-field">Website/Social Media</label>
+                <input type="url" id="website" name="website" required placeholder="https://">
+              </div>
+
+              <div class="form-group full-width">
+                <label for="additional-contact" class="required-field">Additional Contact Information</label>
+                <textarea id="additional-contact" name="additional-contact" required placeholder="List any additional contact methods or details that should be displayed with your post (e.g., phone, social media handles, office hours)"></textarea>
+              </div>
+            </div>
+
+            <button type="submit" class="submit-button">
+              Submit Update
+              <span class="button-icon">→</span>
+            </button>
+          </form>
+        </div>
+
+        <div class="info-card">
+          <h3>Why Share Updates?</h3>
+          <div class="benefits-list">
+            <div class="benefit-item">
+              <span class="benefit-icon">🎯</span>
+              <div class="benefit-content">
+                <h4>Keep Your Community Engaged</h4>
+                <p>Share milestones, achievements, and upcoming events with your supporters.</p>
+              </div>
+            </div>
+
+            <div class="benefit-item">
+              <span class="benefit-icon">🤝</span>
+              <div class="benefit-content">
+                <h4>Build Connections</h4>
+                <p>Connect with other project leaders and potential collaborators.</p>
+              </div>
+            </div>
+
+            <div class="benefit-item">
+              <span class="benefit-icon">📈</span>
+              <div class="benefit-content">
+                <h4>Track Progress</h4>
+                <p>Document your journey and inspire others with your growth.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="main-footer">
+    <div class="footer-content">
+      <p>© 2025 Project CTRL | Built by and for the people without a roadmap</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('project-status').addEventListener('change', function(e) {
+      const projectNameGroup = document.getElementById('project-name-group');
+      if (e.target.value === 'existing') {
+        projectNameGroup.style.display = 'block';
+      } else {
+        projectNameGroup.style.display = 'none';
+      }
+    });
+
+    document.getElementById('update-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      // Add form submission logic here
+      alert('Thank you for sharing your update! We will review it and get back to you soon.');
+      this.submit();
+    });
+  </script>
+</body>
+</html> 

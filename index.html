@@ -6,6 +6,544 @@
   <title>Project CTRL - Your Innovation Journey Starts Here</title>
   <link rel="stylesheet" href="css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .cta-buttons {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      margin: 2rem 0;
+    }
+
+    .cta-buttons .primary-button,
+    .cta-buttons .secondary-button {
+      font-size: 1.125rem;
+      font-weight: 600;
+      padding: 1rem 2rem;
+      border-radius: 100px;
+      border: none;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      min-width: 200px;
+      justify-content: center;
+    }
+
+    .cta-buttons .primary-button {
+      background: #79b7ff;
+      color: white;
+      box-shadow: 0 4px 20px rgba(121, 183, 255, 0.2);
+    }
+
+    .cta-buttons .secondary-button {
+      background: #EEF4FF;
+      color: #79b7ff;
+    }
+
+    .cta-buttons .primary-button:hover {
+      background: #5a9eff;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(121, 183, 255, 0.3);
+    }
+
+    .cta-buttons .secondary-button:hover {
+      background: #dce7ff;
+      transform: translateY(-2px);
+    }
+
+    .button-icon {
+      font-size: 1.25rem;
+      transition: transform 0.3s ease;
+    }
+
+    .primary-button:hover .button-icon {
+      transform: translateX(4px);
+    }
+
+    .secondary-button:hover .button-icon {
+      transform: rotate(90deg);
+    }
+
+    @media (max-width: 768px) {
+      .cta-buttons {
+        flex-direction: column;
+        padding: 0 1rem;
+      }
+
+      .cta-buttons .primary-button,
+      .cta-buttons .secondary-button {
+        width: 100%;
+      }
+    }
+
+    /* Featured Projects in Bento Card */
+    .community-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .featured-projects {
+      position: relative;
+      width: 100%;
+      min-height: 150px; /* Minimum height to prevent collapse */
+      height: calc(100% - 40px); /* Account for heading */
+    }
+
+    .featured-project {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      cursor: pointer;
+      padding: 0.5rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .featured-project.active {
+      opacity: 1;
+    }
+
+    .featured-project .project-header {
+      margin-bottom: 0.75rem;
+    }
+
+    .featured-project h4 {
+      font-size: clamp(1rem, 2vw, 1.1rem);
+      margin: 0 0 0.5rem 0;
+      color: #333;
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .featured-project .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .featured-project .tag {
+      font-size: clamp(0.65rem, 1.5vw, 0.75rem);
+      padding: 0.25rem 0.75rem;
+      border-radius: 100px;
+      background: #EEF4FF;
+      color: #79b7ff;
+      white-space: nowrap;
+    }
+
+    .featured-project .project-description {
+      font-size: clamp(0.75rem, 1.5vw, 0.875rem);
+      line-height: 1.5;
+      color: #555;
+      margin: 0;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      flex-grow: 1;
+    }
+
+    .featured-project:hover {
+      background: rgba(121, 183, 255, 0.05);
+      border-radius: 8px;
+    }
+
+    .featured-project:hover .tag {
+      background: #79b7ff;
+      color: white;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .featured-projects {
+        min-height: 120px;
+      }
+
+      .featured-project {
+        padding: 0.25rem;
+      }
+
+      .featured-project .project-header {
+        margin-bottom: 0.5rem;
+      }
+
+      .featured-project .project-tags {
+        gap: 0.25rem;
+        margin-bottom: 0.25rem;
+      }
+
+      .featured-project .tag {
+        padding: 0.15rem 0.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .featured-projects {
+        min-height: 100px;
+      }
+
+      .featured-project .project-description {
+        -webkit-line-clamp: 1;
+      }
+    }
+
+    /* How It Works Card Styles */
+    .how-it-works-card {
+      grid-column: span 2;
+    }
+
+    .tiers-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .tier-section {
+      background: rgba(121, 183, 255, 0.03);
+      border-radius: 12px;
+      padding: 1.25rem;
+      transition: all 0.3s ease;
+    }
+
+    .tier-section:hover {
+      background: rgba(121, 183, 255, 0.08);
+      transform: translateY(-2px);
+    }
+
+    .tier-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+
+    .tier-header h4 {
+      font-size: 1.1rem;
+      color: #333;
+      margin: 0;
+      font-weight: 600;
+    }
+
+    .tier-badge {
+      font-size: 0.75rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: 100px;
+      background: #79b7ff;
+      color: white;
+      font-weight: 500;
+    }
+
+    .tier-badge.coming-soon {
+      background: #FFB17A;
+    }
+
+    .tier-features {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .tier-features li {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.875rem;
+      color: #555;
+    }
+
+    .feature-icon {
+      font-size: 1rem;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: white;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .tier-note {
+      margin: 1rem 0 0;
+      font-size: 0.8125rem;
+      color: #666;
+      font-style: italic;
+      line-height: 1.5;
+    }
+
+    /* Mobile Responsive Adjustments */
+    @media (max-width: 768px) {
+      .how-it-works-card {
+        grid-column: span 1;
+      }
+
+      .tiers-container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .tier-section {
+        padding: 1rem;
+      }
+
+      .tier-header h4 {
+        font-size: 1rem;
+      }
+
+      .tier-features li {
+        font-size: 0.8125rem;
+      }
+
+      .feature-icon {
+        width: 20px;
+        height: 20px;
+        font-size: 0.875rem;
+      }
+    }
+
+    /* Update category styles */
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .category-item {
+      background: rgba(121, 183, 255, 0.03);
+      border-radius: 12px;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 0.5rem;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .category-item:hover {
+      background: rgba(121, 183, 255, 0.08);
+      transform: translateY(-2px);
+    }
+
+    .category-icon {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(121, 183, 255, 0.1);
+      margin-bottom: 0.5rem;
+    }
+
+    .category-icon svg {
+      transition: transform 0.3s ease;
+    }
+
+    .category-item:hover .category-icon svg {
+      transform: scale(1.1);
+    }
+
+    .category-name {
+      font-weight: 600;
+      color: #333;
+      font-size: 0.9rem;
+    }
+
+    .category-desc {
+      font-size: 0.8rem;
+      color: #666;
+      margin-top: -0.25rem;
+    }
+
+    @media (max-width: 768px) {
+      .categories-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .category-item {
+        padding: 0.75rem;
+      }
+
+      .category-icon {
+        width: 40px;
+        height: 40px;
+      }
+
+      .category-name {
+        font-size: 0.85rem;
+      }
+
+      .category-desc {
+        font-size: 0.75rem;
+      }
+    }
+
+    /* Updated Bento Grid Layout */
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    /* Adjust specific bento card sizes */
+    .resources-card {
+      grid-column: span 2;
+      max-height: 280px;
+      overflow: hidden;
+    }
+
+    .community-card {
+      grid-column: span 2;
+      max-height: 280px;
+      overflow: hidden;
+    }
+
+    .categories-card {
+      grid-column: span 4;
+    }
+
+    .stories-card,
+    .get-started-card {
+      grid-column: span 2;
+    }
+
+    .how-it-works-card {
+      grid-column: span 4;
+    }
+
+    /* Adjust resource items for smaller container */
+    .resources-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+    }
+
+    .resource-item {
+      padding: 0.75rem;
+    }
+
+    .resource-icon {
+      font-size: 1.25rem;
+      width: 36px;
+      height: 36px;
+    }
+
+    .resource-content h4 {
+      font-size: 0.9rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .resource-content p {
+      font-size: 0.8rem;
+    }
+
+    /* Adjust featured projects for smaller container */
+    .featured-projects {
+      min-height: 120px;
+    }
+
+    .featured-project {
+      padding: 0.75rem;
+    }
+
+    .featured-project h4 {
+      font-size: 1rem;
+    }
+
+    .featured-project .project-tags {
+      gap: 0.375rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .featured-project .tag {
+      font-size: 0.7rem;
+      padding: 0.2rem 0.5rem;
+    }
+
+    .featured-project .project-description {
+      font-size: 0.8rem;
+      -webkit-line-clamp: 2;
+    }
+
+    /* Mobile Responsive Adjustments */
+    @media (max-width: 1024px) {
+      .bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .categories-card,
+      .how-it-works-card {
+        grid-column: span 2;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .bento-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .resources-card,
+      .community-card,
+      .categories-card,
+      .stories-card,
+      .get-started-card,
+      .how-it-works-card {
+        grid-column: span 1;
+        max-height: none;
+      }
+    }
+
+    /* Add styles for shop resource item */
+    .resource-item.shop-item {
+      background: rgba(121, 183, 255, 0.05);
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .resource-item.shop-item:hover {
+      background: rgba(121, 183, 255, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .resource-item.shop-item .resource-content {
+      padding-right: 24px;
+    }
+
+    .resource-item.shop-item::after {
+      content: "→";
+      position: absolute;
+      right: 12px;
+      bottom: 12px;
+      font-size: 1.1rem;
+      color: #79b7ff;
+      transition: transform 0.3s ease;
+    }
+
+    .resource-item.shop-item:hover::after {
+      transform: translateX(4px);
+    }
+  </style>
 </head>
 <body class="dashboard">
   <header class="main-header">
@@ -13,9 +551,14 @@
       <a href="index.html" class="logo">Project CTRL</a>
       <nav class="main-nav">
         <a href="index.html" class="active">Dashboard</a>
-      <a href="projects.html">Project Hub</a>
-        <a href="resources.html">Resources</a>
-    </nav>
+        <a href="projects.html">Project Hub</a>
+        <div class="dropdown">
+          <a href="resources.html" class="dropdown-trigger">Resources ▾</a>
+          <div class="dropdown-content">
+            <a href="https://stembystep.github.io/sbs/" target="_blank">STEM by Step</a>
+          </div>
+        </div>
+      </nav>
     </div>
   </header>
 
@@ -79,63 +622,125 @@
                   <p>Connect with experienced guides</p>
                 </div>
               </div>
+              <a href="https://ko-fi.com/projectctrl" target="_blank" class="resource-item shop-item" style="text-decoration: none; color: inherit;">
+                <span class="resource-icon">✨</span>
+                <div class="resource-content">
+                  <h4>Premium Resources</h4>
+                  <p>Custom toolkits & 1:1 support</p>
+                </div>
+              </a>
             </div>
           </div>
 
           <!-- Community Highlights -->
           <div class="bento-card community-card">
-            <h3>Community Highlights</h3>
-            <div class="community-list">
-              <div class="community-item">
-                <span class="member-icon">👥</span>
-                <div class="member-content">
-                  <h4>Small Businesses</h4>
-                  <p>0 success stories</p>
+            <h3>Featured Projects</h3>
+            <div class="featured-projects">
+              <div class="featured-project active" data-project-id="1">
+                <div class="project-header">
+                  <h4>STEM by Step</h4>
+                  <div class="project-tags">
+                    <span class="tag tag-type">Non-Profit</span>
+                    <span class="tag tag-category">Education</span>
+                  </div>
                 </div>
+                <p class="project-description">A free STEM education platform providing hands-on learning experiences for underserved communities.</p>
               </div>
-              <div class="community-item">
-                <span class="member-icon">🏢</span>
-                <div class="member-content">
-                  <h4>Local Initiatives</h4>
-                  <p>0 active projects</p>
+              <div class="featured-project" data-project-id="2">
+                <div class="project-header">
+                  <h4>Hearts of Tomorrow</h4>
+                  <div class="project-tags">
+                    <span class="tag tag-type">Non-Profit</span>
+                    <span class="tag tag-category">Social Impact</span>
+                  </div>
                 </div>
+                <p class="project-description">Empowering youth through mentorship and leadership development opportunities.</p>
               </div>
-              <div class="community-item">
-                <span class="member-icon">📊</span>
-                <div class="member-content">
-                  <h4>Digital Transformations</h4>
-                  <p>0 this month</p>
+              <div class="featured-project" data-project-id="3">
+                <div class="project-header">
+                  <h4>Local Business Directory</h4>
+                  <div class="project-tags">
+                    <span class="tag tag-type">Business</span>
+                    <span class="tag tag-category">Technology</span>
+                  </div>
                 </div>
+                <p class="project-description">A digital platform connecting local businesses with their community.</p>
               </div>
             </div>
           </div>
 
           <!-- Featured Categories -->
           <div class="bento-card categories-card">
-            <h3>Browse By Category</h3>
+            <h3>Who We Help</h3>
             <div class="categories-grid">
               <div class="category-item">
-                <span class="category-icon">📊</span>
-                <span class="category-name">Business</span>
+                <span class="category-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <rect x="3" y="3" width="18" height="18" rx="2" stroke="#79b7ff" stroke-width="2"/>
+                    <line x1="8" y1="12" x2="16" y2="12" stroke="#79b7ff" stroke-width="2"/>
+                    <line x1="12" y1="8" x2="12" y2="16" stroke="#79b7ff" stroke-width="2"/>
+                  </svg>
+                </span>
+                <span class="category-name">Digital Startups</span>
+                <span class="category-desc">Tech platforms & apps</span>
               </div>
               <div class="category-item">
-                <span class="category-icon">📚</span>
-                <span class="category-name">Education</span>
+                <span class="category-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="9" stroke="#79b7ff" stroke-width="2"/>
+                    <path d="M12 7v10M7 12h10" stroke="#79b7ff" stroke-width="2"/>
+                  </svg>
+                </span>
+                <span class="category-name">Local Businesses</span>
+                <span class="category-desc">Shops & services</span>
               </div>
               <div class="category-item">
-                <span class="category-icon">📋</span>
-                <span class="category-name">Creative</span>
-              </div>
-              <div class="category-item">
-                <span class="category-icon">🤝</span>
+                <span class="category-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <polygon points="12,2 22,18 2,18" stroke="#79b7ff" stroke-width="2" fill="none"/>
+                  </svg>
+                </span>
                 <span class="category-name">Social Impact</span>
+                <span class="category-desc">Non-profits & causes</span>
+              </div>
+              <div class="category-item">
+                <span class="category-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <rect x="4" y="4" width="7" height="7" stroke="#79b7ff" stroke-width="2"/>
+                    <rect x="13" y="4" width="7" height="7" stroke="#79b7ff" stroke-width="2"/>
+                    <rect x="4" y="13" width="7" height="7" stroke="#79b7ff" stroke-width="2"/>
+                    <rect x="13" y="13" width="7" height="7" stroke="#79b7ff" stroke-width="2"/>
+                  </svg>
+                </span>
+                <span class="category-name">Creative Projects</span>
+                <span class="category-desc">Artists & makers</span>
+              </div>
+              <div class="category-item">
+                <span class="category-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 3L3 9l9 6l9-6l-9-6z" stroke="#79b7ff" stroke-width="2" fill="none"/>
+                    <path d="M3 14l9 6l9-6" stroke="#79b7ff" stroke-width="2"/>
+                  </svg>
+                </span>
+                <span class="category-name">Side Hustles</span>
+                <span class="category-desc">Part-time ventures</span>
+              </div>
+              <div class="category-item">
+                <span class="category-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M5 5h14v14H5z" stroke="#79b7ff" stroke-width="2"/>
+                    <path d="M12 5v14M5 12h14" stroke="#79b7ff" stroke-width="2"/>
+                  </svg>
+                </span>
+                <span class="category-name">Community Initiatives</span>
+                <span class="category-desc">Local impact projects</span>
               </div>
             </div>
           </div>
 
           <!-- Success Stories -->
           <div class="bento-card stories-card">
-            <h3>Share Your Story</h3>
+            <h3>Share Your Testimonials</h3>
             <div class="contact-info">
               <div class="contact-item">
                 <span class="contact-icon">📧</span>
@@ -173,6 +778,68 @@
               <div class="step-item">
                 <span class="step-number">4</span>
                 <p>Share your project</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- How It Works Card -->
+          <div class="bento-card how-it-works-card">
+            <h3>How It Works</h3>
+            <div class="tiers-container">
+              <div class="tier-section free-tier">
+                <div class="tier-header">
+                  <h4>Free Tier Users</h4>
+                  <span class="tier-badge">Available Now</span>
+                </div>
+                <ul class="tier-features">
+                  <li>
+                    <span class="feature-icon">📌</span>
+                    Permanent listing on the Project Hub
+                  </li>
+                  <li>
+                    <span class="feature-icon">📱</span>
+                    1x social media post
+                  </li>
+                  <li>
+                    <span class="feature-icon">💭</span>
+                    Feedback from the CTRL team
+                  </li>
+                  <li>
+                    <span class="feature-icon">📚</span>
+                    Access to free resources
+                  </li>
+                </ul>
+                <p class="tier-note">CTRL is currently in its early-access stage — your submission helps us build the future.</p>
+              </div>
+
+              <div class="tier-section spotlight-tier">
+                <div class="tier-header">
+                  <h4>Spotlight Tier</h4>
+                  <span class="tier-badge coming-soon">Coming Soon</span>
+                </div>
+                <ul class="tier-features">
+                  <li>
+                    <span class="feature-icon">⭐</span>
+                    Pinned section in hub
+                  </li>
+                  <li>
+                    <span class="feature-icon">📢</span>
+                    Monthly social media promotion
+                  </li>
+                  <li>
+                    <span class="feature-icon">🎁</span>
+                    Free toolkit item + discounts
+                  </li>
+                  <li>
+                    <span class="feature-icon">📋</span>
+                    Full project review
+                  </li>
+                  <li>
+                    <span class="feature-icon">🏆</span>
+                    CTRL badge + alumni recognition
+                  </li>
+                </ul>
+                <p class="tier-note">Launching once we reach 100–500 community submissions.</p>
               </div>
             </div>
           </div>
@@ -292,6 +959,49 @@
       });
 
       counters.forEach(counter => observer.observe(counter));
+    });
+
+    // Featured Projects Rotation
+    document.addEventListener('DOMContentLoaded', () => {
+      const featuredProjects = document.querySelectorAll('.featured-project');
+      let currentProject = 0;
+      let rotationInterval;
+
+      function showProject(index) {
+        featuredProjects.forEach(project => project.classList.remove('active'));
+        featuredProjects[index].classList.add('active');
+      }
+
+      function nextProject() {
+        currentProject = (currentProject + 1) % featuredProjects.length;
+        showProject(currentProject);
+      }
+
+      function startRotation() {
+        if (rotationInterval) clearInterval(rotationInterval);
+        rotationInterval = setInterval(nextProject, 7000);
+      }
+
+      // Initialize rotation
+      showProject(0);
+      startRotation();
+
+      // Add click handlers to featured projects
+      featuredProjects.forEach(project => {
+        project.addEventListener('click', () => {
+          const projectId = project.dataset.projectId;
+          window.location.href = `projects.html#featured-${projectId}`;
+        });
+
+        // Pause rotation on hover
+        project.addEventListener('mouseenter', () => {
+          clearInterval(rotationInterval);
+        });
+
+        project.addEventListener('mouseleave', () => {
+          startRotation();
+        });
+      });
     });
   </script>
 </body>

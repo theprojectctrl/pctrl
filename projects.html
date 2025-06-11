@@ -6,6 +6,897 @@
   <title>Project Hub - Project CTRL</title>
   <link rel="stylesheet" href="css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .cta-buttons {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      margin: 2rem 0;
+    }
+
+    .cta-buttons .primary-button,
+    .cta-buttons .secondary-button {
+      font-size: 1.125rem;
+      font-weight: 600;
+      padding: 1rem 2rem;
+      border-radius: 100px;
+      border: none;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      min-width: 200px;
+      justify-content: center;
+    }
+
+    .cta-buttons .primary-button {
+      background: #79b7ff;
+      color: white;
+      box-shadow: 0 4px 20px rgba(121, 183, 255, 0.2);
+    }
+
+    .cta-buttons .secondary-button {
+      background: #EEF4FF;
+      color: #79b7ff;
+    }
+
+    .cta-buttons .primary-button:hover {
+      background: #5a9eff;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(121, 183, 255, 0.3);
+    }
+
+    .cta-buttons .secondary-button:hover {
+      background: #dce7ff;
+      transform: translateY(-2px);
+    }
+
+    .button-icon {
+      font-size: 1.25rem;
+      transition: transform 0.3s ease;
+    }
+
+    .primary-button:hover .button-icon {
+      transform: translateX(4px);
+    }
+
+    .secondary-button:hover .button-icon {
+      transform: rotate(90deg);
+    }
+
+    .filter-count {
+      background: rgba(255, 255, 255, 0.3);
+      padding: 0.25rem 0.75rem;
+      border-radius: 100px;
+      font-size: 0.875rem;
+    }
+
+    @media (max-width: 768px) {
+      .cta-buttons {
+        flex-direction: column;
+        padding: 0 1rem;
+      }
+
+      .cta-buttons .primary-button,
+      .cta-buttons .secondary-button {
+        width: 100%;
+      }
+    }
+
+    /* Featured Slider Squad Formation Styles */
+    .featured-slider {
+      width: 100%;
+      margin: 2rem 0;
+      position: relative;
+      overflow: hidden;
+      padding: 1rem;
+    }
+
+    .slider-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      padding: 1rem;
+    }
+
+    .slide {
+      position: relative;
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+      transform-origin: center;
+      opacity: 0.7;
+      transform: scale(0.95);
+    }
+
+    .slide:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 8px 24px rgba(121, 183, 255, 0.2);
+    }
+
+    .slide.active {
+      opacity: 1;
+      transform: scale(1);
+      box-shadow: 0 8px 24px rgba(121, 183, 255, 0.3);
+    }
+
+    .slide .project-header {
+      margin-bottom: 12px;
+    }
+
+    .slide h3 {
+      font-size: 1.25rem;
+      margin: 0 0 10px 0;
+      color: #333;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .slide .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+
+    .slide .tag {
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 100px;
+      background: #EEF4FF;
+      color: #79b7ff;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    .slide:hover .tag {
+      background: #79b7ff;
+      color: white;
+    }
+
+    .slide .project-description {
+      font-size: 0.875rem;
+      line-height: 1.5;
+      color: #555;
+      margin: 0;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .slider-nav {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .slider-button {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: none;
+      background: #EEF4FF;
+      color: #79b7ff;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .slider-button:hover {
+      background: #79b7ff;
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    /* Mobile Responsive Adjustments */
+    @media (max-width: 1024px) {
+      .slider-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .slider-container {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .slide {
+        padding: 16px;
+      }
+
+      .slide h3 {
+        font-size: 1.1rem;
+      }
+
+      .slide .project-tags {
+        gap: 4px;
+      }
+
+      .slide .tag {
+        font-size: 0.7rem;
+        padding: 2px 8px;
+      }
+
+      .slide .project-description {
+        font-size: 0.8rem;
+        -webkit-line-clamp: 2;
+      }
+    }
+
+    /* Project Popup Mobile Styles */
+    @media (max-width: 768px) {
+      .project-popup {
+        width: 90%;
+        max-height: 90vh;
+        margin: 5vh auto;
+        padding: 16px;
+      }
+
+      .project-popup-header h2 {
+        font-size: 1.25rem;
+      }
+
+      .team-visualization {
+        flex-direction: column;
+      }
+
+      .team-member {
+        padding: 16px;
+      }
+
+      .member-avatar {
+        width: 60px;
+        height: 60px;
+      }
+
+      .contact-method {
+        font-size: 0.875rem;
+      }
+    }
+
+    /* Modern Filter Panel Styles */
+    .filter-toggle {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .filter-toggle .filter-count {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 0.25rem 0.75rem;
+      border-radius: 100px;
+      font-size: 0.875rem;
+      margin-left: 0.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .filter-toggle.active {
+      background: #79b7ff;
+      transform: translateY(-2px);
+    }
+
+    .filter-toggle.has-filters {
+      background: #79b7ff;
+    }
+
+    .filter-panel {
+      margin-top: 1rem;
+      background: white;
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 24px rgba(121, 183, 255, 0.15);
+      width: 100%;
+      max-width: 800px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      animation: slideDown 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1px solid rgba(121, 183, 255, 0.1);
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .filter-group {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .filter-group h4 {
+      font-size: 1rem;
+      color: #333;
+      margin: 0;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .filter-group h4::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 4px;
+      background: #79b7ff;
+      border-radius: 50%;
+    }
+
+    .filter-options {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .filter-option {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      cursor: pointer;
+      padding: 0.5rem;
+      color: #555;
+      transition: all 0.2s ease;
+      border-radius: 8px;
+      font-size: 0.875rem;
+    }
+
+    .filter-option:hover {
+      background: rgba(121, 183, 255, 0.05);
+      color: #79b7ff;
+    }
+
+    .filter-option input[type="checkbox"] {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 4px;
+      border: 2px solid #ddd;
+      position: relative;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .filter-option input[type="checkbox"]:checked {
+      background-color: #79b7ff;
+      border-color: #79b7ff;
+    }
+
+    .filter-option input[type="checkbox"]:checked::after {
+      content: '✓';
+      color: white;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 12px;
+    }
+
+    .filter-option:hover input[type="checkbox"]:not(:checked) {
+      border-color: #79b7ff;
+    }
+
+    /* Filter Panel Mobile Styles */
+    @media (max-width: 768px) {
+      .filter-panel {
+        padding: 1rem;
+        gap: 1rem;
+        margin-top: 0.75rem;
+      }
+
+      .filter-group {
+        gap: 0.75rem;
+      }
+
+      .filter-option {
+        padding: 0.375rem;
+        font-size: 0.8125rem;
+      }
+
+      .filter-option input[type="checkbox"] {
+        width: 16px;
+        height: 16px;
+      }
+    }
+
+    /* Add styles for free tier benefits banner */
+    .benefits-banner {
+      background: rgba(121, 183, 255, 0.05);
+      border-radius: 12px;
+      padding: 1.25rem;
+      margin: 2rem 0;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      border: 1px solid rgba(121, 183, 255, 0.1);
+    }
+
+    .benefits-banner .icon {
+      font-size: 1.5rem;
+      color: #79b7ff;
+      flex-shrink: 0;
+    }
+
+    .benefits-banner .message {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .benefits-banner .highlight {
+      color: #79b7ff;
+      font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+      .benefits-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 1rem;
+      }
+    }
+
+    .projects-section-header {
+      margin-top: 3rem;
+      text-align: center;
+    }
+
+    .projects-section-header h2 {
+      font-size: 1.75rem;
+      color: #333;
+      margin-bottom: 1rem;
+    }
+
+    .projects-section-header p {
+      color: #666;
+      font-size: 1rem;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    /* Section header styles */
+    .section-header {
+      margin: 3rem 0 1.5rem;
+    }
+
+    .section-header h2 {
+      font-size: 1.75rem;
+      color: #333;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Spotlight section styles */
+    .spotlight-section {
+      margin: 2rem 0;
+    }
+
+    .spotlight-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .spotlight-header h2 {
+      font-size: 2rem;
+      color: #333;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .spotlight-header p {
+      color: #666;
+      font-size: 1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .spotlight-header .highlight {
+      color: #79b7ff;
+      font-weight: 500;
+    }
+
+    /* Events form styles */
+    .events-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .form-group label {
+      font-size: 0.9rem;
+      color: #555;
+      font-weight: 500;
+    }
+
+    .form-group select,
+    .form-group textarea {
+      padding: 0.75rem;
+      border: 1px solid rgba(121, 183, 255, 0.2);
+      border-radius: 8px;
+      font-size: 0.9rem;
+      background: white;
+      color: #333;
+      transition: all 0.2s ease;
+    }
+
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #79b7ff;
+      box-shadow: 0 0 0 2px rgba(121, 183, 255, 0.1);
+    }
+
+    .form-group textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .submit-button {
+      background: #79b7ff;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 100px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .submit-button:hover {
+      background: #5a9eff;
+      transform: translateY(-2px);
+    }
+
+    /* Updates button styles */
+    .updates-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      background: #79b7ff;
+      color: white;
+      padding: 1rem 1.5rem;
+      border-radius: 100px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      margin: 1rem 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .updates-button:hover {
+      background: #5a9eff;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(121, 183, 255, 0.2);
+    }
+
+    .updates-button .button-icon {
+      transition: transform 0.3s ease;
+    }
+
+    .updates-button:hover .button-icon {
+      transform: translateX(4px);
+    }
+
+    /* Add styles for activity log */
+    .activity-log {
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(121, 183, 255, 0.1);
+    }
+
+    .activity-log h3 {
+      font-size: 1.25rem;
+      color: #333;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .activity-log h3::before {
+      content: '📅';
+      font-size: 1.1rem;
+    }
+
+    .activity-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .activity-item {
+      background: rgba(121, 183, 255, 0.05);
+      border-radius: 8px;
+      padding: 1rem;
+      border: 1px solid rgba(121, 183, 255, 0.1);
+    }
+
+    .activity-item .date {
+      font-size: 0.85rem;
+      color: #666;
+      margin-bottom: 0.5rem;
+    }
+
+    .activity-item .title {
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 0.5rem;
+    }
+
+    .activity-item .description {
+      font-size: 0.9rem;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    .activity-item .type-badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    .activity-item .type-badge.event {
+      background: rgba(255, 149, 0, 0.1);
+      color: #ff9500;
+    }
+
+    .activity-item .type-badge.update {
+      background: rgba(121, 183, 255, 0.1);
+      color: #79b7ff;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 2rem;
+      background: rgba(121, 183, 255, 0.05);
+      border-radius: 8px;
+      border: 1px dashed rgba(121, 183, 255, 0.2);
+    }
+
+    .empty-state p {
+      color: #666;
+      margin-bottom: 1rem;
+    }
+
+    .empty-state .secondary-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #EEF4FF;
+      color: #79b7ff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 100px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    .empty-state .secondary-button:hover {
+      background: #dce7ff;
+      transform: translateY(-2px);
+    }
+
+    /* Make project cards clickable */
+    .project-card {
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(121, 183, 255, 0.15);
+    }
+
+    @media (max-width: 768px) {
+      .activity-log {
+        margin-top: 1.5rem;
+        padding-top: 1.5rem;
+      }
+
+      .activity-item {
+        padding: 0.75rem;
+      }
+
+      .empty-state {
+        padding: 1.5rem;
+      }
+    }
+
+    /* Add styles for status tags */
+    .status-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    .status-tag.hiring {
+      background: rgba(255, 76, 97, 0.1);
+      color: #ff4c61;
+    }
+
+    .status-tag.positions {
+      background: rgba(121, 183, 255, 0.1);
+      color: #79b7ff;
+    }
+
+    .status-tag.event {
+      background: rgba(255, 149, 0, 0.1);
+      color: #ff9500;
+    }
+
+    /* Update project cards to show status tags prominently */
+    .project-header {
+      position: relative;
+    }
+
+    .project-status-tags {
+      position: absolute;
+      top: -0.5rem;
+      right: 0;
+      display: flex;
+      gap: 0.5rem;
+      transform: translateY(-100%);
+    }
+
+    .project-status-tags .status-tag {
+      font-size: 0.7rem;
+      padding: 0.2rem 0.6rem;
+    }
+
+    /* Update filter option styles for status tags */
+    .filter-option .status-tag {
+      font-size: 0.8rem;
+    }
+
+    .filter-option:hover .status-tag.hiring {
+      background: rgba(255, 76, 97, 0.2);
+    }
+
+    .filter-option:hover .status-tag.positions {
+      background: rgba(121, 183, 255, 0.2);
+    }
+
+    .filter-option:hover .status-tag.event {
+      background: rgba(255, 149, 0, 0.2);
+    }
+
+    /* Add styles for the events card */
+    .events-card {
+      text-align: center;
+    }
+
+    .calendar-link {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      padding: 1.5rem;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      background: rgba(121, 183, 255, 0.05);
+      margin-top: 1rem;
+    }
+
+    .calendar-link:hover {
+      background: rgba(121, 183, 255, 0.1);
+      transform: translateY(-4px);
+    }
+
+    .calendar-icon {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .calendar-top {
+      background: #79b7ff;
+      color: white;
+      padding: 0.25rem 1rem;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    .calendar-bottom {
+      font-size: 4rem;
+      line-height: 1;
+      animation: pulse 2s infinite;
+    }
+
+    .calendar-text {
+      color: #555;
+      font-size: 0.95rem;
+      margin: 0;
+      font-weight: 500;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .calendar-link {
+        padding: 1rem;
+      }
+
+      .calendar-bottom {
+        font-size: 3rem;
+      }
+
+      .calendar-text {
+        font-size: 0.85rem;
+      }
+    }
+  </style>
 </head>
 <body class="dashboard">
   <header class="main-header">
@@ -14,8 +905,13 @@
       <nav class="main-nav">
         <a href="index.html">Dashboard</a>
         <a href="projects.html" class="active">Project Hub</a>
-        <a href="resources.html">Resources</a>
-    </nav>
+        <div class="dropdown">
+          <a href="resources.html" class="dropdown-trigger">Resources ▾</a>
+          <div class="dropdown-content">
+            <a href="https://stembystep.github.io/sbs/" target="_blank">STEM by Step</a>
+          </div>
+        </div>
+      </nav>
     </div>
   </header>
 
@@ -32,7 +928,7 @@
         </div>
 
         <div class="cta-buttons">
-          <button class="filter-toggle primary-button">
+          <button class="primary-button filter-toggle">
             <span class="button-icon">🏷️</span>
             Filter Projects
             <span class="filter-count"></span>
@@ -63,8 +959,17 @@
                 <input type="checkbox" name="type" value="Community">
                 Community Initiative
               </label>
+              <label class="filter-option">
+                <input type="checkbox" name="type" value="Freelance">
+                Freelance
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" name="type" value="Side Hustle">
+                Side Hustle
+              </label>
             </div>
           </div>
+
           <div class="filter-group">
             <h4>Category</h4>
             <div class="filter-options">
@@ -84,26 +989,171 @@
                 <input type="checkbox" name="category" value="Environment">
                 Environment
               </label>
+              <label class="filter-option">
+                <input type="checkbox" name="category" value="Social Impact">
+                Social Impact
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" name="category" value="Art / Design">
+                Art / Design
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" name="category" value="Food / Culture">
+                Food / Culture
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" name="category" value="Wellness / Beauty">
+                Wellness / Beauty
+              </label>
             </div>
           </div>
+
           <div class="filter-group">
-            <h4>Modality</h4>
+            <h4>Project Stage</h4>
             <div class="filter-options">
               <label class="filter-option">
-                <input type="checkbox" name="modality" value="Mobile App">
-                Mobile App
+                <input type="checkbox" name="stage" value="Idea Phase">
+                Idea Phase
               </label>
               <label class="filter-option">
-                <input type="checkbox" name="modality" value="Website">
-                Website
+                <input type="checkbox" name="stage" value="In Development">
+                In Development
               </label>
               <label class="filter-option">
-                <input type="checkbox" name="modality" value="AI">
-                AI / Machine Learning
+                <input type="checkbox" name="stage" value="Launched">
+                Launched
               </label>
               <label class="filter-option">
-                <input type="checkbox" name="modality" value="Hybrid">
-                Hybrid
+                <input type="checkbox" name="stage" value="Scaling">
+                Scaling
+              </label>
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <h4>Team Size</h4>
+            <div class="filter-options">
+              <label class="filter-option">
+                <input type="checkbox" name="team" value="Solo">
+                Solo
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" name="team" value="Small (2-5)">
+                Small (2-5)
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" name="team" value="Medium (6-15)">
+                Medium (6-15)
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" name="team" value="Large (16+)">
+                Large (16+)
+              </label>
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <h4>Team & Event Status</h4>
+            <div class="filter-options">
+              <label class="filter-option">
+                <input type="checkbox" name="status" value="Hiring">
+                <span class="status-tag hiring">🎯 Hiring</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" name="status" value="Open Positions">
+                <span class="status-tag positions">👥 Open Positions</span>
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" name="status" value="Ongoing Event">
+                <span class="status-tag event">📅 Ongoing Event</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <h4>Market Reach</h4>
+            <div class="filter-options">
+              <label class="filter-option">
+                <input type="checkbox" name="market" value="Local">
+                Local
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" name="market" value="Regional">
+                Regional
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" name="market" value="National">
+                National
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" name="market" value="Global">
+                Global
+              </label>
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <h4>Duration</h4>
+            <div class="filter-options">
+              <label class="filter-option">
+                <input type="checkbox" name="duration" value="One-time">
+                One-time
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" name="duration" value="Seasonal">
+                Seasonal
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" name="duration" value="Ongoing">
+                Ongoing
+              </label>
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <h4>Primary Goal</h4>
+            <div class="filter-options">
+              <label class="filter-option">
+                <input type="checkbox" name="goal" value="Social Impact">
+                Social Impact
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" name="goal" value="Income">
+                Income Generation
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" name="goal" value="Community Building">
+                Community Building
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" name="goal" value="Innovation">
+                Innovation
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" name="goal" value="Education">
+                Education
+              </label>
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <h4>Funding Status</h4>
+            <div class="filter-options">
+              <label class="filter-option">
+                <input type="checkbox" name="funding" value="Self-Funded">
+                Self-Funded
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" name="funding" value="Seeking Funding">
+                Seeking Funding
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" name="funding" value="Funded">
+                Funded
+              </label>
+              <label class="filter-option">
+                <input type="checkbox" name="funding" value="Revenue Generating">
+                Revenue Generating
               </label>
             </div>
           </div>
@@ -113,66 +1163,69 @@
 
     <section class="dashboard-grid">
       <div class="content-wrapper">
-        <div class="featured-slider">
-          <div class="slider-container">
-            <div class="slide active" 
-              data-lead-name="John Doe" 
-              data-lead-role="Founder"
-              data-lead-email="john@example.com"
-              data-lead-phone="555-0123"
-              data-preferred-contact="Email">
-              <div class="project-header">
-                <h3>Project Title Goes Here</h3>
-                <div class="project-tags">
-                  <span class="tag tag-type">Community Initiative</span>
-                  <span class="tag tag-category">Environment</span>
-                  <span class="tag tag-modality">Mobile App</span>
-                  <span class="tag tag-team">Small Team</span>
-                  <span class="tag tag-goal">Social Impact</span>
-                </div>
-              </div>
-              <p class="project-description">Project description goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
-            </div>
-            <div class="slide"
-              data-lead-name="Jane Smith" 
-              data-lead-role="CEO"
-              data-lead-email="jane@example.com"
-              data-lead-phone="555-0124"
-              data-preferred-contact="Both">
-              <div class="project-header">
-                <h3>Project Title Goes Here</h3>
-                <div class="project-tags">
-                  <span class="tag tag-type">Startup</span>
-                  <span class="tag tag-category">Education</span>
-                  <span class="tag tag-modality">AI / Machine Learning</span>
-                  <span class="tag tag-team">Growing Team</span>
-                  <span class="tag tag-funding">Seeking Funding</span>
-                </div>
-              </div>
-              <p class="project-description">Project description goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
-            </div>
-            <div class="slide"
-              data-lead-name="Alex Johnson" 
-              data-lead-role="Project Manager"
-              data-lead-email="alex@example.com"
-              data-lead-phone=""
-              data-preferred-contact="Email">
-              <div class="project-header">
-                <h3>Project Title Goes Here</h3>
-                <div class="project-tags">
-                  <span class="tag tag-type">Business</span>
-                  <span class="tag tag-category">Art / Design</span>
-                  <span class="tag tag-modality">Website</span>
-                  <span class="tag tag-market">Regional</span>
-                  <span class="tag tag-goal">Income</span>
-                </div>
-              </div>
-              <p class="project-description">Project description goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
-            </div>
+        <div class="spotlight-section">
+          <div class="spotlight-header">
+            <h2>CTRL Spotlight</h2>
+            <p>Featured projects making waves in our community</p>
           </div>
-          <div class="slider-nav">
-            <button class="slider-button prev">←</button>
-            <button class="slider-button next">→</button>
+          <div class="featured-slider">
+            <div class="slider-container">
+              <div class="slide active" 
+                data-lead-name="John Doe" 
+                data-lead-role="Founder"
+                data-lead-email="john@example.com"
+                data-lead-phone="555-0123"
+                data-preferred-contact="Email">
+                <div class="project-header">
+                  <h3>STEM by Step</h3>
+                  <div class="project-tags">
+                    <span class="tag tag-type">Non-Profit</span>
+                    <span class="tag tag-category">Education</span>
+                    <span class="tag tag-stage">Launched</span>
+                    <span class="tag tag-team">Small (2-5)</span>
+                  </div>
+                </div>
+                <p class="project-description">A free STEM education platform providing hands-on learning experiences and project-based curriculum for underserved communities.</p>
+              </div>
+              <div class="slide"
+                data-lead-name="Jane Smith" 
+                data-lead-role="CEO"
+                data-lead-email="jane@example.com"
+                data-lead-phone="555-0124"
+                data-preferred-contact="Both">
+                <div class="project-header">
+                  <h3>Hearts of Tomorrow</h3>
+                  <div class="project-tags">
+                    <span class="tag tag-type">Non-Profit</span>
+                    <span class="tag tag-category">Social Impact</span>
+                    <span class="tag tag-stage">Scaling</span>
+                    <span class="tag tag-team">Medium (6-15)</span>
+                  </div>
+                </div>
+                <p class="project-description">Empowering youth through mentorship, leadership development, and community service opportunities.</p>
+              </div>
+              <div class="slide"
+                data-lead-name="Alex Johnson" 
+                data-lead-role="Project Manager"
+                data-lead-email="alex@example.com"
+                data-lead-phone=""
+                data-preferred-contact="Email">
+                <div class="project-header">
+                  <h3>Local Business Directory</h3>
+                  <div class="project-tags">
+                    <span class="tag tag-type">Business</span>
+                    <span class="tag tag-category">Technology</span>
+                    <span class="tag tag-stage">In Development</span>
+                    <span class="tag tag-team">Solo</span>
+                  </div>
+                </div>
+                <p class="project-description">A digital platform connecting local businesses with their community through an interactive directory and promotional tools.</p>
+              </div>
+            </div>
+            <div class="slider-nav">
+              <button class="slider-button prev">←</button>
+              <button class="slider-button next">→</button>
+            </div>
           </div>
         </div>
 
@@ -190,53 +1243,57 @@
         </div>
 
         <div class="bento-grid categories-grid">
-          <div class="bento-card">
-            <h3>Popular Categories</h3>
-            <div class="categories-list">
-              <div class="category-item">
-                <span class="category-icon">📊</span>
-                <span class="category-name">Business</span>
-                <span class="category-count">2</span>
+          <div class="bento-card events-card">
+            <h3>Ongoing Events</h3>
+            <a href="https://www.instagram.com/projectctrl.co/" target="_blank" class="calendar-link">
+              <div class="calendar-icon">
+                <div class="calendar-top">
+                  <span>2024</span>
+                </div>
+                <div class="calendar-bottom">
+                  <span class="day">📅</span>
+                </div>
               </div>
-              <div class="category-item">
-                <span class="category-icon">📚</span>
-                <span class="category-name">Education</span>
-                <span class="category-count">1</span>
-              </div>
-              <div class="category-item">
-                <span class="category-icon">📋</span>
-                <span class="category-name">Creative</span>
-                <span class="category-count">1</span>
-              </div>
-              <div class="category-item">
-                <span class="category-icon">🤝</span>
-                <span class="category-name">Social Impact</span>
-                <span class="category-count">2</span>
-              </div>
-            </div>
+              <p class="calendar-text">Click to see current events on our Instagram</p>
+            </a>
           </div>
 
           <div class="bento-card">
-            <h3>Looking for Help</h3>
-            <div class="help-list">
-              <div class="help-item">
-                <div class="help-content">
-                  <h4>Project Title Goes Here</h4>
-                  <div class="project-tags">
-                    <span class="tag tag-type">Business</span>
-                    <span class="tag tag-category">Art / Design</span>
-                    <span class="tag tag-modality">Website</span>
-                  </div>
-                  <p>Project description goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-              </div>
-            </div>
+            <h3>Share Updates & Events</h3>
+            <p style="color: #666; font-size: 0.9rem; margin: 0.5rem 0;">Keep your community informed about project milestones and upcoming events.</p>
+            <a href="project-update.html" class="updates-button">
+              Share Updates & Events
+              <span class="button-icon">→</span>
+            </a>
+            <p style="color: #666; font-size: 0.85rem; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(0,0,0,0.1);">
+              <span style="color: #79b7ff;">ℹ️ Note:</span> Updates for existing projects will appear on their project cards. Standalone events and updates will be promoted through our social media channels.
+            </p>
           </div>
         </div>
 
+        <div class="section-header">
+          <h2>Community Projects</h2>
+        </div>
+
+        <div class="benefits-banner">
+          <span class="icon">⚙️</span>
+          <p class="message">
+            Submit your project today! As a <span class="highlight">free tier user</span>, you'll get a permanent listing in our Project Hub below, one-time social media promotion, personalized feedback from the CTRL team, and access to our free resource library.
+          </p>
+        </div>
+
         <div class="projects-grid">
-          <div class="project-card">
+          <div class="project-card" 
+            data-lead-name="Sarah Chen" 
+            data-lead-role="Project Lead"
+            data-lead-email="sarah@example.com"
+            data-lead-phone="555-0125"
+            data-preferred-contact="Email">
             <div class="project-header">
+              <div class="project-status-tags">
+                <span class="status-tag hiring">🎯 Hiring</span>
+                <span class="status-tag event">📅 Ongoing Event</span>
+              </div>
               <h3>Project Title Goes Here</h3>
               <div class="project-tags">
                 <span class="tag tag-type">Freelance</span>
@@ -248,8 +1305,16 @@
             <p class="project-description">Project description goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
           </div>
 
-          <div class="project-card">
+          <div class="project-card"
+            data-lead-name="Michael Brown" 
+            data-lead-role="Founder"
+            data-lead-email="michael@example.com"
+            data-lead-phone="555-0126"
+            data-preferred-contact="Phone">
             <div class="project-header">
+              <div class="project-status-tags">
+                <span class="status-tag positions">👥 Open Positions</span>
+              </div>
               <h3>Project Title Goes Here</h3>
               <div class="project-tags">
                 <span class="tag tag-type">Side Hustle</span>
@@ -300,9 +1365,18 @@
               </div>
             </div>
 
-            <div class="inspiration-message">
-              <h3>Ready to Innovate?</h3>
-              <p>Browse more projects in the Project Hub to find inspiration and potential collaborators.</p>
+            <div class="activity-log">
+              <h3>Activity Log</h3>
+              <div class="activity-list">
+                <!-- Activity items will be dynamically added here -->
+                <div class="empty-state">
+                  <p>No updates yet. Share your first update!</p>
+                  <a href="project-update.html" class="secondary-button">
+                    Add Update
+                    <span class="button-icon">+</span>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -314,77 +1388,97 @@
         // Shared variables
         const slides = document.querySelectorAll('.slide');
         const projectCards = document.querySelectorAll('.project-card');
-
-        // Slider functionality
+        const sliderContainer = document.querySelector('.slider-container');
         const prevButton = document.querySelector('.slider-button.prev');
         const nextButton = document.querySelector('.slider-button.next');
-        let currentSlide = 0;
+        
+        let currentPage = 0;
+        let slidesPerPage = window.innerWidth > 1024 ? 3 : window.innerWidth > 768 ? 2 : 1;
         let autoSlideInterval;
 
-        function showSlide(index) {
-          slides.forEach((slide, i) => {
+        function updateSlidesPerPage() {
+          slidesPerPage = window.innerWidth > 1024 ? 3 : window.innerWidth > 768 ? 2 : 1;
+          showPage(currentPage);
+        }
+
+        function showPage(page) {
+          const totalPages = Math.ceil(slides.length / slidesPerPage);
+          currentPage = (page + totalPages) % totalPages;
+
+          slides.forEach((slide, index) => {
             slide.classList.remove('active');
-            if (i === index) {
+            const slidePosition = index - (currentPage * slidesPerPage);
+            
+            if (slidePosition >= 0 && slidePosition < slidesPerPage) {
+              slide.style.display = 'block';
               slide.classList.add('active');
-              slide.style.order = '1';
-            } else if (i === (index + 1) % slides.length) {
-              slide.style.order = '2';
-            } else if (i === (index + 2) % slides.length) {
-              slide.style.order = '3';
+              slide.style.animation = 'slideIn 0.5s forwards';
+              slide.style.animationDelay = `${slidePosition * 0.1}s`;
             } else {
-              slide.style.order = '4';
+              slide.style.display = 'none';
+              slide.style.animation = '';
             }
           });
         }
 
-        function nextSlide() {
-          currentSlide = (currentSlide + 1) % slides.length;
-          showSlide(currentSlide);
+        function nextPage() {
+          showPage(currentPage + 1);
         }
 
-        function prevSlide() {
-          currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-          showSlide(currentSlide);
+        function prevPage() {
+          showPage(currentPage - 1);
         }
 
         function startAutoSlide() {
-          autoSlideInterval = setInterval(nextSlide, 10000);
+          stopAutoSlide();
+          autoSlideInterval = setInterval(nextPage, 5000);
         }
 
         function stopAutoSlide() {
-          clearInterval(autoSlideInterval);
+          if (autoSlideInterval) {
+            clearInterval(autoSlideInterval);
+          }
         }
 
+        // Event Listeners
         prevButton.addEventListener('click', () => {
-          prevSlide();
+          prevPage();
           stopAutoSlide();
         });
 
         nextButton.addEventListener('click', () => {
-          nextSlide();
+          nextPage();
           stopAutoSlide();
         });
 
-        showSlide(0);
+        window.addEventListener('resize', updateSlidesPerPage);
+
+        // Initialize
+        updateSlidesPerPage();
         startAutoSlide();
 
-        // Add click handlers for featured slides
-        slides.forEach(slide => {
-          slide.addEventListener('click', () => {
-            stopAutoSlide();
+        // Add click handlers for ALL project cards (both featured and community)
+        const allProjectCards = [...document.querySelectorAll('.slide'), ...document.querySelectorAll('.project-card')];
+        
+        allProjectCards.forEach(card => {
+          card.addEventListener('click', () => {
+            if (autoSlideInterval) {
+              stopAutoSlide();
+            }
+            
             const template = document.querySelector('#project-popup-template');
             const popup = template.content.cloneNode(true);
             
-            // Get project details from the slide
-            const title = slide.querySelector('h3').textContent;
-            const tags = Array.from(slide.querySelectorAll('.project-tags .tag')).map(tag => tag.cloneNode(true));
+            // Get project details from the card
+            const title = card.querySelector('h3').textContent;
+            const tags = Array.from(card.querySelectorAll('.project-tags .tag')).map(tag => tag.cloneNode(true));
             
             // Get lead details from dataset
-            const leadName = slide.dataset.leadName || 'Project Lead Name';
-            const leadRole = slide.dataset.leadRole || 'Project Role';
-            const leadEmail = slide.dataset.leadEmail || '';
-            const leadPhone = slide.dataset.leadPhone || '';
-            const preferredContact = slide.dataset.preferredContact || '';
+            const leadName = card.dataset.leadName || 'Project Lead Name';
+            const leadRole = card.dataset.leadRole || 'Project Role';
+            const leadEmail = card.dataset.leadEmail || '';
+            const leadPhone = card.dataset.leadPhone || '';
+            const preferredContact = card.dataset.preferredContact || '';
             
             // Update popup content
             popup.querySelector('h2').textContent = title;
@@ -395,7 +1489,7 @@
             popupTags.innerHTML = '';
             tags.forEach(tag => popupTags.appendChild(tag));
             
-            // Setup contact info and button
+            // Setup contact info
             const contactDetails = popup.querySelector('.contact-details');
             const emailElement = contactDetails.querySelector('.contact-method:first-child .contact-value');
             const phoneElement = contactDetails.querySelector('.contact-method:last-child .contact-value');
@@ -410,6 +1504,27 @@
               if (!leadEmail) emailElement.parentElement.style.display = 'none';
               if (!leadPhone) phoneElement.parentElement.style.display = 'none';
             }
+
+            // Example activity items (in a real app, these would come from your backend)
+            const activityList = popup.querySelector('.activity-list');
+            const hasActivities = false; // This would be determined by your backend
+
+            if (hasActivities) {
+              activityList.innerHTML = `
+                <div class="activity-item">
+                  <span class="type-badge event">Event</span>
+                  <div class="date">March 15, 2024</div>
+                  <div class="title">Community Meetup</div>
+                  <div class="description">Join us for our monthly community gathering to discuss project progress and future plans.</div>
+                </div>
+                <div class="activity-item">
+                  <span class="type-badge update">Update</span>
+                  <div class="date">March 1, 2024</div>
+                  <div class="title">New Feature Launch</div>
+                  <div class="description">We're excited to announce the launch of our latest feature set!</div>
+                </div>
+              `;
+            }
             
             // Add popup to the document
             document.body.appendChild(popup);
@@ -420,7 +1535,9 @@
               overlay.addEventListener('click', (e) => {
                 if (e.target.classList.contains('popup-overlay')) {
                   overlay.remove();
-                  startAutoSlide();
+                  if (card.classList.contains('slide')) {
+                    startAutoSlide();
+                  }
                 }
               });
             }
@@ -483,7 +1600,12 @@
           const selectedFilters = {
             type: new Set(),
             category: new Set(),
-            modality: new Set()
+            stage: new Set(),
+            team: new Set(),
+            market: new Set(),
+            duration: new Set(),
+            goal: new Set(),
+            funding: new Set()
           };
 
           // Collect selected filters
@@ -497,6 +1619,7 @@
           const totalSelected = Object.values(selectedFilters)
             .reduce((sum, set) => sum + set.size, 0);
           const filterCount = document.querySelector('.filter-count');
+          
           if (totalSelected > 0) {
             filterCount.textContent = `(${totalSelected})`;
             filterToggle.classList.add('has-filters');
@@ -521,7 +1644,12 @@
             const elementFilters = {
               type: new Set(tags.filter(tag => tag.classList.contains('tag-type')).map(tag => tag.textContent)),
               category: new Set(tags.filter(tag => tag.classList.contains('tag-category')).map(tag => tag.textContent)),
-              modality: new Set(tags.filter(tag => tag.classList.contains('tag-modality')).map(tag => tag.textContent))
+              stage: new Set(tags.filter(tag => tag.classList.contains('tag-stage')).map(tag => tag.textContent)),
+              team: new Set(tags.filter(tag => tag.classList.contains('tag-team')).map(tag => tag.textContent)),
+              market: new Set(tags.filter(tag => tag.classList.contains('tag-market')).map(tag => tag.textContent)),
+              duration: new Set(tags.filter(tag => tag.classList.contains('tag-duration')).map(tag => tag.textContent)),
+              goal: new Set(tags.filter(tag => tag.classList.contains('tag-goal')).map(tag => tag.textContent)),
+              funding: new Set(tags.filter(tag => tag.classList.contains('tag-funding')).map(tag => tag.textContent))
             };
 
             // Show if matches ANY selected filter in each active category
@@ -547,132 +1675,6 @@
         });
       });
     </script>
-
-    <style>
-      .filter-section {
-        margin: 20px 0;
-      }
-
-      .cta-buttons {
-        display: flex;
-        gap: 16px;
-        justify-content: center;
-        margin: 24px 0;
-      }
-
-      .cta-buttons .primary-button,
-      .cta-buttons .secondary-button {
-        padding: 12px 24px;
-        font-size: 1.1em;
-        border-radius: 16px;
-        transition: all 0.3s ease;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        cursor: pointer;
-      }
-
-      .cta-buttons .primary-button {
-        background: var(--primary-color, #79b7ff);
-        color: white;
-        border: none;
-      }
-
-      .cta-buttons .secondary-button {
-        background: transparent;
-        color: var(--primary-color, #79b7ff);
-        border: 2px solid var(--primary-color, #79b7ff);
-      }
-
-      .cta-buttons .primary-button:hover,
-      .cta-buttons .secondary-button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      }
-
-      .filter-toggle.active,
-      .filter-toggle.has-filters {
-        background: var(--accent-color, #5a8fd6);
-      }
-
-      .filter-count {
-        background: rgba(255, 255, 255, 0.2);
-        padding: 2px 8px;
-        border-radius: 12px;
-        font-size: 0.9em;
-        margin-left: 4px;
-      }
-
-      .filter-panel {
-        margin-top: 16px;
-        background: white;
-        border-radius: 16px;
-        padding: 24px;
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-        width: 100%;
-        max-width: 800px;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 24px;
-        animation: slideDown 0.3s ease;
-      }
-
-      @keyframes slideDown {
-        from {
-          opacity: 0;
-          transform: translateY(-10px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      .filter-group {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-      }
-
-      .filter-group h4 {
-        font-size: 1.1em;
-        color: #333;
-        margin: 0;
-      }
-
-      .filter-options {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-      }
-
-      .filter-option {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        cursor: pointer;
-        padding: 4px 0;
-        color: #555;
-        transition: color 0.2s ease;
-      }
-
-      .filter-option:hover {
-        color: var(--primary-color, #79b7ff);
-      }
-
-      .filter-option input[type="checkbox"] {
-        width: 18px;
-        height: 18px;
-        border-radius: 4px;
-        border: 2px solid #ddd;
-        transition: all 0.2s ease;
-      }
-
-      .filter-option input[type="checkbox"]:checked {
-        background-color: var(--primary-color, #79b7ff);
-        border-color: var(--primary-color, #79b7ff);
-      }
-    </style>
   </main>
 
   <footer class="main-footer">
