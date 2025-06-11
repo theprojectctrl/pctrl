@@ -89,6 +89,29 @@
       resize: vertical;
     }
 
+    .visibility-boost-message {
+      margin: 1rem 0;
+    }
+
+    .boost-banner {
+      background: rgba(255, 149, 0, 0.1);
+      border-radius: 12px;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .boost-banner .boost-icon {
+      font-size: 1.5rem;
+    }
+
+    .boost-banner p {
+      margin: 0;
+      color: #555;
+      font-size: 0.95rem;
+    }
+
     .checkbox-group {
       display: flex;
       flex-direction: column;
@@ -199,6 +222,48 @@
       transform: translateX(4px);
     }
 
+    /* Social Media Notice Styles */
+    .social-media-notice {
+      margin: 2rem 0;
+      padding: 1.5rem;
+      background: rgba(121, 183, 255, 0.05);
+      border-radius: 12px;
+      display: flex;
+      gap: 1rem;
+      border: 1px dashed rgba(121, 183, 255, 0.2);
+    }
+
+    .notice-icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .notice-content h4 {
+      color: #333;
+      font-size: 1rem;
+      margin: 0 0 0.5rem 0;
+      font-weight: 600;
+    }
+
+    .notice-content p {
+      color: #555;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .notice-content a {
+      color: #79b7ff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    .notice-content a:hover {
+      color: #5a9eff;
+      text-decoration: underline;
+    }
+
     @media (max-width: 768px) {
       .form-grid {
         grid-template-columns: 1fr;
@@ -215,6 +280,17 @@
       .checkbox-option input[type="checkbox"] {
         width: 16px;
         height: 16px;
+      }
+
+      .social-media-notice {
+        padding: 1rem;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .notice-content h4 {
+        margin-bottom: 0.75rem;
       }
     }
   </style>
@@ -295,9 +371,16 @@
               <textarea id="description" name="description" required placeholder="Tell us about your project, its goals, and impact..."></textarea>
             </div>
 
+            <div class="form-group full-width visibility-boost-message">
+              <div class="boost-banner">
+                <span class="boost-icon">🚀</span>
+                <p>The following fields are optional, but filling them out can boost your project's visibility in the Project Hub!</p>
+              </div>
+            </div>
+
             <div class="form-group">
-              <label for="team-size" class="required-field">Team Size</label>
-              <select id="team-size" name="team-size" required>
+              <label for="team-size">Team Size</label>
+              <select id="team-size" name="team-size">
                 <option value="">Select team size...</option>
                 <option value="Solo">Solo</option>
                 <option value="Small (2-5)">Small (2-5)</option>
@@ -307,8 +390,8 @@
             </div>
 
             <div class="form-group">
-              <label for="market-reach" class="required-field">Market Reach</label>
-              <select id="market-reach" name="market-reach" required>
+              <label for="market-reach">Market Reach</label>
+              <select id="market-reach" name="market-reach">
                 <option value="">Select reach...</option>
                 <option value="Local">Local</option>
                 <option value="Regional">Regional</option>
@@ -336,8 +419,8 @@
             </div>
 
             <div class="form-group">
-              <label for="duration" class="required-field">Project Duration</label>
-              <select id="duration" name="duration" required>
+              <label for="duration">Project Duration</label>
+              <select id="duration" name="duration">
                 <option value="">Select duration...</option>
                 <option value="One-time">One-time</option>
                 <option value="Seasonal">Seasonal</option>
@@ -363,6 +446,14 @@
             <div class="form-group">
               <label for="website">Website</label>
               <input type="url" id="website" name="website" placeholder="https://">
+            </div>
+          </div>
+
+          <div class="social-media-notice">
+            <div class="notice-icon">📱</div>
+            <div class="notice-content">
+              <h4>Social Media Notice</h4>
+              <p>Your project will be shared on our Instagram (<a href="https://www.instagram.com/projectctrl.co/" target="_blank">@projectctrl</a>) to highlight your work and connect you with more supporters. If you'd prefer not to be featured or want it removed, just reply to this email within 5 days (<a href="mailto:contact.projectctrl@gmail.com">contact.projectctrl@gmail.com</a>).</p>
             </div>
           </div>
 
