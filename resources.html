@@ -189,7 +189,13 @@
             {
               icon: '🚀',
               title: 'Coming Soon',
-              description: 'Project launcher resources are on the way! Check back soon for templates and guides to help you start your projects.',
+              description: 'Project launcher templates are on the way! Check back soon for ready-to-use project starter kits.',
+              link: '#'
+            },
+            {
+              icon: '📋',
+              title: 'Coming Soon',
+              description: 'Quick-start guides are on the way! Check back soon for step-by-step project launch instructions.',
               link: '#'
             }
           ]
@@ -203,7 +209,13 @@
             {
               icon: '⚙️',
               title: 'Coming Soon',
-              description: 'Workflow builder resources are on the way! Check back soon for process templates and workflow guides.',
+              description: 'Workflow templates are on the way! Check back soon for customizable process frameworks.',
+              link: '#'
+            },
+            {
+              icon: '📈',
+              title: 'Coming Soon',
+              description: 'Process guides are on the way! Check back soon for workflow optimization tools.',
               link: '#'
             }
           ]
@@ -217,7 +229,13 @@
             {
               icon: '🎯',
               title: 'Coming Soon',
-              description: 'Development roadmap resources are on the way! Check back soon for milestone guides and planning tools.',
+              description: 'Development milestones are on the way! Check back soon for project planning frameworks.',
+              link: '#'
+            },
+            {
+              icon: '🗺️',
+              title: 'Coming Soon',
+              description: 'Strategic roadmaps are on the way! Check back soon for long-term planning guides.',
               link: '#'
             }
           ]
@@ -231,7 +249,13 @@
             {
               icon: '📄',
               title: 'Coming Soon',
-              description: 'Project templates are on the way! Check back soon for ready-to-use frameworks and documents.',
+              description: 'Document templates are on the way! Check back soon for standardized project forms.',
+              link: '#'
+            },
+            {
+              icon: '📁',
+              title: 'Coming Soon',
+              description: 'Project frameworks are on the way! Check back soon for complete project structures.',
               link: '#'
             }
           ]
@@ -245,7 +269,13 @@
             {
               icon: '💻',
               title: 'Coming Soon',
-              description: 'Developer guides are on the way! Check back soon for technical documentation and tutorials.',
+              description: 'Technical documentation is on the way! Check back soon for detailed developer guides.',
+              link: '#'
+            },
+            {
+              icon: '🔧',
+              title: 'Coming Soon',
+              description: 'Code tutorials are on the way! Check back soon for hands-on development resources.',
               link: '#'
             }
           ]
@@ -259,7 +289,13 @@
             {
               icon: '✨',
               title: 'Coming Soon',
-              description: 'Best practices resources are on the way! Check back soon for standards and guidelines.',
+              description: 'Industry standards are on the way! Check back soon for best practice guidelines.',
+              link: '#'
+            },
+            {
+              icon: '📊',
+              title: 'Coming Soon',
+              description: 'Quality benchmarks are on the way! Check back soon for performance metrics.',
               link: '#'
             }
           ]
@@ -301,33 +337,35 @@
           const currentResourceType = popup.dataset.currentResource;
           const resourceData = resources[currentResourceType];
 
-          // Display the single resource
+          // Display the resources
           displayResource(resourceData);
         });
       });
 
-      // Function to display the single resource
+      // Function to display the resources
       function displayResource(resourceData) {
         resourcesGrid.innerHTML = '';
-        const item = resourceData.items.all[0];
+        const items = resourceData.items.all;
         
-        const resourceItem = document.createElement('div');
-        resourceItem.className = 'resource-item-popup';
-        
-        resourceItem.innerHTML = `
-          <div class="resource-header">
-            <span class="resource-icon-popup">${item.icon}</span>
-            <div class="resource-title">
-              <h4>${item.title}</h4>
+        items.forEach(item => {
+          const resourceItem = document.createElement('div');
+          resourceItem.className = 'resource-item-popup';
+          
+          resourceItem.innerHTML = `
+            <div class="resource-header">
+              <span class="resource-icon-popup">${item.icon}</span>
+              <div class="resource-title">
+                <h4>${item.title}</h4>
+              </div>
             </div>
-          </div>
-          <p class="resource-description">${item.description}</p>
-          <a href="${item.link}" class="resource-link">View Resource →</a>
-        `;
-        
-        resourcesGrid.appendChild(resourceItem);
+            <p class="resource-description">${item.description}</p>
+            <a href="${item.link}" class="resource-link">View Resource →</a>
+          `;
+          
+          resourcesGrid.appendChild(resourceItem);
+        });
 
-        // Hide pagination since we only have one item
+        // Hide pagination since we only have two items
         prevPageBtn.style.display = 'none';
         nextPageBtn.style.display = 'none';
         paginationInfo.style.display = 'none';
@@ -345,7 +383,7 @@
           // Update popup title and description
           document.querySelector('.resources-popup-header h2').textContent = resourceData.title;
           
-          // Show the single resource
+          // Show the resources
           displayResource(resourceData);
           
           // Show popup
