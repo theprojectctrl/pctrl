@@ -320,7 +320,7 @@
           <p>Share your project with our community! Fill out the form below to get started.</p>
         </div>
 
-        <form id="submit-form" action="#" method="POST">
+        <form id="submit-form" action="https://formspree.io/f/movwvvvj" method="POST">
           <div class="form-grid">
             <div class="form-group">
               <label for="project-name" class="required-field">Project Name</label>
@@ -475,9 +475,37 @@
   <script>
     document.getElementById('submit-form').addEventListener('submit', function(e) {
       e.preventDefault();
-      // Add form submission logic here
-      alert('Thank you for submitting your project! We will review it and get back to you soon.');
-      this.submit();
+      
+      const form = this;
+      const submitButton = form.querySelector('.submit-button');
+      const originalButtonText = submitButton.innerHTML;
+      
+      // Disable button and show loading state
+      submitButton.disabled = true;
+      submitButton.innerHTML = 'Submitting... <span class="button-icon">↻</span>';
+      
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      .then(response => {
+        if (response.ok) {
+          // Redirect to project hub with success message
+          window.location.href = 'projects.html?status=success&type=project';
+        } else {
+          throw new Error('Form submission failed');
+        }
+      })
+      .catch(error => {
+        alert('Oops! There was a problem submitting your form. Please try again.');
+        console.error('Error:', error);
+        // Re-enable button and restore original text
+        submitButton.disabled = false;
+        submitButton.innerHTML = originalButtonText;
+      });
     });
   </script>
 </body>
