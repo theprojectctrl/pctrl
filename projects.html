@@ -980,6 +980,10 @@
   <main class="dashboard-container">
     <section class="hero-section">
       <div class="content-wrapper">
+        <div id="submission-success" style="display: none; background: rgba(0, 200, 83, 0.1); color: #00c853; padding: 1rem; border-radius: 8px; margin-bottom: 2rem; text-align: center; font-weight: 500;">
+          Thank you for your submission! You will be notified of its upload status within 1-7 days.
+        </div>
+
         <h1>Project Hub</h1>
         <p class="hero-subtitle">Discover inspiring projects and connect with fellow innovators</p>
         <div class="search-bar">
@@ -1744,6 +1748,21 @@
         filterOptions.forEach(option => {
           option.addEventListener('change', updateVisibility);
         });
+
+        // Check for success message in URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('status') === 'success') {
+          const successMessage = document.getElementById('submission-success');
+          successMessage.style.display = 'block';
+          
+          // Remove the URL parameters without refreshing the page
+          window.history.replaceState({}, document.title, window.location.pathname);
+          
+          // Hide the message after 10 seconds
+          setTimeout(() => {
+            successMessage.style.display = 'none';
+          }, 10000);
+        }
       });
     </script>
   </main>
