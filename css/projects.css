@@ -1,0 +1,435 @@
+/* Projects Page Styles */
+.cta-buttons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.cta-buttons .primary-button,
+.cta-buttons .secondary-button {
+  font-size: 1.125rem;
+  font-weight: 600;
+  padding: 1rem 2rem;
+  border-radius: 100px;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  min-width: 200px;
+  justify-content: center;
+}
+
+.cta-buttons .primary-button {
+  background: #79b7ff;
+  color: white;
+  box-shadow: 0 4px 20px rgba(121, 183, 255, 0.2);
+}
+
+.cta-buttons .secondary-button {
+  background: #EEF4FF;
+  color: #79b7ff;
+}
+
+.cta-buttons .primary-button:hover {
+  background: #5a9eff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(121, 183, 255, 0.3);
+}
+
+.cta-buttons .secondary-button:hover {
+  background: #dce7ff;
+  transform: translateY(-2px);
+}
+
+.button-icon {
+  font-size: 1.25rem;
+  transition: transform 0.3s ease;
+}
+
+.primary-button:hover .button-icon {
+  transform: translateX(4px);
+}
+
+.secondary-button:hover .button-icon {
+  transform: rotate(90deg);
+}
+
+.filter-count {
+  background: rgba(255, 255, 255, 0.3);
+  padding: 0.25rem 0.75rem;
+  border-radius: 100px;
+  font-size: 0.875rem;
+}
+
+/* Featured Slider Styles */
+.featured-slider {
+  width: 100%;
+  margin: 2rem 0;
+  position: relative;
+  overflow: hidden;
+  padding: 1rem;
+}
+
+.slider-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 1rem;
+}
+
+.slide {
+  position: relative;
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  transform-origin: center;
+  opacity: 0.7;
+  transform: scale(0.95);
+}
+
+.slide:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(121, 183, 255, 0.2);
+}
+
+.slide.active {
+  opacity: 1;
+  transform: scale(1);
+  box-shadow: 0 8px 24px rgba(121, 183, 255, 0.3);
+}
+
+/* Projects Grid Styles */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.project-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(121, 183, 255, 0.15);
+}
+
+/* Status Tags */
+.status-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.status-tag.hiring {
+  background: rgba(255, 76, 97, 0.1);
+  color: #ff4c61;
+}
+
+.status-tag.positions {
+  background: rgba(121, 183, 255, 0.1);
+  color: #79b7ff;
+}
+
+.status-tag.event {
+  background: rgba(255, 149, 0, 0.1);
+  color: #ff9500;
+}
+
+/* Updates button styles */
+.updates-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background: #79b7ff;
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 100px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  margin: 1rem 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.updates-button:hover {
+  background: #5a9eff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(121, 183, 255, 0.2);
+}
+
+.updates-button .button-icon {
+  transition: transform 0.3s ease;
+}
+
+.updates-button:hover .button-icon {
+  transform: translateX(4px);
+}
+
+/* Add styles for the events card */
+.events-card {
+  text-align: center;
+}
+
+.calendar-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  padding: 1.5rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  background: rgba(121, 183, 255, 0.05);
+  margin-top: 1rem;
+}
+
+.calendar-link:hover {
+  background: rgba(121, 183, 255, 0.1);
+  transform: translateY(-4px);
+}
+
+.calendar-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.calendar-top {
+  background: #79b7ff;
+  color: white;
+  padding: 0.25rem 1rem;
+  border-radius: 100px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.calendar-bottom {
+  font-size: 4rem;
+  line-height: 1;
+  animation: pulse 2s infinite;
+}
+
+.calendar-text {
+  color: #555;
+  font-size: 0.95rem;
+  margin: 0;
+  font-weight: 500;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .slider-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .slider-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    padding: 0 1rem;
+  }
+
+  .cta-buttons .primary-button,
+  .cta-buttons .secondary-button {
+    width: 100%;
+  }
+
+  .calendar-link {
+    padding: 1rem;
+  }
+
+  .calendar-bottom {
+    font-size: 3rem;
+  }
+
+  .calendar-text {
+    font-size: 0.85rem;
+  }
+}
+
+/* Pagination Styles */
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+  gap: 1rem;
+}
+
+.pagination-button {
+  background: #EEF4FF;
+  color: #79b7ff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 100px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pagination-button:hover {
+  background: #dce7ff;
+  transform: translateY(-2px);
+}
+
+.pagination-button:disabled {
+  background: #f5f5f5;
+  color: #999;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.pagination-button .button-icon {
+  font-size: 1.1rem;
+  transition: transform 0.3s ease;
+}
+
+.pagination-button:hover:not(:disabled) .button-icon {
+  transform: translateX(4px);
+}
+
+.pagination-info {
+  color: #666;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.no-results-message {
+  text-align: center;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+.no-results-message p {
+  color: #666;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.no-results-message .clear-filters {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  color: #666;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.no-results-message .clear-filters:hover {
+  background: #eee;
+  border-color: #ccc;
+}
+
+.no-results-message .clear-filters .button-icon {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.filter-panel {
+  background: white;
+  border-radius: 12px;
+  padding: 1rem;
+  margin: 1rem 0;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  display: none;
+}
+
+.filter-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.filter-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: #f5f5f5;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.filter-option:hover {
+  background: #eee;
+}
+
+.filter-option input[type="checkbox"] {
+  display: none;
+}
+
+.filter-option input[type="checkbox"]:checked + span {
+  color: #79b7ff;
+  font-weight: 500;
+}
+
+.filter-option input[type="checkbox"]:checked + span::before {
+  content: '✓';
+  margin-right: 0.25rem;
+  color: #79b7ff;
+}
+
+@media (max-width: 768px) {
+  .filter-options {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-option {
+    justify-content: center;
+  }
+} 
