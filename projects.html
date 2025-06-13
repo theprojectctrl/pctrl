@@ -98,75 +98,6 @@
 
     <section class="dashboard-grid">
       <div class="content-wrapper">
-        <div class="spotlight-section">
-          <div class="spotlight-header">
-            <h2>CTRL Spotlight</h2>
-            <p>Featured projects making waves in our community</p>
-          </div>
-          <div class="featured-slider">
-            <div class="slider-container">
-              <div class="slide active" 
-                data-lead-name="John Doe" 
-                data-lead-role="Founder"
-                data-lead-email="john@example.com"
-                data-lead-phone="555-0123"
-                data-preferred-contact="Email"
-                loading="lazy">
-                <div class="project-header">
-                  <h3>STEM by Step</h3>
-                  <div class="project-tags">
-                    <span class="tag tag-type">Non-Profit</span>
-                    <span class="tag tag-category">Education</span>
-                    <span class="tag tag-stage">Launched</span>
-                    <span class="tag tag-team">Small (2-5)</span>
-                  </div>
-                </div>
-                <p class="project-description">A free STEM education platform providing hands-on learning experiences and project-based curriculum for underserved communities.</p>
-              </div>
-              <div class="slide"
-                data-lead-name="Jane Smith" 
-                data-lead-role="CEO"
-                data-lead-email="jane@example.com"
-                data-lead-phone="555-0124"
-                data-preferred-contact="Both"
-                loading="lazy">
-                <div class="project-header">
-                  <h3>Hearts of Tomorrow</h3>
-                  <div class="project-tags">
-                    <span class="tag tag-type">Non-Profit</span>
-                    <span class="tag tag-category">Social Impact</span>
-                    <span class="tag tag-stage">Scaling</span>
-                    <span class="tag tag-team">Medium (6-15)</span>
-                  </div>
-                </div>
-                <p class="project-description">Empowering youth through mentorship, leadership development, and community service opportunities.</p>
-              </div>
-              <div class="slide"
-                data-lead-name="Alex Johnson" 
-                data-lead-role="Project Manager"
-                data-lead-email="alex@example.com"
-                data-lead-phone=""
-                data-preferred-contact="Email"
-                loading="lazy">
-                <div class="project-header">
-                  <h3>Local Business Directory</h3>
-                  <div class="project-tags">
-                    <span class="tag tag-type">Business</span>
-                    <span class="tag tag-category">Technology</span>
-                    <span class="tag tag-stage">In Development</span>
-                    <span class="tag tag-team">Solo</span>
-                  </div>
-                </div>
-                <p class="project-description">A digital platform connecting local businesses with their community through an interactive directory and promotional tools.</p>
-              </div>
-            </div>
-            <div class="slider-nav">
-              <button class="slider-button prev">←</button>
-              <button class="slider-button next">→</button>
-            </div>
-          </div>
-        </div>
-
         <div class="impact-metrics">
           <div class="metric-card">
             <div class="metric-icon">📊</div>
@@ -221,66 +152,7 @@
         </div>
 
         <div class="projects-grid">
-          <div class="project-card" 
-            data-lead-name="Sarah Chen" 
-            data-lead-role="Project Lead"
-            data-lead-email="sarah@example.com"
-            data-lead-phone="555-0125"
-            data-preferred-contact="Email"
-            loading="lazy">
-            <div class="project-header">
-              <div class="project-status-tags">
-                <span class="status-tag hiring">🎯 Hiring</span>
-                <span class="status-tag event">📅 Ongoing Event</span>
-              </div>
-              <h3>Project Title Goes Here</h3>
-              <div class="project-tags">
-                <span class="tag tag-type">Freelance</span>
-                <span class="tag tag-category">Wellness / Beauty</span>
-                <span class="tag tag-modality">Hybrid</span>
-                <span class="tag tag-duration">Seasonal</span>
-              </div>
-            </div>
-            <p class="project-description">Project description goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
-          </div>
-
-          <div class="project-card"
-            data-lead-name="Michael Brown" 
-            data-lead-role="Founder"
-            data-lead-email="michael@example.com"
-            data-lead-phone="555-0126"
-            data-preferred-contact="Phone"
-            loading="lazy">
-            <div class="project-header">
-              <div class="project-status-tags">
-                <span class="status-tag positions">👥 Open Positions</span>
-              </div>
-              <h3>Project Title Goes Here</h3>
-              <div class="project-tags">
-                <span class="tag tag-type">Side Hustle</span>
-                <span class="tag tag-category">Food / Culture</span>
-                <span class="tag tag-modality">Mobile App</span>
-                <span class="tag tag-team">Solo</span>
-              </div>
-            </div>
-            <p class="project-description">Project description goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
-          </div>
-        </div>
-
-        <div class="pagination-container">
-          <button class="pagination-button prev-page" disabled>
-            <span class="button-icon">←</span>
-            Previous
-          </button>
-          <div class="pagination-info">
-            <span class="current-page">1</span>
-            of
-            <span class="total-pages">1</span>
-          </div>
-          <button class="pagination-button next-page">
-            Next
-            <span class="button-icon">→</span>
-          </button>
+          <!-- Project cards will be injected here by JS -->
         </div>
       </div>
     </section>
@@ -327,7 +199,7 @@
               <div class="activity-list">
                 <!-- Activity items will be dynamically added here -->
                 <div class="empty-state">
-                  <p>No updates yet. Share your first update!</p>
+                  <p>Share new updates!</p>
                   <a href="project-update.html" class="secondary-button">
                     Add Update
                     <span class="button-icon">+</span>
@@ -337,6 +209,23 @@
             </div>
           </div>
         </div>
+      </div>
+    </template>
+
+    <!-- Project Card Template -->
+    <template id="project-card-template">
+      <div class="project-card" loading="lazy">
+        <!-- CTRL Picks badge will be injected if needed -->
+        <div class="project-header">
+          <h3 class="project-title"></h3>
+          <div class="project-tags">
+            <span class="tag tag-type"></span>
+            <span class="tag tag-category"></span>
+            <span class="tag tag-stage"></span>
+            <span class="tag tag-team"></span>
+          </div>
+        </div>
+        <p class="project-description"></p>
       </div>
     </template>
   </main>
