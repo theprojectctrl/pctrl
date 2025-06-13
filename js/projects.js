@@ -534,6 +534,9 @@ class ProjectsPage {
       filterCount.textContent = '';
     }
 
+    // Remove has-filters class from filter toggle
+    this.filterToggle.classList.remove('has-filters');
+
     // Hide filter panel
     if (this.filterPanel) {
       this.filterPanel.style.display = 'none';
@@ -541,26 +544,19 @@ class ProjectsPage {
 
     // Show all projects
     this.showAllProjects();
+
+    // Remove any filter popups
+    document.querySelectorAll('.popup-overlay.filter-popup').forEach(el => el.remove());
   }
 }
 
 // Initialize the page when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
+  const projectsPage = new ProjectsPage();
   const grid = document.querySelector('.projects-grid');
   const template = document.getElementById('project-card-template');
   let allProjects = [];
   let filteredProjects = [];
-
-  // Restore filter toggle button functionality
-  const filterToggle = document.querySelector('.filter-toggle');
-  const filterPanel = document.querySelector('.filter-panel');
-  if (filterToggle && filterPanel) {
-    filterToggle.addEventListener('click', () => {
-      const isHidden = filterPanel.style.display === 'none' || filterPanel.style.display === '';
-      filterPanel.style.display = isHidden ? 'block' : 'none';
-      filterToggle.classList.toggle('active');
-    });
-  }
 
   // Fetch project data
   fetch('projects.json')
@@ -673,6 +669,36 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     });
+
+    // Add event listener for clear filters button
+    const clearBtn = document.querySelector('.clear-filters');
+    if (clearBtn) {
+      clearBtn.addEventListener('click', () => {
+        // Uncheck all filter checkboxes
+        filterInputs.forEach(input => {
+          input.checked = false;
+        });
+        // Reset filter count
+        const filterCount = document.querySelector('.filter-count');
+        if (filterCount) {
+          filterCount.textContent = '';
+        }
+        // Remove has-filters class from filter toggle
+        const filterToggle = document.querySelector('.filter-toggle');
+        if (filterToggle) {
+          filterToggle.classList.remove('has-filters');
+        }
+        // Hide filter panel
+        const filterPanel = document.querySelector('.filter-panel');
+        if (filterPanel) {
+          filterPanel.style.display = 'none';
+        }
+        // Show all projects
+        renderProjects(allProjects);
+        // Remove any filter popups
+        document.querySelectorAll('.popup-overlay.filter-popup').forEach(el => el.remove());
+      });
+    }
   }
 
   // Show multiple projects in a popup overlay (mini-card style)
