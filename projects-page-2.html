@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>More Projects - Project CTRL</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/projects.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dashboard">
+  <header class="main-header">
+    <div class="header-container">
+      <a href="index.html" class="logo">Project CTRL</a>
+      <nav class="main-nav">
+        <a href="index.html">Dashboard</a>
+        <a href="projects.html">Project Hub</a>
+        <div class="dropdown">
+          <a href="resources.html" class="dropdown-trigger">Resources ▾</a>
+          <div class="dropdown-content">
+            <a href="https://stembystep.github.io/sbs/" target="_blank">STEM by Step</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="dashboard-container">
+    <section class="hero-section">
+      <div class="content-wrapper">
+        <h1>More Projects</h1>
+        <p class="hero-subtitle">Discover more inspiring projects from our community</p>
+        
+        <div class="cta-buttons">
+          <button class="primary-button filter-toggle">
+            <span class="button-icon">🏷️</span>
+            Filter by Category
+            <span class="filter-count"></span>
+          </button>
+          <button class="secondary-button clear-filters" style="margin-left: 0.5rem;">
+            Clear Filters
+            <span class="button-icon">×</span>
+          </button>
+          <a href="submit-project.html" class="secondary-button">
+            Submit Project
+            <span class="button-icon">+</span>
+          </a>
+        </div>
+
+        <div class="filter-panel" style="display: none;">
+          <div class="filter-options">
+            <label class="filter-option">
+              <input type="checkbox" name="category" value="Technology">
+              Technology
+            </label>
+            <label class="filter-option">
+              <input type="checkbox" name="category" value="Education">
+              Education
+            </label>
+            <label class="filter-option">
+              <input type="checkbox" name="category" value="Health">
+              Health
+            </label>
+            <label class="filter-option">
+              <input type="checkbox" name="category" value="Environment">
+              Environment
+            </label>
+            <label class="filter-option">
+              <input type="checkbox" name="category" value="Social Impact">
+              Social Impact
+            </label>
+            <label class="filter-option">
+              <input type="checkbox" name="category" value="Art / Design">
+              Art / Design
+            </label>
+            <label class="filter-option">
+              <input type="checkbox" name="category" value="Food / Culture">
+              Food / Culture
+            </label>
+            <label class="filter-option">
+              <input type="checkbox" name="category" value="Wellness / Beauty">
+              Wellness / Beauty
+            </label>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="dashboard-grid">
+      <div class="content-wrapper">
+        <div class="projects-grid">
+          <!-- Project Card 1 -->
+          <div class="project-card" 
+            data-lead-name="Emma Wilson" 
+            data-lead-role="Founder"
+            data-lead-email="emma@example.com"
+            data-lead-phone="555-0127"
+            data-preferred-contact="Email"
+            loading="lazy">
+            <div class="project-header">
+              <div class="project-status-tags">
+                <span class="status-tag hiring">🎯 Hiring</span>
+              </div>
+              <h3>EcoTech Solutions</h3>
+              <div class="project-tags">
+                <span class="tag tag-type">Startup</span>
+                <span class="tag tag-category">Environment</span>
+                <span class="tag tag-stage">In Development</span>
+                <span class="tag tag-team">Small (2-5)</span>
+              </div>
+            </div>
+            <p class="project-description">Developing sustainable technology solutions for businesses to reduce their environmental impact.</p>
+          </div>
+
+          <!-- Project Card 2 -->
+          <div class="project-card"
+            data-lead-name="David Chen" 
+            data-lead-role="Project Lead"
+            data-lead-email="david@example.com"
+            data-lead-phone="555-0128"
+            data-preferred-contact="Both"
+            loading="lazy">
+            <div class="project-header">
+              <div class="project-status-tags">
+                <span class="status-tag positions">👥 Open Positions</span>
+              </div>
+              <h3>Artisan Marketplace</h3>
+              <div class="project-tags">
+                <span class="tag tag-type">Business</span>
+                <span class="tag tag-category">Art / Design</span>
+                <span class="tag tag-stage">Launched</span>
+                <span class="tag tag-team">Medium (6-15)</span>
+              </div>
+            </div>
+            <p class="project-description">A platform connecting local artisans with customers, promoting handmade goods and sustainable practices.</p>
+          </div>
+
+          <!-- Project Card 3 -->
+          <div class="project-card"
+            data-lead-name="Sophia Rodriguez" 
+            data-lead-role="Director"
+            data-lead-email="sophia@example.com"
+            data-lead-phone="555-0129"
+            data-preferred-contact="Email"
+            loading="lazy">
+            <div class="project-header">
+              <h3>Youth Mentorship Program</h3>
+              <div class="project-tags">
+                <span class="tag tag-type">Non-Profit</span>
+                <span class="tag tag-category">Education</span>
+                <span class="tag tag-stage">Scaling</span>
+                <span class="tag tag-team">Large (16+)</span>
+              </div>
+            </div>
+            <p class="project-description">Connecting young professionals with industry mentors to guide their career development.</p>
+          </div>
+
+          <!-- Project Card 4 -->
+          <div class="project-card"
+            data-lead-name="James Wilson" 
+            data-lead-role="Founder"
+            data-lead-email="james@example.com"
+            data-lead-phone="555-0130"
+            data-preferred-contact="Phone"
+            loading="lazy">
+            <div class="project-header">
+              <div class="project-status-tags">
+                <span class="status-tag event">📅 Ongoing Event</span>
+              </div>
+              <h3>Tech Workshop Series</h3>
+              <div class="project-tags">
+                <span class="tag tag-type">Community Initiative</span>
+                <span class="tag tag-category">Technology</span>
+                <span class="tag tag-stage">Launched</span>
+                <span class="tag tag-team">Small (2-5)</span>
+              </div>
+            </div>
+            <p class="project-description">Weekly workshops teaching coding and digital skills to underserved communities.</p>
+          </div>
+
+          <!-- Project Card 5 -->
+          <div class="project-card"
+            data-lead-name="Olivia Martinez" 
+            data-lead-role="CEO"
+            data-lead-email="olivia@example.com"
+            data-lead-phone="555-0131"
+            data-preferred-contact="Email"
+            loading="lazy">
+            <div class="project-header">
+              <h3>HealthTech Innovations</h3>
+              <div class="project-tags">
+                <span class="tag tag-type">Startup</span>
+                <span class="tag tag-category">Health</span>
+                <span class="tag tag-stage">In Development</span>
+                <span class="tag tag-team">Medium (6-15)</span>
+              </div>
+            </div>
+            <p class="project-description">Developing innovative healthcare solutions using cutting-edge technology.</p>
+          </div>
+
+          <!-- Project Card 6 -->
+          <div class="project-card"
+            data-lead-name="Ryan Thompson" 
+            data-lead-role="Project Manager"
+            data-lead-email="ryan@example.com"
+            data-lead-phone="555-0132"
+            data-preferred-contact="Both"
+            loading="lazy">
+            <div class="project-header">
+              <div class="project-status-tags">
+                <span class="status-tag hiring">🎯 Hiring</span>
+              </div>
+              <h3>Urban Garden Initiative</h3>
+              <div class="project-tags">
+                <span class="tag tag-type">Community Initiative</span>
+                <span class="tag tag-category">Environment</span>
+                <span class="tag tag-stage">Launched</span>
+                <span class="tag tag-team">Small (2-5)</span>
+              </div>
+            </div>
+            <p class="project-description">Creating sustainable urban gardens in city spaces to promote local food production.</p>
+          </div>
+
+          <!-- Continue with more project cards... -->
+          <!-- Project Cards 7-25 would follow the same pattern -->
+        </div>
+
+        <div class="pagination-container">
+          <button class="pagination-button prev-page" disabled>
+            <span class="button-icon">←</span>
+            Previous
+          </button>
+          <div class="pagination-info">
+            <span class="current-page">1</span>
+            of
+            <span class="total-pages">1</span>
+          </div>
+          <button class="pagination-button next-page">
+            Next
+            <span class="button-icon">→</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Popup Template -->
+    <template id="project-popup-template">
+      <div class="popup-overlay">
+        <div class="project-popup">
+          <button class="close-button">×</button>
+          <div class="project-popup-header">
+            <h2>Project Title Goes Here</h2>
+            <div class="project-tags">
+              <span class="tag tag-type">Business</span>
+              <span class="tag tag-category">Technology</span>
+              <span class="tag tag-modality">Website</span>
+            </div>
+          </div>
+
+          <div class="team-visualization">
+            <div class="team-members">
+              <div class="team-member">
+                <div class="member-avatar">
+                  <span class="member-icon">👤</span>
+                </div>
+                <h4 class="member-name">Project Lead Name</h4>
+                <p class="member-role">Project Role</p>
+                <div class="team-info">
+                  <div class="contact-details">
+                    <div class="contact-method">
+                      <span class="contact-icon">📧</span>
+                      <span class="contact-value">email@example.com</span>
+                    </div>
+                    <div class="contact-method">
+                      <span class="contact-icon">📱</span>
+                      <span class="contact-value">Phone number</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="activity-log">
+              <h3>Activity Log</h3>
+              <div class="activity-list">
+                <div class="empty-state">
+                  <p>No updates yet. Share your first update!</p>
+                  <a href="project-update.html" class="secondary-button">
+                    Add Update
+                    <span class="button-icon">+</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </template>
+  </main>
+
+  <footer class="main-footer">
+    <div class="footer-content">
+      <p>© 2025 Project CTRL | Built by and for the people without a roadmap</p>
+    </div>
+  </footer>
+
+  <script src="js/projects.js"></script>
+</body>
+</html> 
