@@ -403,7 +403,7 @@
   justify-content: center;
   cursor: pointer;
   transition: all 0.3s ease;
-  z-index: 10;
+  z-index: 1000;
 }
 
 .close-button:hover {
@@ -414,19 +414,16 @@
 /* Filter Toggle Styles */
 .filter-toggle {
   position: relative;
-  padding-right: 2.5rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  padding-right: 3rem;
 }
 
 .filter-count {
   position: absolute;
-  right: 0.75rem;
+  right: 1rem;
   top: 50%;
   transform: translateY(-50%);
   background: rgba(255, 255, 255, 0.3);
-  padding: 0.25rem 0.5rem;
+  padding: 0.25rem 0.75rem;
   border-radius: 100px;
   font-size: 0.875rem;
   min-width: 1.5rem;
@@ -488,30 +485,72 @@
   font-size: 12px;
 }
 
-/* Clear Filters Button Styles */
-.clear-filters {
-  display: inline-flex;
+/* Project Tile Popup Styles */
+.project-tile-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.25rem;
-  background: #EEF4FF;
-  color: #79b7ff;
-  border: none;
-  border-radius: 100px;
-  font-size: 0.95rem;
-  font-weight: 500;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.project-tile-popup.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.project-tile-popup .popup-content {
+  position: relative;
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  z-index: 1001;
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+}
+
+.project-tile-popup.active .popup-content {
+  transform: translateY(0);
+}
+
+.project-tile-popup .close-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1002;
   cursor: pointer;
-  transition: all 0.3s ease;
-  text-decoration: none;
-}
-
-.clear-filters:hover {
-  background: #dce7ff;
-  transform: translateY(-2px);
-}
-
-.clear-filters .button-icon {
-  font-size: 1.1rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.1);
+  color: #333;
+  font-size: 1.5rem;
   line-height: 1;
-  margin-left: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
 }
+
+.project-tile-popup .close-button:hover {
+  background: rgba(0, 0, 0, 0.2);
+  transform: rotate(90deg);
+}
+
+/* Ensure only one popup is visible at a time */
+.project-tile-popup:not(.active) {
+  display: none;
+}
+
