@@ -346,6 +346,9 @@ class ProjectsPage {
       this.stopAutoSlide();
     }
     
+    // Remove any existing popups first
+    document.querySelectorAll('.popup-overlay').forEach(el => el.remove());
+    
     const template = document.querySelector('#project-popup-template');
     const popup = template.content.cloneNode(true);
     
@@ -404,13 +407,20 @@ class ProjectsPage {
         }
       };
       
-      overlay.addEventListener('click', (e) => {
-        if (e.target.classList.contains('popup-overlay')) {
+      // Add click handler for overlay background
+      overlay.onclick = (e) => {
+        if (e.target === overlay) {
           closePopup();
         }
-      });
+      };
       
-      closeButton.addEventListener('click', closePopup);
+      // Add click handler for close button
+      if (closeButton) {
+        closeButton.onclick = (e) => {
+          e.stopPropagation(); // Prevent event from bubbling to overlay
+          closePopup();
+        };
+      }
     }
   }
 
@@ -775,17 +785,43 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
     `;
     document.body.prepend(div);
-    div.querySelector('.close-button').onclick = () => div.remove();
-    div.querySelector('.clear-filters').onclick = () => {
-      document.querySelectorAll('.filter-option input').forEach(i => i.checked = false);
-      renderProjects(allProjects);
+    
+    const closePopup = () => {
       div.remove();
     };
+    
+    // Add click handler for overlay background
+    div.onclick = (e) => {
+      if (e.target === div) {
+        closePopup();
+      }
+    };
+    
+    // Add click handler for close button
+    const closeBtn = div.querySelector('.close-button');
+    if (closeBtn) {
+      closeBtn.onclick = (e) => {
+        e.stopPropagation(); // Prevent event from bubbling to overlay
+        closePopup();
+      };
+    }
+    
+    // Add click handler for clear filters button
+    const clearBtn = div.querySelector('.clear-filters');
+    if (clearBtn) {
+      clearBtn.onclick = () => {
+        document.querySelectorAll('.filter-option input').forEach(i => i.checked = false);
+        renderProjects(allProjects);
+        closePopup();
+      };
+    }
   }
 
   // Popup logic
   function showPopup(project) {
+    // Remove any existing popups first
     document.querySelectorAll('.popup-overlay').forEach(el => el.remove());
+    
     const template = document.getElementById('project-popup-template');
     const popup = template.content.cloneNode(true);
     popup.querySelector('h2').textContent = project.title;
@@ -843,8 +879,27 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     document.body.appendChild(popup);
-    document.querySelector('.popup-overlay .close-button').onclick = () => {
-      document.querySelector('.popup-overlay').remove();
+    
+    const overlay = document.querySelector('.popup-overlay');
+    const closeButton = overlay.querySelector('.close-button');
+    
+    const closePopup = () => {
+      overlay.remove();
     };
+    
+    // Add click handler for overlay background
+    overlay.onclick = (e) => {
+      if (e.target === overlay) {
+        closePopup();
+      }
+    };
+    
+    // Add click handler for close button
+    if (closeButton) {
+      closeButton.onclick = (e) => {
+        e.stopPropagation(); // Prevent event from bubbling to overlay
+        closePopup();
+      };
+    }
   }
 }); 
